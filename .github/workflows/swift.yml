@@ -16,10 +16,10 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build Library
-    run: |
+      run: |
         xcodebuild clean build -project PNPForm.xcodeproj -scheme PNPForm -destination "${destination}"
     - name: Build Sample App
-    run: |
+      run: |
         xcodebuild clean build -project PNPForm.xcodeproj -scheme PNPFormSampleApp -destination "${destination}"
     - name: Run Tests
       run: |
