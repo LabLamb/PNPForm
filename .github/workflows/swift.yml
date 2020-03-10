@@ -6,23 +6,44 @@ on:
       - develop
 
 jobs:
-  build:
-
-    runs-on: macOS-latest
+  BuildLibrary:
+    name: Build Library
+    runs-on: macos-latest
     strategy:
         matrix:
-          destination: ['platform=iOS Simulator,OS=13.3,name=iPhone 11 Pro Max']
+          destination: ["platform=iOS Simulator,OS=13.3,name=iPhone 11 Pro Max"]
 
     steps:
     - uses: actions/checkout@v1
     - name: Build Library
-      run: |
-        xcodebuild clean build -project PNPForm.xcodeproj -scheme PNPForm -destination "${destination}"
+      run: xcodebuild clean build -project PNPForm.xcodeproj -scheme PNPForm -destination "platform=iOS Simulator,OS=13.3,name=iPhone 11 Pro Max"
+      env:
+         destination: ${{ matrix.destination }}
+
+  BuildSampleApp:
+    name: "Build Sample App"
+    runs-on: macos-latest
+    strategy:
+        matrix:
+          destination: ["platform=iOS Simulator,OS=13.3,name=iPhone 11 Pro Max"]
+
+    steps:
+    - uses: actions/checkout@v1
     - name: Build Sample App
-      run: |
-        xcodebuild clean build -project PNPForm.xcodeproj -scheme PNPFormSampleApp -destination "${destination}"
+      run: xcodebuild clean build -project PNPForm.xcodeproj -scheme PNPFormSampleApp -destination "${destination}"
+      env:
+         destination: ${{ matrix.destination }}
+
+  RunUnitTests:
+    name: Run Unit tests
+    runs-on: macos-latest
+    strategy:
+        matrix:
+          destination: ["platform=iOS Simulator,OS=13.3,name=iPhone 11 Pro Max"]
+
+    steps:
+    - uses: actions/checkout@v1
     - name: Run Tests
-      run: |
-          xcodebuild -project PNPForm.xcodeproj -scheme PNPFormTests -destination "${destination}" test
+      run: xcodebuild -project PNPForm.xcodeproj -scheme PNPFormTests -destination "${destination}" test
       env:
          destination: ${{ matrix.destination }}
