@@ -12,8 +12,6 @@
 		D21FB9362417F82E006C095F /* PNPForm.h in Headers */ = {isa = PBXBuildFile; fileRef = D21FB9282417F82E006C095F /* PNPForm.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D21FB96F2417F8D5006C095F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB96E2417F8D5006C095F /* AppDelegate.swift */; };
 		D21FB9732417F8D6006C095F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB9722417F8D6006C095F /* ViewController.swift */; };
-		D21FB9782417F8D6006C095F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D21FB9772417F8D6006C095F /* Assets.xcassets */; };
-		D21FB97B2417F8D6006C095F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D21FB9792417F8D6006C095F /* LaunchScreen.storyboard */; };
 		D21FB9862417F8D6006C095F /* PNPFormSampleAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB9852417F8D6006C095F /* PNPFormSampleAppUITests.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,8 +42,6 @@
 		D21FB96C2417F8D5006C095F /* PNPFormSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PNPFormSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D21FB96E2417F8D5006C095F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D21FB9722417F8D6006C095F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D21FB9772417F8D6006C095F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D21FB97A2417F8D6006C095F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D21FB97C2417F8D6006C095F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D21FB9812417F8D6006C095F /* PNPFormSampleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PNPFormSampleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D21FB9852417F8D6006C095F /* PNPFormSampleAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPFormSampleAppUITests.swift; sourceTree = "<group>"; };
@@ -130,8 +126,6 @@
 			children = (
 				D21FB96E2417F8D5006C095F /* AppDelegate.swift */,
 				D21FB9722417F8D6006C095F /* ViewController.swift */,
-				D21FB9772417F8D6006C095F /* Assets.xcassets */,
-				D21FB9792417F8D6006C095F /* LaunchScreen.storyboard */,
 				D21FB97C2417F8D6006C095F /* Info.plist */,
 			);
 			path = PNPFormSampleApp;
@@ -296,8 +290,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D21FB97B2417F8D6006C095F /* LaunchScreen.storyboard in Resources */,
-				D21FB9782417F8D6006C095F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,17 +349,6 @@
 			targetProxy = D21FB9822417F8D6006C095F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		D21FB9792417F8D6006C095F /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D21FB97A2417F8D6006C095F /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D21FB9372417F82E006C095F /* Debug */ = {
@@ -573,7 +554,6 @@
 		D21FB9892417F8D6006C095F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PNPFormSampleApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -590,7 +570,6 @@
 		D21FB98A2417F8D6006C095F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PNPFormSampleApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
