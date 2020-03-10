@@ -16,7 +16,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build Library
-      run: xcodebuild clean build -project PNPForm.xcodeproj -scheme PNPForm -destination '${destination}'
+      run: xcodebuild clean build -project PNPForm.xcodeproj -scheme PNPForm -destination "platform=iOS Simulator,OS=13.3,name=iPhone 11 Pro Max"
       env:
          destination: ${{ matrix.destination }}
 
