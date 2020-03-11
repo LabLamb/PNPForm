@@ -8,44 +8,56 @@ import UIKit
 class SimpleFormViewController: PNPFormViewController {
     
     let simpleForm: PNPForm
-    let submitButton: PNPForm
+    let submitButtonForm: PNPForm
     
     override init() {
         let sepColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.5)
         
         self.simpleForm = {
-            let passwordField: UITextField = {
-                let result = UITextField()
-                result.isSecureTextEntry = true
-                return result
-            }()
+            let nameConfig = PNPRowConfig(validation: .require)
+            let emailConfig = PNPRowConfig(validation: .pattern(.email))
+            
+            let passwordPattern = #"[^\w\d]*(([0-9]+.*[A-Za-z]+.*)|[A-Za-z]+.*([0-9]+.*))"# // Must have one number and one alphabet
+            let passwordConfig = PNPRowConfig(validation: .customPattern(passwordPattern))
+            
+            let addressConfig = PNPRowConfig(type: .multLineText)
             
             let textFormFields = [
-                TextLabelFormRow(title: "Email", with: UITextField(), spacing: 10),
-                TextLabelFormRow(title: "Password", with: passwordField, spacing: 10)
+                TextLabelFormRow(title: "Name", config: nameConfig),
+                TextLabelFormRow(title: "Email", config: emailConfig),
+                TextLabelFormRow(title: "Password", config: passwordConfig),
+                TextLabelFormRow(title: "Address", config: addressConfig),
+                TextLabelFormRow(title: "Remark")
             ]
             
             return PNPForm(rows: textFormFields, separatorColor: sepColor)
         }()
+
+        let submitButton = UIButton()
+        submitButton.setTitle("Submit", for: .normal)
+        submitButton.setTitleColor(.systemBlue, for: .normal)
         
-        self.submitButton = {
-            let btn = UIButton()
-            btn.setTitle("Submit", for: .normal)
-            btn.setTitleColor(.systemBlue, for: .normal)
-            
-            return PNPForm(rows: [btn], separatorColor: sepColor)
+        self.submitButtonForm = {
+            return PNPForm(rows: [submitButton], separatorColor: sepColor)
         }()
         
         super.init()
+        
+        submitButton.addTarget(self, action: #selector(self.submitButtonPressed), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @objc func submitButtonPressed() {
+        let validations = self.simpleForm.validateRows()
+        for (k, v) in validations {
+            print("\(k): \(v)")
+        }
+    }
+    
     override func setupLayout() {
-        
-        
         super.setupLayout()
         self.scrollView.addSubview(self.simpleForm)
         self.simpleForm.translatesAutoresizingMaskIntoConstraints = false
@@ -56,15 +68,15 @@ class SimpleFormViewController: PNPFormViewController {
             ].forEach({ $0.isActive = true })
         self.simpleForm.backgroundColor = .white
         
-        self.scrollView.addSubview(self.submitButton)
-        self.submitButton.translatesAutoresizingMaskIntoConstraints = false
+        self.scrollView.addSubview(self.submitButtonForm)
+        self.submitButtonForm.translatesAutoresizingMaskIntoConstraints = false
         [
-            self.submitButton.topAnchor.constraint(equalTo: self.simpleForm.bottomAnchor, constant: 20),
-            self.submitButton.leftAnchor.constraint(equalTo: self.view.leftAnchor),
-            self.submitButton.rightAnchor.constraint(equalTo: self.view.rightAnchor),
-            self.submitButton.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor)
+            self.submitButtonForm.topAnchor.constraint(equalTo: self.simpleForm.bottomAnchor, constant: 20),
+            self.submitButtonForm.leftAnchor.constraint(equalTo: self.view.leftAnchor),
+            self.submitButtonForm.rightAnchor.constraint(equalTo: self.view.rightAnchor),
+            self.submitButtonForm.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor)
             ].forEach({ $0.isActive = true })
-        self.submitButton.backgroundColor = .white
+        self.submitButtonForm.backgroundColor = .white
     }
 }
 

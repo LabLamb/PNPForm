@@ -6,7 +6,7 @@ import UIKit
 
 public final class TextLabelFormRow: BaseFormRow {
     
-    override var label: Any {
+    override public var label: Any {
         get {
             return (self.labelView as? UILabel)?.text as Any
         }
@@ -17,7 +17,7 @@ public final class TextLabelFormRow: BaseFormRow {
         }
     }
     
-    override var value: Any? {
+    override public var value: Any? {
         get {
             switch self.valueView {
             case is UITextField:
@@ -42,34 +42,36 @@ public final class TextLabelFormRow: BaseFormRow {
         }
     }
     
-    public convenience init(config: PNPRowConfiguration) {
+    public convenience init(title:String, config: PNPRowConfig = PNPRowConfig()) {
         switch config.type {
         case .singleLineText:
-            self.init(title: config.title, with: UITextField(), spacing: config.spacing, labelWidth: config.labelWidth)
+            self.init(title: title, with: UITextField(), spacing: config.spacing, labelWidth: config.labelWidth, validateOption: config.validation)
         case .multLineText:
-            self.init(title: config.title, with: PNPTextView(placeholder: ""), spacing: config.spacing, labelWidth: config.labelWidth)
+            self.init(title: title, with: PNPTextView(placeholder: ""), spacing: config.spacing, labelWidth: config.labelWidth, validateOption: config.validation)
         }
     }
     
-    public init(title: String,
+    private init(title: String,
          with textField: UITextField,
          spacing: CGFloat = 0,
-         labelWidth: CGFloat? = nil) {
-        super.init(labelView: UILabel(), valueView: textField, spacing: spacing, labelWidth: labelWidth)
+         labelWidth: CGFloat? = nil,
+         validateOption: ValidateOption) {
+        super.init(labelView: UILabel(), valueView: textField, spacing: spacing, labelWidth: labelWidth, validateOption: validateOption)
         self.label = title
     }
     
-    public init(title: String,
+    private init(title: String,
          with textView: UITextView,
          spacing: CGFloat = 0,
-         labelWidth: CGFloat? = nil) {
+         labelWidth: CGFloat? = nil,
+         validateOption: ValidateOption) {
         
         textView.textContainer.heightTracksTextView = true
         textView.textContainer.widthTracksTextView = false
         textView.isScrollEnabled = false
         textView.textContainer.lineFragmentPadding = 0
         textView.font = UITextField().font
-        let inset = (Constants.UI.BaseRowDefaultHeight - (UITextField().font?.lineHeight ?? 0)) / 2
+        let inset = (PNPFormConstants.UI.BaseRowDefaultHeight - (UITextField().font?.lineHeight ?? 0)) / 2
         textView.textContainerInset = .init(top: inset, left: 0, bottom: inset, right: 0)
         textView.backgroundColor = .clear
         
@@ -96,7 +98,8 @@ public final class TextLabelFormRow: BaseFormRow {
             return result
         }()
         
-        super.init(labelView: UILabel(), valueView: textView, spacing: spacing, labelWidth: labelWidth, placeholder: tempPlaceholderLabel)
+        super.init(labelView: UILabel(), valueView: textView, spacing: spacing, labelWidth: labelWidth, placeholder: tempPlaceholderLabel,
+                   validateOption: validateOption)
         self.label = title
     }
     

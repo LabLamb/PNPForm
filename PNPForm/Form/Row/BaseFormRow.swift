@@ -9,7 +9,7 @@ open class BaseFormRow: UIView {
     var labelView: UIView?
     var valueView: UIView
     
-    var label: Any {
+    public var label: Any {
         get {
             return ""
         }
@@ -17,7 +17,7 @@ open class BaseFormRow: UIView {
         set {}
     }
     
-    var value: Any? {
+    public var value: Any? {
         get {
             return nil
         }
@@ -28,30 +28,54 @@ open class BaseFormRow: UIView {
     let spacing: CGFloat
     let labelWidth: CGFloat?
     let placeholderLabel: UILabel?
+    
     private let validateLogic: ValidationLogic
-    var validStatus: Bool {
+    public var validStatus: Bool {
         get {
-            guard let logic = self.validateLogic else { return true } // validation is always true if no logic specified
-            return logic(self)
+            return self.validateLogic(self)
         }
     }
     
     override public var intrinsicContentSize: CGSize {
-        return CGSize(width: 0, height: Constants.UI.BaseRowDefaultHeight)
+        return CGSize(width: 0, height: PNPFormConstants.UI.BaseRowDefaultHeight)
     }
     
-    internal init(labelView: UIView?,
+    init(labelView: UIView?,
          valueView: UIView,
          spacing: CGFloat = 0,
          labelWidth: CGFloat? = nil,
          placeholder: UILabel? = nil,
-         validateLogic logic: ValidationLogic = nil) {
+         validateOption: ValidateOption) {
         self.labelView = labelView
         self.valueView = valueView
         self.spacing = spacing
         self.labelWidth = labelWidth
         self.placeholderLabel = placeholder
-        self.validateLogic = logic
+        
+        let handler: ValidationLogic = { row in
+            switch validateOption {
+            case .require:
+                guard let rowString = row.value as? String else { return false }
+                return rowString.count > 0
+            case .optional:
+                return true
+            case .minimum(let min):
+                guard let rowString = row.value as? String else { return false }
+                return rowString.count >= min
+            case .pattern(let pattern):
+                guard let rowString = row.value as? String else { return false }
+                let pred = NSPredicate(format:"SELF MATCHES %@", pattern.rawValue)
+                return pred.evaluate(with: rowString)
+            case .customPattern(let pattern):
+                guard let rowString = row.value as? String else { return false }
+                let pred = NSPredicate(format:"SELF MATCHES %@", pattern)
+                return pred.evaluate(with: rowString)
+            case .customLogic(let logic):
+                return logic(row)
+            }
+        }
+        
+        self.validateLogic = handler
         
         super.init(frame: .zero)
         
@@ -100,7 +124,7 @@ extension BaseFormRow: CustomView {
             [
                 labelView.leftAnchor.constraint(equalTo: self.leftAnchor),
                 labelView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-                labelView.heightAnchor.constraint(equalToConstant: Constants.UI.BaseRowDefaultHeight),
+                labelView.heightAnchor.constraint(equalToConstant: PNPFormConstants.UI.BaseRowDefaultHeight),
                 labeViewWidthConstraint
             ].forEach({ $0.isActive = true })
         }

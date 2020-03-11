@@ -6,7 +6,7 @@ import UIKit
 
 public final class IconsFormRow: BaseFormRow {
     
-    override var label: Any {
+    override public var label: Any {
         get {
             return (self.labelView as? UIImageView)?.image as Any
         }
@@ -17,7 +17,7 @@ public final class IconsFormRow: BaseFormRow {
         }
     }
     
-    override var value: Any? {
+    override public var value: Any? {
         get {
             switch self.valueView {
             case is UITextField:
@@ -41,23 +41,32 @@ public final class IconsFormRow: BaseFormRow {
         }
     }
     
-    private let icon: UIImage
+//    private let icon: UIImage
     
-    public init(icon: UIImage,
+    public convenience init(icon: UIImage, config: PNPRowConfig) {
+        switch config.type {
+        case .singleLineText:
+            self.init(icon: icon, with: UITextField(), spacing: config.spacing, labelWidth: config.labelWidth, validateOption: config.validation)
+        case .multLineText:
+            self.init(icon: icon, with: PNPTextView(placeholder: ""), spacing: config.spacing, labelWidth: config.labelWidth, validateOption: config.validation)
+        }
+    }
+    
+    private init(icon: UIImage,
          with textField: UITextField,
          spacing: CGFloat = 0,
-         labelWidth: CGFloat? = nil) {
-        self.icon = icon
-        super.init(labelView: UILabel(), valueView: textField, spacing: spacing, labelWidth: labelWidth)
+         labelWidth: CGFloat? = nil,
+         validateOption: ValidateOption) {
+        super.init(labelView: UILabel(), valueView: textField, spacing: spacing, labelWidth: labelWidth, validateOption: validateOption)
         self.label = icon
     }
     
-    public init(icon: UIImage,
+    private init(icon: UIImage,
          with textView: UITextView,
          spacing: CGFloat = 0,
-         labelWidth: CGFloat? = nil) {
-        self.icon = icon
-        super.init(labelView: UILabel(), valueView: textView, spacing: spacing, labelWidth: labelWidth)
+         labelWidth: CGFloat? = nil,
+         validateOption: ValidateOption) {
+        super.init(labelView: UILabel(), valueView: textView, spacing: spacing, labelWidth: labelWidth, validateOption: validateOption)
         self.label = icon
     }
     
