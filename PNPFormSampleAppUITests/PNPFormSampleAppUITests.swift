@@ -1,9 +1,5 @@
 //
-//  PNPFormSampleAppUITests.swift
-//  PNPFormSampleAppUITests
-//
-//  Created by LabLamb on 11/3/2020.
-//  Copyright © 2020 LabLambWorks. All rights reserved.
+//  Copyright © LabLambWorks. All rights reserved.
 //
 
 import XCTest

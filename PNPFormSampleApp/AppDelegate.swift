@@ -1,9 +1,5 @@
 //
-//  AppDelegate.swift
-//  PNPFormSampleApp
-//
-//  Created by LabLamb on 11/3/2020.
-//  Copyright © 2020 LabLambWorks. All rights reserved.
+//  Copyright © LabLambWorks. All rights reserved.
 //
 
 import UIKit
@@ -18,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window = UIWindow()
         self.window?.makeKeyAndVisible()
-        self.window?.rootViewController = UIViewController()
+        self.window?.rootViewController = UINavigationController(rootViewController: SimpleFormViewController())
         
         return true
     }
