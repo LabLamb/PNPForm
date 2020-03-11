@@ -13,6 +13,10 @@
 		D21FB96F2417F8D5006C095F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB96E2417F8D5006C095F /* AppDelegate.swift */; };
 		D21FB9732417F8D6006C095F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB9722417F8D6006C095F /* ViewController.swift */; };
 		D21FB9862417F8D6006C095F /* PNPFormSampleAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB9852417F8D6006C095F /* PNPFormSampleAppUITests.swift */; };
+		D21FB98F241801E6006C095F /* BaseFormRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB98E241801E6006C095F /* BaseFormRow.swift */; };
+		D21FB9912418020F006C095F /* PNPForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D21FB9252417F82E006C095F /* PNPForm.framework */; };
+		D21FB9922418020F006C095F /* PNPForm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D21FB9252417F82E006C095F /* PNPForm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D21FB99724180217006C095F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D21FB99624180217006C095F /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +34,28 @@
 			remoteGlobalIDString = D21FB96B2417F8D5006C095F;
 			remoteInfo = PNPFormSampleApp;
 		};
+		D21FB9932418020F006C095F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D21FB91C2417F82E006C095F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D21FB9242417F82E006C095F;
+			remoteInfo = PNPForm;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D21FB9952418020F006C095F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D21FB9922418020F006C095F /* PNPForm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D21FB9252417F82E006C095F /* PNPForm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PNPForm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +71,8 @@
 		D21FB9812417F8D6006C095F /* PNPFormSampleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PNPFormSampleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D21FB9852417F8D6006C095F /* PNPFormSampleAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPFormSampleAppUITests.swift; sourceTree = "<group>"; };
 		D21FB9872417F8D6006C095F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D21FB98E241801E6006C095F /* BaseFormRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFormRow.swift; sourceTree = "<group>"; };
+		D21FB99624180217006C095F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D21FB9912418020F006C095F /* PNPForm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +117,7 @@
 				D21FB96D2417F8D5006C095F /* PNPFormSampleApp */,
 				D21FB9842417F8D6006C095F /* PNPFormSampleAppUITests */,
 				D21FB9262417F82E006C095F /* Products */,
+				D21FB9902418020F006C095F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				D21FB9282417F82E006C095F /* PNPForm.h */,
+				D21FB98E241801E6006C095F /* BaseFormRow.swift */,
 				D21FB9292417F82E006C095F /* Info.plist */,
 			);
 			path = PNPForm;
@@ -124,6 +154,7 @@
 		D21FB96D2417F8D5006C095F /* PNPFormSampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				D21FB99624180217006C095F /* Default-568h@2x.png */,
 				D21FB96E2417F8D5006C095F /* AppDelegate.swift */,
 				D21FB9722417F8D6006C095F /* ViewController.swift */,
 				D21FB97C2417F8D6006C095F /* Info.plist */,
@@ -138,6 +169,13 @@
 				D21FB9872417F8D6006C095F /* Info.plist */,
 			);
 			path = PNPFormSampleAppUITests;
+			sourceTree = "<group>";
+		};
+		D21FB9902418020F006C095F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,10 +235,12 @@
 				D21FB9682417F8D5006C095F /* Sources */,
 				D21FB9692417F8D5006C095F /* Frameworks */,
 				D21FB96A2417F8D5006C095F /* Resources */,
+				D21FB9952418020F006C095F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D21FB9942418020F006C095F /* PBXTargetDependency */,
 			);
 			name = PNPFormSampleApp;
 			productName = PNPFormSampleApp;
@@ -237,6 +277,7 @@
 				TargetAttributes = {
 					D21FB9242417F82E006C095F = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 					};
 					D21FB92D2417F82E006C095F = {
 						CreatedOnToolsVersion = 11.3.1;
@@ -263,8 +304,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D21FB96B2417F8D5006C095F /* PNPFormSampleApp */,
 				D21FB9242417F82E006C095F /* PNPForm */,
+				D21FB96B2417F8D5006C095F /* PNPFormSampleApp */,
 				D21FB92D2417F82E006C095F /* PNPFormTests */,
 				D21FB9802417F8D6006C095F /* PNPFormSampleAppUITests */,
 			);
@@ -290,6 +331,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D21FB99724180217006C095F /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +349,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D21FB98F241801E6006C095F /* BaseFormRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +390,11 @@
 			isa = PBXTargetDependency;
 			target = D21FB96B2417F8D5006C095F /* PNPFormSampleApp */;
 			targetProxy = D21FB9822417F8D6006C095F /* PBXContainerItemProxy */;
+		};
+		D21FB9942418020F006C095F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D21FB9242417F82E006C095F /* PNPForm */;
+			targetProxy = D21FB9932418020F006C095F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -474,6 +522,7 @@
 		D21FB93A2417F82E006C095F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -489,6 +538,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = LabLambWorks.PNPForm;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -497,6 +547,7 @@
 		D21FB93B2417F82E006C095F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -520,6 +571,7 @@
 		D21FB93D2417F82E006C095F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PNPFormTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -537,6 +589,7 @@
 		D21FB93E2417F82E006C095F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PNPFormTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
