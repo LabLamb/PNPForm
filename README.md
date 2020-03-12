@@ -28,27 +28,27 @@ let multilineRow = TextLabelRow(title: "Notes", config)
 
 ### Configuration options:
 #### type: RowType
-Explaination: This control what is the type of the value field in a row.  
+This control what is the type of the value field in a row.  
 `Default: RowType.singleLineText`
 
 #### placeholder: String?
-Explaination: This value will be shown as a light grey place holder if possible. Otherwise, this will be used as the default value (E.g. for `RowType.switch`).  
+This value will be shown as a light grey place holder if possible. Otherwise, this will be used as the default value (E.g. for `RowType.switch`).  
 `Default: nil`
 
 #### spacing: CGFloat
-Explaination: This controls the spacing between the left side of the `value` section and the right side of the `label` or `icon` section. (If applicable) Otherwise it will be the spacing between left side of the row and the `value` section.  
+This controls the spacing between the left side of the `value` section and the right side of the `label` or `icon` section. (If applicable) Otherwise it will be the spacing between left side of the row and the `value` section.  
 `Default: PNPFormConstants.UI.RowConfigDefaultSpacing`
 
 #### labelWidth: CGFloat?
-Explaination: This value will be a fixed width of the label, by default, it will be the width of the text or icon.  
+This value will be a fixed width of the label, by default, it will be the width of the text or icon.  
 `Default: nil`
 
 #### keyboardConfig: PNPKeyboardConfig?
-Explaination: `TODO`  
+`TODO`  
 `Default: nil`
 
 #### validation: ValidateOption
-Explaination: This controls the logic when the row's `validateRow()` function is called. Provide custom logic by passing `ValidateOption.customLogic`.  
+This controls the logic when the row's `validateRow()` function is called. Provide custom logic by passing `ValidateOption.customLogic`.  
 `Default: ValidateOption.optional`
 Example:
 ```swift
@@ -60,7 +60,7 @@ let config = PNPRowConfig(validation: logic)
 ```
 
 #### validatedHandling: ValidatedHandling
-Explaination: This controls what happens when after the validation happens. Provide custom logic by passing it to `ValidatedHandling.custom` or set `PNPFormConstants.System.DefaultValidatedHandler` to your custom function.
+This controls what happens when after the validation happens. Provide custom logic by passing it to `ValidatedHandling.custom` or set `PNPFormConstants.System.DefaultValidatedHandler` to your custom function.
 `Default: PNPFormConstants.System.DefaultValidatedHandler`
 Example:
 ```swift
