@@ -4,7 +4,7 @@
 
 import UIKit
 
-public final class TextLabelFormRow: BaseFormRow {
+public final class TextLabelRow: BaseRow {
     
     override public var label: Any {
         get {
@@ -17,7 +17,7 @@ public final class TextLabelFormRow: BaseFormRow {
         }
     }
     
-    override public var value: Any? {
+    override public var value: String? {
         get {
             switch self.valueView {
             case is UITextField:
@@ -32,10 +32,10 @@ public final class TextLabelFormRow: BaseFormRow {
         set {
             switch self.valueView {
             case is UITextField:
-                (self.valueView as? UITextField)?.text = newValue as? String
+                (self.valueView as? UITextField)?.text = newValue
             case is UITextView:
-                self.placeholderLabel?.isHidden = (newValue as? String) != ""
-                (self.valueView as? UITextView)?.text = newValue as? String
+                self.placeholderLabel?.isHidden = newValue != ""
+                (self.valueView as? UITextView)?.text = newValue
             default:
                 break
             }
@@ -45,9 +45,19 @@ public final class TextLabelFormRow: BaseFormRow {
     public convenience init(title:String, config: PNPRowConfig = PNPRowConfig()) {
         switch config.type {
         case .singleLineText:
-            self.init(title: title, with: UITextField(), spacing: config.spacing, labelWidth: config.labelWidth, validateOption: config.validation)
+            self.init(title: title,
+                      with: UITextField(),
+                      spacing: config.spacing,
+                      labelWidth: config.labelWidth,
+                      validateOption: config.validation,
+                      validatedHandling: config.validatedHandling)
         case .multLineText:
-            self.init(title: title, with: PNPTextView(placeholder: ""), spacing: config.spacing, labelWidth: config.labelWidth, validateOption: config.validation)
+            self.init(title: title,
+                      with: PNPTextView(placeholder: ""),
+                      spacing: config.spacing,
+                      labelWidth: config.labelWidth,
+                      validateOption: config.validation,
+                      validatedHandling: config.validatedHandling)
         }
     }
     
@@ -55,8 +65,14 @@ public final class TextLabelFormRow: BaseFormRow {
          with textField: UITextField,
          spacing: CGFloat = 0,
          labelWidth: CGFloat? = nil,
-         validateOption: ValidateOption) {
-        super.init(labelView: UILabel(), valueView: textField, spacing: spacing, labelWidth: labelWidth, validateOption: validateOption)
+         validateOption: ValidateOption,
+         validatedHandling: ValidatedHandling) {
+        super.init(labelView: UILabel(),
+                   valueView: textField,
+                   spacing: spacing,
+                   labelWidth: labelWidth,
+                   validateOption: validateOption,
+                   validatedHandling: validatedHandling)
         self.label = title
     }
     
@@ -64,7 +80,8 @@ public final class TextLabelFormRow: BaseFormRow {
          with textView: UITextView,
          spacing: CGFloat = 0,
          labelWidth: CGFloat? = nil,
-         validateOption: ValidateOption) {
+         validateOption: ValidateOption,
+         validatedHandling: ValidatedHandling) {
         
         textView.textContainer.heightTracksTextView = true
         textView.textContainer.widthTracksTextView = false
@@ -98,8 +115,13 @@ public final class TextLabelFormRow: BaseFormRow {
             return result
         }()
         
-        super.init(labelView: UILabel(), valueView: textView, spacing: spacing, labelWidth: labelWidth, placeholder: tempPlaceholderLabel,
-                   validateOption: validateOption)
+        super.init(labelView: UILabel(),
+                   valueView: textView,
+                   spacing: spacing,
+                   labelWidth: labelWidth,
+                   placeholder: tempPlaceholderLabel,
+                   validateOption: validateOption,
+                   validatedHandling: validatedHandling)
         self.label = title
     }
     

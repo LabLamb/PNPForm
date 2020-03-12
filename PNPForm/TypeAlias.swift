@@ -2,5 +2,6 @@
 //  Copyright © LabLambWorks. All rights reserved.
 //
 
-public typealias ValidationLogic = (BaseFormRow) -> (Bool)
-public typealias ValidationDelegate = (BaseFormRow, Bool) -> Void
+public typealias RowValue = String?
+public typealias ValidationLogic = (RowValue) -> (Bool)
+public typealias ValidatedHandler = (BaseRow, Bool) -> Void

@@ -13,7 +13,7 @@
 		D21FB96F2417F8D5006C095F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB96E2417F8D5006C095F /* AppDelegate.swift */; };
 		D21FB9732417F8D6006C095F /* SimpleFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB9722417F8D6006C095F /* SimpleFormViewController.swift */; };
 		D21FB9862417F8D6006C095F /* PNPFormSampleAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB9852417F8D6006C095F /* PNPFormSampleAppUITests.swift */; };
-		D21FB98F241801E6006C095F /* BaseFormRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB98E241801E6006C095F /* BaseFormRow.swift */; };
+		D21FB98F241801E6006C095F /* BaseRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB98E241801E6006C095F /* BaseRow.swift */; };
 		D21FB9912418020F006C095F /* PNPForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D21FB9252417F82E006C095F /* PNPForm.framework */; };
 		D21FB9922418020F006C095F /* PNPForm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D21FB9252417F82E006C095F /* PNPForm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D21FB99924187788006C095F /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB99824187788006C095F /* CustomView.swift */; };
@@ -21,10 +21,11 @@
 		D21FB9A824187B2A006C095F /* PNPForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB9A724187B2A006C095F /* PNPForm.swift */; };
 		D21FB9AA24187C66006C095F /* UIView+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB9A924187C66006C095F /* UIView+Border.swift */; };
 		D21FB9AC241881B1006C095F /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB9AB241881B1006C095F /* Form.swift */; };
-		D21FB9AE241883A6006C095F /* TextLabelFormRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB9AD241883A6006C095F /* TextLabelFormRow.swift */; };
+		D21FB9AE241883A6006C095F /* TextLabelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB9AD241883A6006C095F /* TextLabelRow.swift */; };
 		D21FB9B0241887B1006C095F /* Date+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB9AF241887B1006C095F /* Date+String.swift */; };
+		D23FB18B241A578B00EE7C52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D23FB18A241A578B00EE7C52 /* Assets.xcassets */; };
 		D2518BFD2418988100E38466 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2518BFC2418988100E38466 /* LaunchScreen.storyboard */; };
-		D2518BFF2418A39000E38466 /* IconFormRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2518BFE2418A39000E38466 /* IconFormRow.swift */; };
+		D2518BFF2418A39000E38466 /* IconsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2518BFE2418A39000E38466 /* IconsRow.swift */; };
 		D2518C032418A74200E38466 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2518C012418A5BE00E38466 /* Assets.xcassets */; };
 		D2518C052418AC6700E38466 /* PNPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2518C042418AC6700E38466 /* PNPTextField.swift */; };
 		D2518C082418AF3100E38466 /* PNPTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2518C072418AF3100E38466 /* PNPTextView.swift */; };
@@ -94,16 +95,17 @@
 		D21FB9812417F8D6006C095F /* PNPFormSampleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PNPFormSampleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D21FB9852417F8D6006C095F /* PNPFormSampleAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPFormSampleAppUITests.swift; sourceTree = "<group>"; };
 		D21FB9872417F8D6006C095F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D21FB98E241801E6006C095F /* BaseFormRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFormRow.swift; sourceTree = "<group>"; };
+		D21FB98E241801E6006C095F /* BaseRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRow.swift; sourceTree = "<group>"; };
 		D21FB99824187788006C095F /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		D21FB99A241879B1006C095F /* PNPFormConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPFormConstants.swift; sourceTree = "<group>"; };
 		D21FB9A724187B2A006C095F /* PNPForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNPForm.swift; sourceTree = "<group>"; };
 		D21FB9A924187C66006C095F /* UIView+Border.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Border.swift"; sourceTree = "<group>"; };
 		D21FB9AB241881B1006C095F /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
-		D21FB9AD241883A6006C095F /* TextLabelFormRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLabelFormRow.swift; sourceTree = "<group>"; };
+		D21FB9AD241883A6006C095F /* TextLabelRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLabelRow.swift; sourceTree = "<group>"; };
 		D21FB9AF241887B1006C095F /* Date+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
+		D23FB18A241A578B00EE7C52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2518BFC2418988100E38466 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D2518BFE2418A39000E38466 /* IconFormRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFormRow.swift; sourceTree = "<group>"; };
+		D2518BFE2418A39000E38466 /* IconsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsRow.swift; sourceTree = "<group>"; };
 		D2518C012418A5BE00E38466 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2518C042418AC6700E38466 /* PNPTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNPTextField.swift; sourceTree = "<group>"; };
 		D2518C072418AF3100E38466 /* PNPTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNPTextView.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				D21FB9B32418907C006C095F /* Protocol */,
 				D21FB9B4241890A7006C095F /* Form */,
 				D2518C112418DE3000E38466 /* Configuration */,
+				D23FB18A241A578B00EE7C52 /* Assets.xcassets */,
 			);
 			path = PNPForm;
 			sourceTree = "<group>";
@@ -255,9 +258,9 @@
 		D21FB9B5241890C6006C095F /* Row */ = {
 			isa = PBXGroup;
 			children = (
-				D21FB98E241801E6006C095F /* BaseFormRow.swift */,
-				D21FB9AD241883A6006C095F /* TextLabelFormRow.swift */,
-				D2518BFE2418A39000E38466 /* IconFormRow.swift */,
+				D21FB98E241801E6006C095F /* BaseRow.swift */,
+				D21FB9AD241883A6006C095F /* TextLabelRow.swift */,
+				D2518BFE2418A39000E38466 /* IconsRow.swift */,
 				D2518C062418AC7F00E38466 /* CustomValueViews */,
 			);
 			path = Row;
@@ -422,6 +425,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D23FB18B241A578B00EE7C52 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,13 +460,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D21FB9B0241887B1006C095F /* Date+String.swift in Sources */,
-				D21FB98F241801E6006C095F /* BaseFormRow.swift in Sources */,
+				D21FB98F241801E6006C095F /* BaseRow.swift in Sources */,
 				D21FB9A824187B2A006C095F /* PNPForm.swift in Sources */,
 				D2518C102418DBC000E38466 /* PNPRowConfig.swift in Sources */,
 				D21FB99924187788006C095F /* CustomView.swift in Sources */,
-				D21FB9AE241883A6006C095F /* TextLabelFormRow.swift in Sources */,
+				D21FB9AE241883A6006C095F /* TextLabelRow.swift in Sources */,
 				D2518C172418F26000E38466 /* PNPKeyboardConfig.swift in Sources */,
-				D2518BFF2418A39000E38466 /* IconFormRow.swift in Sources */,
+				D2518BFF2418A39000E38466 /* IconsRow.swift in Sources */,
 				D2518C082418AF3100E38466 /* PNPTextView.swift in Sources */,
 				D2518C152418E33300E38466 /* Enum.swift in Sources */,
 				D2518C132418E2F900E38466 /* TypeAlias.swift in Sources */,

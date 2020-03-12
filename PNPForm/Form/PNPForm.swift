@@ -7,7 +7,7 @@ import UIKit
 public final class PNPForm: UIView {
     
     private let stackView: UIStackView
-    let formRows: [BaseFormRow]
+    let formRows: [BaseRow]
     let separatorColor: UIColor
     let forceDefaultHeight: Bool
     
@@ -15,7 +15,7 @@ public final class PNPForm: UIView {
          separatorColor: UIColor,
          forceDefaultHeight: Bool = true) {
         self.stackView = UIStackView()
-        self.formRows = rows.filter({ $0 is BaseFormRow }) as! [BaseFormRow]
+        self.formRows = rows.filter({ $0 is BaseRow }) as! [BaseRow]
         self.separatorColor = separatorColor
         self.forceDefaultHeight = forceDefaultHeight
         
@@ -70,13 +70,13 @@ extension PNPForm: CustomView {
 }
 
 extension PNPForm: Form {
-    public func getRows(withLabelIcon labelIcon: UIImage) -> [BaseFormRow] {
+    public func getRows(withLabelIcon labelIcon: UIImage) -> [BaseRow] {
         return self.formRows.filter({ view in
             (view.label as? UIImage) == labelIcon
         })
     }
     
-    public func getRows(withLabelText labelText: String) -> [BaseFormRow] {
+    public func getRows(withLabelText labelText: String) -> [BaseRow] {
         return self.formRows.filter({ view in
             (view.label as? String) == labelText
         })
@@ -89,27 +89,21 @@ extension PNPForm: Form {
     }
     
     public func prefillRows(values: [String: String]) {
-        self.formRows.forEach({ field in
-            if let label = field.label as? String, let value = values[label] {
-                field.value = value
+        self.formRows.forEach({ row in
+            if let label = row.label as? String, let value = values[label] {
+                row.value = value
             }
         })
     }
     
-    public func validateRows() -> [String: Bool] {
-        var result: [String: Bool] = [:]
-        self.formRows.forEach({ row in
-            if let labelText = row.label as? String {
-                result[labelText] = row.validStatus
-            }
-        })
-        return result
+    public func validateRows() {
+        self.formRows.forEach({ $0.validateRow() })
     }
     
     public func extractRowValues() -> [String] {
         var result = [String]()
-        self.formRows.forEach({ field in
-            if let val = field.value as? String {
+        self.formRows.forEach({ row in
+            if let val = row.value {
                 result.append(val)
             }
         })
@@ -118,10 +112,10 @@ extension PNPForm: Form {
     
     public func extractRowValues(withLabelTextList list: [String]) -> [String: String] {
         var result: [String: String] = [:]
-        self.formRows.forEach({ field in
-            if let desc = field.label as? String,
+        self.formRows.forEach({ row in
+            if let desc = row.label as? String,
                 list.contains(desc) {
-                result[desc] = field.value as? String
+                result[desc] = row.value
             }
         })
         return result

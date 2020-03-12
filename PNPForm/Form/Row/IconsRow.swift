@@ -4,7 +4,7 @@
 
 import UIKit
 
-public final class IconsFormRow: BaseFormRow {
+public final class IconsRow: BaseRow {
     
     override public var label: Any {
         get {
@@ -17,7 +17,7 @@ public final class IconsFormRow: BaseFormRow {
         }
     }
     
-    override public var value: Any? {
+    override public var value: String? {
         get {
             switch self.valueView {
             case is UITextField:
@@ -32,23 +32,32 @@ public final class IconsFormRow: BaseFormRow {
         set {
             switch self.valueView {
             case is UITextField:
-                (self.valueView as? UITextField)?.text = newValue as? String
+                (self.valueView as? UITextField)?.text = newValue
             case is UITextView:
-                (self.valueView as? UITextView)?.text = newValue as? String
+                (self.valueView as? UITextView)?.text = newValue
             default:
                 break
             }
         }
     }
     
-//    private let icon: UIImage
-    
-    public convenience init(icon: UIImage, config: PNPRowConfig) {
+    public convenience init(icon: UIImage,
+                            config: PNPRowConfig) {
         switch config.type {
         case .singleLineText:
-            self.init(icon: icon, with: UITextField(), spacing: config.spacing, labelWidth: config.labelWidth, validateOption: config.validation)
+            self.init(icon: icon,
+                      with: UITextField(),
+                      spacing: config.spacing,
+                      labelWidth: config.labelWidth,
+                      validateOption: config.validation,
+                      validatedHandling: config.validatedHandling)
         case .multLineText:
-            self.init(icon: icon, with: PNPTextView(placeholder: ""), spacing: config.spacing, labelWidth: config.labelWidth, validateOption: config.validation)
+            self.init(icon: icon,
+                      with: PNPTextView(placeholder: ""),
+                      spacing: config.spacing,
+                      labelWidth: config.labelWidth,
+                      validateOption: config.validation,
+                      validatedHandling: config.validatedHandling)
         }
     }
     
@@ -56,8 +65,16 @@ public final class IconsFormRow: BaseFormRow {
          with textField: UITextField,
          spacing: CGFloat = 0,
          labelWidth: CGFloat? = nil,
-         validateOption: ValidateOption) {
-        super.init(labelView: UILabel(), valueView: textField, spacing: spacing, labelWidth: labelWidth, validateOption: validateOption)
+         validateOption: ValidateOption,
+         validatedHandling: ValidatedHandling) {
+        
+        super.init(labelView: UILabel(),
+                   valueView: textField,
+                   spacing: spacing,
+                   labelWidth: labelWidth,
+                   validateOption: validateOption,
+                   validatedHandling: validatedHandling)
+        
         self.label = icon
     }
     
@@ -65,8 +82,16 @@ public final class IconsFormRow: BaseFormRow {
          with textView: UITextView,
          spacing: CGFloat = 0,
          labelWidth: CGFloat? = nil,
-         validateOption: ValidateOption) {
-        super.init(labelView: UILabel(), valueView: textView, spacing: spacing, labelWidth: labelWidth, validateOption: validateOption)
+         validateOption: ValidateOption,
+         validatedHandling: ValidatedHandling) {
+        
+        super.init(labelView: UILabel(),
+                   valueView: textView,
+                   spacing: spacing,
+                   labelWidth: labelWidth,
+                   validateOption: validateOption,
+                   validatedHandling: validatedHandling)
+        
         self.label = icon
     }
     
@@ -74,7 +99,7 @@ public final class IconsFormRow: BaseFormRow {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func setupLayout() {
+    override public func setupLayout() {
         super.setupLayout()
         
         if let `placeholderLabel` = self.placeholderLabel {

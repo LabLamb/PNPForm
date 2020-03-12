@@ -7,14 +7,20 @@ import UIKit
 
 class SimpleFormViewController: PNPFormViewController {
     
+    private struct RowLabelName {
+        static let name = "Name"
+        static let email = "Email"
+        static let password = "Password"
+        static let address = "Address"
+    }
+    
     let simpleForm: PNPForm
     let submitButtonForm: PNPForm
     
     override init() {
         let sepColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.5)
-        
         self.simpleForm = {
-            let nameConfig = PNPRowConfig(validation: .require)
+            let nameConfig = PNPRowConfig(validation: .required)
             let emailConfig = PNPRowConfig(validation: .pattern(.email))
             
             let passwordPattern = #"[^\w\d]*(([0-9]+.*[A-Za-z]+.*)|[A-Za-z]+.*([0-9]+.*))"# // Must have one number and one alphabet
@@ -22,15 +28,14 @@ class SimpleFormViewController: PNPFormViewController {
             
             let addressConfig = PNPRowConfig(type: .multLineText)
             
-            let textFormFields = [
-                TextLabelFormRow(title: "Name", config: nameConfig),
-                TextLabelFormRow(title: "Email", config: emailConfig),
-                TextLabelFormRow(title: "Password", config: passwordConfig),
-                TextLabelFormRow(title: "Address", config: addressConfig),
-                TextLabelFormRow(title: "Remark")
+            let textFormRows = [
+                TextLabelRow(title: RowLabelName.name, config: nameConfig),
+                TextLabelRow(title: RowLabelName.email, config: emailConfig),
+                TextLabelRow(title: RowLabelName.password, config: passwordConfig),
+                TextLabelRow(title: RowLabelName.address, config: addressConfig)
             ]
             
-            return PNPForm(rows: textFormFields, separatorColor: sepColor)
+            return PNPForm(rows: textFormRows, separatorColor: sepColor)
         }()
 
         let submitButton = UIButton()
@@ -50,11 +55,13 @@ class SimpleFormViewController: PNPFormViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationItem.title = "Simple Form"
+    }
+    
     @objc func submitButtonPressed() {
-        let validations = self.simpleForm.validateRows()
-        for (k, v) in validations {
-            print("\(k): \(v)")
-        }
+        self.simpleForm.validateRows()
     }
     
     override func setupLayout() {
@@ -65,7 +72,7 @@ class SimpleFormViewController: PNPFormViewController {
             self.simpleForm.topAnchor.constraint(equalTo: self.scrollView.topAnchor, constant: 20),
             self.simpleForm.leftAnchor.constraint(equalTo: self.view.leftAnchor),
             self.simpleForm.rightAnchor.constraint(equalTo: self.view.rightAnchor)
-            ].forEach({ $0.isActive = true })
+        ].forEach({ $0.isActive = true })
         self.simpleForm.backgroundColor = .white
         
         self.scrollView.addSubview(self.submitButtonForm)
@@ -75,8 +82,7 @@ class SimpleFormViewController: PNPFormViewController {
             self.submitButtonForm.leftAnchor.constraint(equalTo: self.view.leftAnchor),
             self.submitButtonForm.rightAnchor.constraint(equalTo: self.view.rightAnchor),
             self.submitButtonForm.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor)
-            ].forEach({ $0.isActive = true })
+        ].forEach({ $0.isActive = true })
         self.submitButtonForm.backgroundColor = .white
     }
 }
-
