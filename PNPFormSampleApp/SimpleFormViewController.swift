@@ -28,11 +28,14 @@ class SimpleFormViewController: PNPFormViewController {
             
             let addressConfig = PNPRowConfig(type: .multLineText)
             
+            let testConfig = PNPRowConfig(type: .switch)
+            
             let textFormRows = [
                 TextLabelRow(title: RowLabelName.name, config: nameConfig),
                 TextLabelRow(title: RowLabelName.email, config: emailConfig),
                 TextLabelRow(title: RowLabelName.password, config: passwordConfig),
-                TextLabelRow(title: RowLabelName.address, config: addressConfig)
+                TextLabelRow(title: RowLabelName.address, config: addressConfig),
+                TextLabelRow(title: "Test", config: testConfig)
             ]
             
             return PNPForm(rows: textFormRows, separatorColor: sepColor)

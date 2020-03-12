@@ -11,8 +11,8 @@ public struct PNPFormConstants {
     }
     
     public struct System {
-        public static let DefaultValidatedHandler: ValidatedHandler = {
-            
+        public static let DefaultValidatedHandler: ValidatedHandler = { row, isValid in
+            row.isShowingErrorIcon = !isValid
         }
     }
 }

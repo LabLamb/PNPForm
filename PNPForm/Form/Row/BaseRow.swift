@@ -120,8 +120,7 @@ open class BaseRow: UIView {
     public func validateRow() {
         switch self.validatedHandling {
         case .default:
-            self.isShowingErrorIcon = !self.isValid
-            break
+            PNPFormConstants.System.DefaultValidatedHandler(self, self.isValid)
         case .custom(let customHandler):
             customHandler(self, self.isValid)
             break

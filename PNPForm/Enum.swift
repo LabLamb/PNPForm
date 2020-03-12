@@ -7,6 +7,7 @@ import UIKit
 public enum RowType {
     case singleLineText
     case multLineText
+    case `switch`
 }
 
 public enum ValidateOption {

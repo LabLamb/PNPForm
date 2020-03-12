@@ -58,6 +58,13 @@ public final class TextLabelRow: BaseRow {
                       labelWidth: config.labelWidth,
                       validateOption: config.validation,
                       validatedHandling: config.validatedHandling)
+        case .switch:
+            self.init(title: title,
+                      with: UISwitch(),
+                      spacing: config.spacing,
+                      labelWidth: config.labelWidth,
+                      validateOption: config.validation,
+                      validatedHandling: config.validatedHandling)
         }
     }
     
@@ -120,6 +127,21 @@ public final class TextLabelRow: BaseRow {
                    spacing: spacing,
                    labelWidth: labelWidth,
                    placeholder: tempPlaceholderLabel,
+                   validateOption: validateOption,
+                   validatedHandling: validatedHandling)
+        self.label = title
+    }
+    
+    private init(title: String,
+         with switchView: UISwitch,
+         spacing: CGFloat = 0,
+         labelWidth: CGFloat? = nil,
+         validateOption: ValidateOption,
+         validatedHandling: ValidatedHandling) {
+        super.init(labelView: UILabel(),
+                   valueView: switchView,
+                   spacing: spacing,
+                   labelWidth: labelWidth,
                    validateOption: validateOption,
                    validatedHandling: validatedHandling)
         self.label = title

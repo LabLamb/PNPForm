@@ -32,7 +32,7 @@ Explaination: This control what is the type of the value field in a row.
 `Default: RowType.singleLineText`
 
 #### placeholder: String?
-Explaination: This value will be shown as a light grey place holder if possible. Otherwise, this will be used as the default value (E.g. for `UISwitch`).  
+Explaination: This value will be shown as a light grey place holder if possible. Otherwise, this will be used as the default value (E.g. for `RowType.switch`).  
 `Default: nil`
 
 #### spacing: CGFloat

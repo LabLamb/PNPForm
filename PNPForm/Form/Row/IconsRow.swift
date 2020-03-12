@@ -58,6 +58,13 @@ public final class IconsRow: BaseRow {
                       labelWidth: config.labelWidth,
                       validateOption: config.validation,
                       validatedHandling: config.validatedHandling)
+        case .switch:
+            self.init(icon: icon,
+                      with: UISwitch(),
+                      spacing: config.spacing,
+                      labelWidth: config.labelWidth,
+                      validateOption: config.validation,
+                      validatedHandling: config.validatedHandling)
         }
     }
     
@@ -85,8 +92,57 @@ public final class IconsRow: BaseRow {
          validateOption: ValidateOption,
          validatedHandling: ValidatedHandling) {
         
+        textView.textContainer.heightTracksTextView = true
+        textView.textContainer.widthTracksTextView = false
+        textView.isScrollEnabled = false
+        textView.textContainer.lineFragmentPadding = 0
+        textView.font = UITextField().font
+        let inset = (PNPFormConstants.UI.BaseRowDefaultHeight - (UITextField().font?.lineHeight ?? 0)) / 2
+        textView.textContainerInset = .init(top: inset, left: 0, bottom: inset, right: 0)
+        textView.backgroundColor = .clear
+        
+        let placeholderText: String = {
+            if let `textView` = textView as? PNPTextView {
+                return textView.placeholder
+            } else {
+                return ""
+            }
+        }()
+        
+        let tempPlaceholderLabel: UILabel = {
+            let result = UILabel()
+            result.text = placeholderText
+            result.textColor = {
+                let tempUITextField = UITextField()
+                tempUITextField.placeholder = "temp"
+                let inspect = tempUITextField.attributedPlaceholder!
+                return inspect.attribute(NSAttributedString.Key.foregroundColor, at: 0, effectiveRange: nil) as? UIColor
+            }()
+            result.textAlignment = .left
+            result.font = UIFont.systemFont(ofSize: 17)
+            result.backgroundColor = .clear
+            return result
+        }()
+        
         super.init(labelView: UILabel(),
                    valueView: textView,
+                   spacing: spacing,
+                   labelWidth: labelWidth,
+                   placeholder: tempPlaceholderLabel,
+                   validateOption: validateOption,
+                   validatedHandling: validatedHandling)
+        self.label = icon
+    }
+    
+    private init(icon: UIImage,
+         with switchView: UISwitch,
+         spacing: CGFloat = 0,
+         labelWidth: CGFloat? = nil,
+         validateOption: ValidateOption,
+         validatedHandling: ValidatedHandling) {
+        
+        super.init(labelView: UILabel(),
+                   valueView: switchView,
                    spacing: spacing,
                    labelWidth: labelWidth,
                    validateOption: validateOption,
