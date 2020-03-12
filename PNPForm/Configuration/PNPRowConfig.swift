@@ -13,7 +13,7 @@ public struct PNPRowConfig {
     public let spacing: CGFloat
     public let labelWidth: CGFloat?
     
-    public init(type: RowType = .singleLineText,
+    public init(type: RowType = .singleLineText(),
                 placeholder: String? = nil,
                 spacing: CGFloat = PNPFormConstants.UI.RowConfigDefaultSpacing,
                 labelWidth: CGFloat? = nil,

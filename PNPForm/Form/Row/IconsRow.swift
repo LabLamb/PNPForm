@@ -43,12 +43,24 @@ public final class IconsRow: BaseRow {
     
     public convenience init(icon: UIImage,
                             config: PNPRowConfig) {
+        
+        let placeholderLabel: UILabel? = {
+            if let `placeholder` = config.placeholder {
+                let tempLabel = UILabel()
+                tempLabel.text = placeholder
+                return tempLabel
+            } else {
+                return nil
+            }
+        }()
+        
         switch config.type {
         case .singleLineText:
             self.init(icon: icon,
-                      with: UITextField(),
+                      with: PNPTextField(),
                       spacing: config.spacing,
                       labelWidth: config.labelWidth,
+                      placeholder: config.placeholder,
                       validateOption: config.validation,
                       validatedHandling: config.validatedHandling)
         case .multLineText:
@@ -56,6 +68,7 @@ public final class IconsRow: BaseRow {
                       with: PNPTextView(placeholder: ""),
                       spacing: config.spacing,
                       labelWidth: config.labelWidth,
+                      placeholder: placeholderLabel,
                       validateOption: config.validation,
                       validatedHandling: config.validatedHandling)
         case .switch:
@@ -72,8 +85,11 @@ public final class IconsRow: BaseRow {
          with textField: UITextField,
          spacing: CGFloat = 0,
          labelWidth: CGFloat? = nil,
+         placeholder: String?,
          validateOption: ValidateOption,
          validatedHandling: ValidatedHandling) {
+        
+        textField.placeholder = placeholder
         
         super.init(labelView: UILabel(),
                    valueView: textField,
@@ -89,6 +105,7 @@ public final class IconsRow: BaseRow {
          with textView: UITextView,
          spacing: CGFloat = 0,
          labelWidth: CGFloat? = nil,
+         placeholder: UILabel?,
          validateOption: ValidateOption,
          validatedHandling: ValidatedHandling) {
         
@@ -101,34 +118,19 @@ public final class IconsRow: BaseRow {
         textView.textContainerInset = .init(top: inset, left: 0, bottom: inset, right: 0)
         textView.backgroundColor = .clear
         
-        let placeholderText: String = {
-            if let `textView` = textView as? PNPTextView {
-                return textView.placeholder
-            } else {
-                return ""
-            }
-        }()
-        
-        let tempPlaceholderLabel: UILabel = {
-            let result = UILabel()
-            result.text = placeholderText
-            result.textColor = {
-                let tempUITextField = UITextField()
-                tempUITextField.placeholder = "temp"
-                let inspect = tempUITextField.attributedPlaceholder!
-                return inspect.attribute(NSAttributedString.Key.foregroundColor, at: 0, effectiveRange: nil) as? UIColor
-            }()
-            result.textAlignment = .left
-            result.font = UIFont.systemFont(ofSize: 17)
-            result.backgroundColor = .clear
-            return result
+        placeholder?.font = UIFont.systemFont(ofSize: 17)
+        placeholder?.textColor = {
+            let tempUITextField = UITextField()
+            tempUITextField.placeholder = "temp"
+            let inspect = tempUITextField.attributedPlaceholder!
+            return inspect.attribute(NSAttributedString.Key.foregroundColor, at: 0, effectiveRange: nil) as? UIColor
         }()
         
         super.init(labelView: UILabel(),
                    valueView: textView,
                    spacing: spacing,
                    labelWidth: labelWidth,
-                   placeholder: tempPlaceholderLabel,
+                   placeholder: placeholder,
                    validateOption: validateOption,
                    validatedHandling: validatedHandling)
         self.label = icon
@@ -153,20 +155,5 @@ public final class IconsRow: BaseRow {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override public func setupLayout() {
-        super.setupLayout()
-        
-        if let `placeholderLabel` = self.placeholderLabel {
-            self.addSubview(placeholderLabel)
-            placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
-            [
-                placeholderLabel.centerXAnchor.constraint(equalTo: self.valueView.centerXAnchor),
-                placeholderLabel.centerYAnchor.constraint(equalTo: self.valueView.centerYAnchor),
-                placeholderLabel.widthAnchor.constraint(equalTo: self.valueView.widthAnchor),
-                placeholderLabel.heightAnchor.constraint(equalTo: self.valueView.heightAnchor)
-            ].forEach({ $0.isActive = true })
-        }
     }
 }

@@ -5,8 +5,10 @@
 import UIKit
 
 public enum RowType {
-    case singleLineText
-    case multLineText
+    case email
+    case password
+    case singleLineText(PNPSingleLineConfig? = nil)
+    case multLineText(PNPMultLineConfig? = nil)
     case `switch`
 }
 
