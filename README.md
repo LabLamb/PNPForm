@@ -26,7 +26,10 @@ let config = PNPRowConfig(type: .multLineText)
 let multilineRow = TextLabelRow(title: "Notes", config)
 ```
 
-### Configuration options:
+### Configuration options
+<details><summary>Show all</summary>
+<p>
+
 #### type: RowType
 This control what is the type of the value field in a row.  
 `Default: RowType.singleLineText`
@@ -71,6 +74,9 @@ let handler: ValidatedHandler = { row, isValid in // row refers to the UIView be
 }()
 let config = PNPRowConfig(validatedHandling: .custom(handler))
 ```
+
+</p>
+</details>
 
 # Installation
 ## Cocoapod
