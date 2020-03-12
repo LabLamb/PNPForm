@@ -52,7 +52,7 @@ This value will be a fixed width of the label, by default, it will be the width 
 
 #### validation: ValidateOption
 This controls the logic when the row's `validateRow()` function is called. Provide custom logic by passing `ValidateOption.customLogic`.  
-`Default: ValidateOption.optional`
+`Default: ValidateOption.optional`  
 Example:
 ```swift
 let logic: ValidationLogic = { rowValue in // rowValue is the value of the row as String
@@ -64,7 +64,7 @@ let config = PNPRowConfig(validation: logic)
 
 #### validatedHandling: ValidatedHandling
 This controls what happens when after the validation happens. Provide custom logic by passing it to `ValidatedHandling.custom` or set `PNPFormConstants.System.DefaultValidatedHandler` to your custom function.
-`Default: PNPFormConstants.System.DefaultValidatedHandler`
+`Default: PNPFormConstants.System.DefaultValidatedHandler`  
 Example:
 ```swift
 let handler: ValidatedHandler = { row, isValid in // row refers to the UIView being validated, isValid represents the outcome of ValidationLogic
