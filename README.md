@@ -60,8 +60,8 @@ let config = PNPRowConfig(validation: logic)
 ```
 
 #### validatedHandling: ValidatedHandling
-Explaination: This controls what happens when after the validation happens, display custom validation error handling here. Provide custom logic by passing `ValidatedHandling.custom`.  
-`Default: ValidatedHandling.default`
+Explaination: This controls what happens when after the validation happens. Provide custom logic by passing it to `ValidatedHandling.custom` or set `PNPFormConstants.System.DefaultValidatedHandler` to your custom function.
+`Default: PNPFormConstants.System.DefaultValidatedHandler`
 Example:
 ```swift
 let handler: ValidatedHandler = { row, isValid in // row refers to the UIView being validated, isValid represents the outcome of ValidationLogic
