@@ -28,28 +28,28 @@ let multilineRow = TextLabelRow(title: "Notes", config)
 
 ### Configuration options:
 #### type: RowType
-`Default: RowType.singleLineText`
 Explaination: This control what is the type of the value field in a row.
+`Default: RowType.singleLineText`
 
 #### placeholder: String?
-`Default: nil`
 Explaination: This value will be shown as a light grey place holder if possible. Otherwise, this will be used as the default value (E.g. for `UISwitch`).
+`Default: nil`
 
 #### spacing: CGFloat
-`Default: PNPFormConstants.UI.RowConfigDefaultSpacing`
 Explaination: This controls the spacing between the left side of the `value` section and the right side of the `label` or `icon` section. (If applicable) Otherwise it will be the spacing between left side of the row and the `value` section.
+`Default: PNPFormConstants.UI.RowConfigDefaultSpacing`
 
 #### labelWidth: CGFloat?
-`Default: nil`
 Explaination: This value will be a fixed width of the label, by default, it will be the width of the text or icon.
+`Default: nil`
 
 #### keyboardConfig: PNPKeyboardConfig?
-`Default: nil`
 Explaination: `TODO`
+`Default: nil`
 
 #### validation: ValidateOption
-`Default: ValidateOption.optional`
 Explaination: This controls the logic when the row's `validateRow()` function is called. Provide custom logic by passing `ValidateOption.customLogic`.
+`Default: ValidateOption.optional`
 Example:
 ```swift
 let logic: ValidationLogic = { rowValue in // rowValue is the value of the row as String
@@ -60,8 +60,8 @@ let config = PNPRowConfig(validation: logic)
 ```
 
 #### validatedHandling: ValidatedHandling
-`Default: ValidatedHandling.default`
 Explaination: This controls what happens when after the validation happens, display custom validation error handling here. Provide custom logic by passing `ValidatedHandling.custom`.
+`Default: ValidatedHandling.default`
 Example:
 ```swift
 let handler: ValidatedHandler = { row, isValid in // row refers to the UIView being validated, isValid represents the outcome of ValidationLogic
