@@ -1,9 +1,5 @@
 //
-//  PNPFormSampleAppUITests.swift
-//  PNPFormSampleAppUITests
-//
-//  Created by LabLamb on 11/3/2020.
-//  Copyright © 2020 LabLambWorks. All rights reserved.
+//  Copyright © LabLambWorks. All rights reserved.
 //
 
 import XCTest
@@ -32,12 +28,12 @@ class PNPFormSampleAppUITests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
-    func testLaunchPerformance() {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTOSSignpostMetric.applicationLaunch]) {
-                XCUIApplication().launch()
-            }
-        }
-    }
+//    func testLaunchPerformance() {
+//        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
+//            // This measures how long it takes to launch your application.
+//            measure(metrics: [XCTOSSignpostMetric.applicationLaunch]) {
+//                XCUIApplication().launch()
+//            }
+//        }
+//    }
 }

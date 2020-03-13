@@ -11,12 +11,33 @@
 		D21FB9342417F82E006C095F /* PNPFormTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB9332417F82E006C095F /* PNPFormTests.swift */; };
 		D21FB9362417F82E006C095F /* PNPForm.h in Headers */ = {isa = PBXBuildFile; fileRef = D21FB9282417F82E006C095F /* PNPForm.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D21FB96F2417F8D5006C095F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB96E2417F8D5006C095F /* AppDelegate.swift */; };
-		D21FB9732417F8D6006C095F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB9722417F8D6006C095F /* ViewController.swift */; };
+		D21FB9732417F8D6006C095F /* SimpleFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB9722417F8D6006C095F /* SimpleFormViewController.swift */; };
 		D21FB9862417F8D6006C095F /* PNPFormSampleAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB9852417F8D6006C095F /* PNPFormSampleAppUITests.swift */; };
-		D21FB98F241801E6006C095F /* BaseFormRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB98E241801E6006C095F /* BaseFormRow.swift */; };
+		D21FB98F241801E6006C095F /* BaseRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB98E241801E6006C095F /* BaseRow.swift */; };
 		D21FB9912418020F006C095F /* PNPForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D21FB9252417F82E006C095F /* PNPForm.framework */; };
 		D21FB9922418020F006C095F /* PNPForm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D21FB9252417F82E006C095F /* PNPForm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D21FB99724180217006C095F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D21FB99624180217006C095F /* Default-568h@2x.png */; };
+		D21FB99924187788006C095F /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB99824187788006C095F /* CustomView.swift */; };
+		D21FB99B241879B1006C095F /* PNPFormConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB99A241879B1006C095F /* PNPFormConstants.swift */; };
+		D21FB9A824187B2A006C095F /* PNPForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB9A724187B2A006C095F /* PNPForm.swift */; };
+		D21FB9AA24187C66006C095F /* UIView+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB9A924187C66006C095F /* UIView+Border.swift */; };
+		D21FB9AC241881B1006C095F /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB9AB241881B1006C095F /* Form.swift */; };
+		D21FB9AE241883A6006C095F /* TextLabelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB9AD241883A6006C095F /* TextLabelRow.swift */; };
+		D21FB9B0241887B1006C095F /* Date+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB9AF241887B1006C095F /* Date+String.swift */; };
+		D23FB18B241A578B00EE7C52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D23FB18A241A578B00EE7C52 /* Assets.xcassets */; };
+		D23FB18D241A873000EE7C52 /* PNPSingleLineConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FB18C241A873000EE7C52 /* PNPSingleLineConfig.swift */; };
+		D23FB18F241A87A200EE7C52 /* PNPMultLineConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FB18E241A87A200EE7C52 /* PNPMultLineConfig.swift */; };
+		D23FB191241A917A00EE7C52 /* IconFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FB190241A917A00EE7C52 /* IconFormViewController.swift */; };
+		D23FB193241B341600EE7C52 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FB192241B341600EE7C52 /* Row.swift */; };
+		D2518BFD2418988100E38466 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2518BFC2418988100E38466 /* LaunchScreen.storyboard */; };
+		D2518BFF2418A39000E38466 /* IconsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2518BFE2418A39000E38466 /* IconsRow.swift */; };
+		D2518C032418A74200E38466 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2518C012418A5BE00E38466 /* Assets.xcassets */; };
+		D2518C052418AC6700E38466 /* PNPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2518C042418AC6700E38466 /* PNPTextField.swift */; };
+		D2518C082418AF3100E38466 /* PNPTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2518C072418AF3100E38466 /* PNPTextView.swift */; };
+		D2518C0C2418CD9D00E38466 /* PNPFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2518C0B2418CD9D00E38466 /* PNPFormViewController.swift */; };
+		D2518C102418DBC000E38466 /* PNPRowConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2518C0F2418DBC000E38466 /* PNPRowConfig.swift */; };
+		D2518C132418E2F900E38466 /* TypeAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2518C122418E2F900E38466 /* TypeAlias.swift */; };
+		D2518C152418E33300E38466 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2518C142418E33300E38466 /* Enum.swift */; };
+		D2518C172418F26000E38466 /* PNPKeyboardConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2518C162418F26000E38466 /* PNPKeyboardConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +61,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = D21FB9242417F82E006C095F;
 			remoteInfo = PNPForm;
+		};
+		D2518C092418C0DB00E38466 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D21FB91C2417F82E006C095F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D21FB96B2417F8D5006C095F;
+			remoteInfo = PNPFormSampleApp;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -66,13 +94,34 @@
 		D21FB9352417F82E006C095F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D21FB96C2417F8D5006C095F /* PNPFormSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PNPFormSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D21FB96E2417F8D5006C095F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D21FB9722417F8D6006C095F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D21FB9722417F8D6006C095F /* SimpleFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleFormViewController.swift; sourceTree = "<group>"; };
 		D21FB97C2417F8D6006C095F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D21FB9812417F8D6006C095F /* PNPFormSampleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PNPFormSampleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D21FB9852417F8D6006C095F /* PNPFormSampleAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPFormSampleAppUITests.swift; sourceTree = "<group>"; };
 		D21FB9872417F8D6006C095F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D21FB98E241801E6006C095F /* BaseFormRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFormRow.swift; sourceTree = "<group>"; };
-		D21FB99624180217006C095F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		D21FB98E241801E6006C095F /* BaseRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRow.swift; sourceTree = "<group>"; };
+		D21FB99824187788006C095F /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		D21FB99A241879B1006C095F /* PNPFormConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPFormConstants.swift; sourceTree = "<group>"; };
+		D21FB9A724187B2A006C095F /* PNPForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNPForm.swift; sourceTree = "<group>"; };
+		D21FB9A924187C66006C095F /* UIView+Border.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Border.swift"; sourceTree = "<group>"; };
+		D21FB9AB241881B1006C095F /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
+		D21FB9AD241883A6006C095F /* TextLabelRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLabelRow.swift; sourceTree = "<group>"; };
+		D21FB9AF241887B1006C095F /* Date+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
+		D23FB18A241A578B00EE7C52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D23FB18C241A873000EE7C52 /* PNPSingleLineConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPSingleLineConfig.swift; sourceTree = "<group>"; };
+		D23FB18E241A87A200EE7C52 /* PNPMultLineConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPMultLineConfig.swift; sourceTree = "<group>"; };
+		D23FB190241A917A00EE7C52 /* IconFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFormViewController.swift; sourceTree = "<group>"; };
+		D23FB192241B341600EE7C52 /* Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
+		D2518BFC2418988100E38466 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D2518BFE2418A39000E38466 /* IconsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsRow.swift; sourceTree = "<group>"; };
+		D2518C012418A5BE00E38466 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D2518C042418AC6700E38466 /* PNPTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNPTextField.swift; sourceTree = "<group>"; };
+		D2518C072418AF3100E38466 /* PNPTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNPTextView.swift; sourceTree = "<group>"; };
+		D2518C0B2418CD9D00E38466 /* PNPFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPFormViewController.swift; sourceTree = "<group>"; };
+		D2518C0F2418DBC000E38466 /* PNPRowConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPRowConfig.swift; sourceTree = "<group>"; };
+		D2518C122418E2F900E38466 /* TypeAlias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAlias.swift; sourceTree = "<group>"; };
+		D2518C142418E33300E38466 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
+		D2518C162418F26000E38466 /* PNPKeyboardConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPKeyboardConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				D21FB9272417F82E006C095F /* PNPForm */,
-				D21FB9322417F82E006C095F /* PNPFormTests */,
 				D21FB96D2417F8D5006C095F /* PNPFormSampleApp */,
+				D21FB9322417F82E006C095F /* PNPFormTests */,
 				D21FB9842417F8D6006C095F /* PNPFormSampleAppUITests */,
 				D21FB9262417F82E006C095F /* Products */,
 				D21FB9902418020F006C095F /* Frameworks */,
@@ -136,8 +185,15 @@
 			isa = PBXGroup;
 			children = (
 				D21FB9282417F82E006C095F /* PNPForm.h */,
-				D21FB98E241801E6006C095F /* BaseFormRow.swift */,
 				D21FB9292417F82E006C095F /* Info.plist */,
+				D21FB99A241879B1006C095F /* PNPFormConstants.swift */,
+				D2518C142418E33300E38466 /* Enum.swift */,
+				D2518C122418E2F900E38466 /* TypeAlias.swift */,
+				D21FB9B22418906B006C095F /* Extension */,
+				D21FB9B32418907C006C095F /* Protocol */,
+				D21FB9B4241890A7006C095F /* Form */,
+				D2518C112418DE3000E38466 /* Configuration */,
+				D23FB18A241A578B00EE7C52 /* Assets.xcassets */,
 			);
 			path = PNPForm;
 			sourceTree = "<group>";
@@ -154,10 +210,12 @@
 		D21FB96D2417F8D5006C095F /* PNPFormSampleApp */ = {
 			isa = PBXGroup;
 			children = (
-				D21FB99624180217006C095F /* Default-568h@2x.png */,
 				D21FB96E2417F8D5006C095F /* AppDelegate.swift */,
-				D21FB9722417F8D6006C095F /* ViewController.swift */,
+				D21FB9722417F8D6006C095F /* SimpleFormViewController.swift */,
+				D23FB190241A917A00EE7C52 /* IconFormViewController.swift */,
+				D2518BFC2418988100E38466 /* LaunchScreen.storyboard */,
 				D21FB97C2417F8D6006C095F /* Info.plist */,
+				D2518C012418A5BE00E38466 /* Assets.xcassets */,
 			);
 			path = PNPFormSampleApp;
 			sourceTree = "<group>";
@@ -176,6 +234,66 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D21FB9B22418906B006C095F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D21FB9A924187C66006C095F /* UIView+Border.swift */,
+				D21FB9AF241887B1006C095F /* Date+String.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		D21FB9B32418907C006C095F /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				D21FB9AB241881B1006C095F /* Form.swift */,
+				D21FB99824187788006C095F /* CustomView.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		D21FB9B4241890A7006C095F /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				D21FB9A724187B2A006C095F /* PNPForm.swift */,
+				D2518C0B2418CD9D00E38466 /* PNPFormViewController.swift */,
+				D21FB9B5241890C6006C095F /* Row */,
+			);
+			path = Form;
+			sourceTree = "<group>";
+		};
+		D21FB9B5241890C6006C095F /* Row */ = {
+			isa = PBXGroup;
+			children = (
+				D21FB98E241801E6006C095F /* BaseRow.swift */,
+				D23FB192241B341600EE7C52 /* Row.swift */,
+				D21FB9AD241883A6006C095F /* TextLabelRow.swift */,
+				D2518BFE2418A39000E38466 /* IconsRow.swift */,
+				D2518C062418AC7F00E38466 /* CustomValueViews */,
+			);
+			path = Row;
+			sourceTree = "<group>";
+		};
+		D2518C062418AC7F00E38466 /* CustomValueViews */ = {
+			isa = PBXGroup;
+			children = (
+				D2518C042418AC6700E38466 /* PNPTextField.swift */,
+				D2518C072418AF3100E38466 /* PNPTextView.swift */,
+			);
+			path = CustomValueViews;
+			sourceTree = "<group>";
+		};
+		D2518C112418DE3000E38466 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				D2518C0F2418DBC000E38466 /* PNPRowConfig.swift */,
+				D2518C162418F26000E38466 /* PNPKeyboardConfig.swift */,
+				D23FB18C241A873000EE7C52 /* PNPSingleLineConfig.swift */,
+				D23FB18E241A87A200EE7C52 /* PNPMultLineConfig.swift */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +340,7 @@
 			);
 			dependencies = (
 				D21FB9312417F82E006C095F /* PBXTargetDependency */,
+				D2518C0A2418C0DB00E38466 /* PBXTargetDependency */,
 			);
 			name = PNPFormTests;
 			productName = PNPFormTests;
@@ -281,6 +400,7 @@
 					};
 					D21FB92D2417F82E006C095F = {
 						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = D21FB96B2417F8D5006C095F;
 					};
 					D21FB96B2417F8D5006C095F = {
 						CreatedOnToolsVersion = 11.3.1;
@@ -317,6 +437,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D23FB18B241A578B00EE7C52 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,7 +452,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D21FB99724180217006C095F /* Default-568h@2x.png in Resources */,
+				D2518C032418A74200E38466 /* Assets.xcassets in Resources */,
+				D2518BFD2418988100E38466 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,7 +471,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D21FB98F241801E6006C095F /* BaseFormRow.swift in Sources */,
+				D21FB9B0241887B1006C095F /* Date+String.swift in Sources */,
+				D21FB98F241801E6006C095F /* BaseRow.swift in Sources */,
+				D21FB9A824187B2A006C095F /* PNPForm.swift in Sources */,
+				D2518C102418DBC000E38466 /* PNPRowConfig.swift in Sources */,
+				D21FB99924187788006C095F /* CustomView.swift in Sources */,
+				D21FB9AE241883A6006C095F /* TextLabelRow.swift in Sources */,
+				D2518C172418F26000E38466 /* PNPKeyboardConfig.swift in Sources */,
+				D2518BFF2418A39000E38466 /* IconsRow.swift in Sources */,
+				D2518C082418AF3100E38466 /* PNPTextView.swift in Sources */,
+				D2518C152418E33300E38466 /* Enum.swift in Sources */,
+				D2518C132418E2F900E38466 /* TypeAlias.swift in Sources */,
+				D2518C0C2418CD9D00E38466 /* PNPFormViewController.swift in Sources */,
+				D23FB18F241A87A200EE7C52 /* PNPMultLineConfig.swift in Sources */,
+				D21FB9AA24187C66006C095F /* UIView+Border.swift in Sources */,
+				D21FB99B241879B1006C095F /* PNPFormConstants.swift in Sources */,
+				D23FB18D241A873000EE7C52 /* PNPSingleLineConfig.swift in Sources */,
+				D2518C052418AC6700E38466 /* PNPTextField.swift in Sources */,
+				D23FB193241B341600EE7C52 /* Row.swift in Sources */,
+				D21FB9AC241881B1006C095F /* Form.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,7 +505,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D21FB9732417F8D6006C095F /* ViewController.swift in Sources */,
+				D21FB9732417F8D6006C095F /* SimpleFormViewController.swift in Sources */,
+				D23FB191241A917A00EE7C52 /* IconFormViewController.swift in Sources */,
 				D21FB96F2417F8D5006C095F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,6 +536,11 @@
 			isa = PBXTargetDependency;
 			target = D21FB9242417F82E006C095F /* PNPForm */;
 			targetProxy = D21FB9932418020F006C095F /* PBXContainerItemProxy */;
+		};
+		D2518C0A2418C0DB00E38466 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D21FB96B2417F8D5006C095F /* PNPFormSampleApp */;
+			targetProxy = D2518C092418C0DB00E38466 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -583,6 +729,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PNPFormSampleApp.app/PNPFormSampleApp";
 			};
 			name = Debug;
 		};
@@ -601,12 +748,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PNPFormSampleApp.app/PNPFormSampleApp";
 			};
 			name = Release;
 		};
 		D21FB9892417F8D6006C095F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PNPFormSampleApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -623,6 +772,7 @@
 		D21FB98A2417F8D6006C095F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PNPFormSampleApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

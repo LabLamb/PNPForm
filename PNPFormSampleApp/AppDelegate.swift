@@ -1,9 +1,5 @@
 //
-//  AppDelegate.swift
-//  PNPFormSampleApp
-//
-//  Created by LabLamb on 11/3/2020.
-//  Copyright © 2020 LabLambWorks. All rights reserved.
+//  Copyright © LabLambWorks. All rights reserved.
 //
 
 import UIKit
@@ -18,10 +14,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window = UIWindow()
         self.window?.makeKeyAndVisible()
-        self.window?.rootViewController = UIViewController()
+        
+        let simpleVC = UINavigationController(rootViewController: SimpleFormViewController())
+        simpleVC.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 1)
+        
+        let iconVC = UINavigationController(rootViewController: IconFormViewController())
+        iconVC.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 2)
+        
+        let tabBarController: UITabBarController = {
+            let result = UITabBarController()
+            result.viewControllers = [simpleVC, iconVC]
+            return result
+        }()
+        
+        self.window?.rootViewController = tabBarController
         
         return true
     }
 
 }
-
