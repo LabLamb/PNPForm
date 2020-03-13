@@ -3,6 +3,7 @@
 //
 
 import UIKit
+import PNPForm
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -10,27 +11,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        PNPFormConstants.UI.RowIconDefaultHeight = PNPFormConstants.UI.BaseRowDefaultHeight * 0.75
         
         self.window = UIWindow()
         self.window?.makeKeyAndVisible()
         
-        let simpleVC = UINavigationController(rootViewController: SimpleFormViewController())
-        simpleVC.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 1)
-        
-        let iconVC = UINavigationController(rootViewController: IconFormViewController())
-        iconVC.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 2)
-        
-        let plainVC = UINavigationController(rootViewController: PlainFormViewController())
-        plainVC.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 3)
-        
-        let tabBarController: UITabBarController = {
-            let result = UITabBarController()
-            result.viewControllers = [simpleVC, iconVC, plainVC]
-            return result
-        }()
-        
-        self.window?.rootViewController = tabBarController
+        self.window?.rootViewController = UINavigationController(rootViewController: SelectionViewController())
         
         return true
     }

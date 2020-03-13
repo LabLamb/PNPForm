@@ -7,7 +7,7 @@ import UIKit
 open class BaseRow: UIView {
     
     var labelView: UIView?
-    let labelContainer: UIView
+//    let labelContainer: UIView
     
     var valueView: UIView
     let valueContainer: UIView
@@ -65,7 +65,7 @@ open class BaseRow: UIView {
          validatedHandling: ValidatedHandling) {
         
         self.labelView = labelView
-        self.labelContainer = UIView()
+//        self.labelContainer = UIView()
         
         self.valueView = valueView
         self.valueContainer = UIView()
@@ -166,13 +166,17 @@ extension BaseRow: CustomView {
             if let width = self.labelWidth {
                 return labelView.widthAnchor.constraint(equalToConstant: width)
             } else {
-                return labelView.widthAnchor.constraint(equalToConstant: labelView.intrinsicContentSize.width)
+                if labelView is UIImageView {
+                    return labelView.widthAnchor.constraint(equalTo: labelView.heightAnchor)
+                } else {
+                    return labelView.widthAnchor.constraint(equalToConstant: labelView.intrinsicContentSize.width)
+                }
             }
         }()
         [
             labelView.leftAnchor.constraint(equalTo: self.leftAnchor),
             labelView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            labelView.heightAnchor.constraint(equalToConstant: PNPFormConstants.UI.BaseRowDefaultHeight),
+            labelView.heightAnchor.constraint(equalToConstant: PNPFormConstants.UI.RowIconDefaultHeight),
             labelViewWidthConstraint
             ].forEach({ $0.isActive = true })
     }

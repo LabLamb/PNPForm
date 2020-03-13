@@ -7,13 +7,21 @@ import UIKit
 
 class PlainFormViewController: PNPFormViewController {
     
+    private struct RowPlaceholder {
+        static let username = "Username"
+        static let email = "Email"
+        static let password = "Password"
+        static let address = "Address"
+        static let rememberMe = "Remember me"
+    }
+    
     let plainForm: PNPForm
     let submitButtonForm: PNPForm
     
     override init() {
         let sepColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.5)
         self.plainForm = {
-            let nameConfig = PNPRowConfig(placeholder: "Name", validation: .required)
+            let usernameConfig = PNPRowConfig(placeholder: "Username", validation: .required)
             let emailConfig = PNPRowConfig(type: .email, placeholder: "Email e.g. example@email.com")
             
             let passwordPattern = #"[^\w\d]*(([0-9]+.*[A-Za-z]+.*)|[A-Za-z]+.*([0-9]+.*))"# // Must have one number and one alphabet
@@ -24,7 +32,7 @@ class PlainFormViewController: PNPFormViewController {
             let rmbMeConfig = PNPRowConfig(type: .switch, placeholder: "Remeber Me")
             
             let textFormRows: [PNPRow] = [
-                PNPRow(config: nameConfig),
+                PNPRow(config: usernameConfig),
                 PNPRow(config: emailConfig),
                 PNPRow(config: passwordConfig),
                 PNPRow(config: addressConfig),
@@ -58,6 +66,7 @@ class PlainFormViewController: PNPFormViewController {
     
     @objc func submitButtonPressed() {
         self.plainForm.validateRows()
+        self.resignFirstResponder()
     }
     
     override func setupLayout() {
