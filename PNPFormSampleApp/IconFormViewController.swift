@@ -31,12 +31,12 @@ class IconFormViewController: PNPFormViewController {
             
             let rmbMeConfig = PNPRowConfig(type: .switch, placeholder: "")
             
-            let textFormRows = [
-                IconsRow(icon: RowIcon.name, config: nameConfig),
-                IconsRow(icon: RowIcon.email, config: emailConfig),
-                IconsRow(icon: RowIcon.password, config: passwordConfig),
-                IconsRow(icon: RowIcon.address, config: addressConfig),
-                IconsRow(icon: RowIcon.rememberMe, config: rmbMeConfig)
+            let textFormRows: [PNPRow] = [
+                PNPRow(icon: RowIcon.name, config: nameConfig),
+                PNPRow(icon: RowIcon.email, config: emailConfig),
+                PNPRow(icon: RowIcon.password, config: passwordConfig),
+                PNPRow(icon: RowIcon.address, config: addressConfig),
+                PNPRow(icon: RowIcon.rememberMe, config: rmbMeConfig)
             ]
             
             return PNPForm(rows: textFormRows, separatorColor: sepColor)

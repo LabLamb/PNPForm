@@ -31,12 +31,12 @@ class SimpleFormViewController: PNPFormViewController {
             
             let rmbMeConfig = PNPRowConfig(type: .switch, placeholder: String(true))
             
-            let textFormRows = [
-                TextLabelRow(title: RowLabelName.name, config: nameConfig),
-                TextLabelRow(title: RowLabelName.email, config: emailConfig),
-                TextLabelRow(title: RowLabelName.password, config: passwordConfig),
-                TextLabelRow(title: RowLabelName.address, config: addressConfig),
-                TextLabelRow(title: RowLabelName.rememberMe, config: rmbMeConfig)
+            let textFormRows: [PNPRow] = [
+                PNPRow(title: RowLabelName.name, config: nameConfig),
+                PNPRow(title: RowLabelName.email, config: emailConfig),
+                PNPRow(title: RowLabelName.password, config: passwordConfig),
+                PNPRow(title: RowLabelName.address, config: addressConfig),
+                PNPRow(title: RowLabelName.rememberMe, config: rmbMeConfig)
             ]
             
             return PNPForm(rows: textFormRows, separatorColor: sepColor)

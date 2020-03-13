@@ -66,7 +66,9 @@ open class BaseRow: UIView {
         self.valueView = valueView
         self.spacing = spacing
         self.labelWidth = labelWidth
+        
         self.placeholderLabel = placeholder
+        
         self.validationHighlight = {
             let bundle = Bundle(for: BaseRow.self)
             let icon = UIImage(named: "ErrorIcon", in: bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
