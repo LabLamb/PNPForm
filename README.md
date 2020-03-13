@@ -60,11 +60,11 @@ let logic: ValidationLogic = { rowValue in // rowValue is the value of the row a
     // This logic checks if the row has exactly 1 character as input; return true to pass validation, false to fail the validation (Display error)
     return rowValue.count == 1
 }()
-let config = PNPRowConfig(validation: logic)
+let config = PNPRowConfig(validation: .customLogic(logic))
 ```
 
 #### validatedHandling: ValidatedHandling
-This controls what happens when after the validation happens. Provide custom logic by passing it to `ValidatedHandling.custom` or set `PNPFormConstants.System.DefaultValidatedHandler` to your custom function.
+This controls what happens when after the validation happens. Provide custom actions by passing it to `ValidatedHandling.custom` or set `PNPFormConstants.System.DefaultValidatedHandler` to your custom function across all rows.
 `Default: PNPFormConstants.System.DefaultValidatedHandler`  
 Example:
 ```swift
