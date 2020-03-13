@@ -26,7 +26,7 @@ Pod::Spec.new do |spec|
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = <<-DESC
   A library that provoides simple and direct form that is highly customizable without having to inherit a ViewController.
-  <<-DESC
+  DESC
 
   spec.homepage     = "https://github.com/LabLamb/PNPForm"
   spec.screenshots  = "https://github.com/LabLamb/PNPForm/blob/develop/.github/images/example.gif"
