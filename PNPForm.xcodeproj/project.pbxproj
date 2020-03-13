@@ -34,7 +34,6 @@
 		D2518C102418DBC000E38466 /* PNPRowConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2518C0F2418DBC000E38466 /* PNPRowConfig.swift */; };
 		D2518C132418E2F900E38466 /* TypeAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2518C122418E2F900E38466 /* TypeAlias.swift */; };
 		D2518C152418E33300E38466 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2518C142418E33300E38466 /* Enum.swift */; };
-		D284FD91241B54D400D123B5 /* UIToolbar+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D284FD90241B54D400D123B5 /* UIToolbar+Factory.swift */; };
 		D284FD93241B5C3000D123B5 /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D284FD92241B5C3000D123B5 /* SelectionViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -116,7 +115,6 @@
 		D2518C0F2418DBC000E38466 /* PNPRowConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPRowConfig.swift; sourceTree = "<group>"; };
 		D2518C122418E2F900E38466 /* TypeAlias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAlias.swift; sourceTree = "<group>"; };
 		D2518C142418E33300E38466 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
-		D284FD90241B54D400D123B5 /* UIToolbar+Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIToolbar+Factory.swift"; sourceTree = "<group>"; };
 		D284FD92241B5C3000D123B5 /* SelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -234,7 +232,6 @@
 		D21FB9B22418906B006C095F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				D284FD90241B54D400D123B5 /* UIToolbar+Factory.swift */,
 				D21FB9A924187C66006C095F /* UIView+Border.swift */,
 				D21FB9AF241887B1006C095F /* Date+String.swift */,
 				D23FB194241B40F400EE7C52 /* String+Bool.swift */,
@@ -479,7 +476,6 @@
 				D21FB99924187788006C095F /* CustomView.swift in Sources */,
 				D2518C082418AF3100E38466 /* PNPTextView.swift in Sources */,
 				D2518C152418E33300E38466 /* Enum.swift in Sources */,
-				D284FD91241B54D400D123B5 /* UIToolbar+Factory.swift in Sources */,
 				D2518C132418E2F900E38466 /* TypeAlias.swift in Sources */,
 				D2518C0C2418CD9D00E38466 /* PNPFormViewController.swift in Sources */,
 				D21FB9AA24187C66006C095F /* UIView+Border.swift in Sources */,

@@ -15,15 +15,29 @@ class SelectionViewController: UIViewController {
     
     lazy var navToBasicBtn: UIButton = {
         let result = UIButton()
-        result.setTitle("Plain Form", for: .normal)
+        result.setTitle("Basic Form", for: .normal)
         result.setTitleColor(.systemBlue, for: .normal)
+        result.addTarget(self, action: #selector(self.navToBasic), for: .touchUpInside)
         return result
     }()
     
     lazy var navToIconBtn: UIButton = {
         let result = UIButton()
-        result.setTitle("Plain Form", for: .normal)
+        result.setTitle("Icon Form", for: .normal)
         result.setTitleColor(.systemBlue, for: .normal)
+        result.addTarget(self, action: #selector(self.navToIcon), for: .touchUpInside)
+        return result
+    }()
+    
+    lazy var stackView: UIStackView = {
+        let result = UIStackView()
+        result.addArrangedSubview(self.navToBasicBtn)
+        result.addArrangedSubview(self.navToPlainBtn)
+        result.addArrangedSubview(self.navToIconBtn)
+        result.alignment = .center
+        result.axis = .vertical
+        result.distribution = .equalCentering
+        result.spacing = 25
         return result
     }()
     
@@ -35,16 +49,24 @@ class SelectionViewController: UIViewController {
     }
     
     func setupLayout() {
-        self.view.addSubview(navToPlainBtn)
-        self.navToPlainBtn.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(self.stackView)
+        self.stackView.translatesAutoresizingMaskIntoConstraints = false
         [
-            self.navToPlainBtn.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            self.navToPlainBtn.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
-            ].forEach({ $0.isActive = true })
+            self.stackView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            self.stackView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+        ].forEach({ $0.isActive = true })
+    }
+    
+    @objc func navToBasic() {
+        self.navigationController?.pushViewController(BasicFormViewController(), animated: true)
     }
     
     @objc func navToPlain() {
         self.navigationController?.pushViewController(PlainFormViewController(), animated: true)
+    }
+    
+    @objc func navToIcon() {
+        self.navigationController?.pushViewController(IconFormViewController(), animated: true)
     }
     
 }

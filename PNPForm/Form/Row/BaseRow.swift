@@ -7,7 +7,6 @@ import UIKit
 open class BaseRow: UIView {
     
     var labelView: UIView?
-//    let labelContainer: UIView
     
     var valueView: UIView
     let valueContainer: UIView
@@ -65,7 +64,6 @@ open class BaseRow: UIView {
          validatedHandling: ValidatedHandling) {
         
         self.labelView = labelView
-//        self.labelContainer = UIView()
         
         self.valueView = valueView
         self.valueContainer = UIView()
@@ -178,7 +176,7 @@ extension BaseRow: CustomView {
             labelView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             labelView.heightAnchor.constraint(equalToConstant: PNPFormConstants.UI.RowIconDefaultHeight),
             labelViewWidthConstraint
-            ].forEach({ $0.isActive = true })
+        ].forEach({ $0.isActive = true })
     }
     
     private func addValidationHighlight() {

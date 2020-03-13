@@ -83,18 +83,18 @@ public final class PNPRow: BaseRow {
         
         switch config.type {
         case .email:
-            valueView = PNPTextField()
+            valueView = PNPTextField(placeholder: config.placeholder ?? "")
             if validationOption == nil {
                 validationOption = .matchRegex("[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}")
             }
             
         case .password:
-            let txtField = PNPTextField()
+            let txtField = PNPTextField(placeholder: config.placeholder ?? "")
             txtField.isSecureTextEntry = true
             valueView = txtField
             
         case .singleLineText:
-            valueView = PNPTextField()
+            valueView = PNPTextField(placeholder: config.placeholder ?? "")
             
         case .multLineText:
             valueView = PNPTextView()
@@ -118,8 +118,6 @@ public final class PNPRow: BaseRow {
         case .switch:
             valueView = UISwitch()
         }
-        
-        (valueView as? UITextField)?.placeholder = config.placeholder
         
         super.init(labelView: labelView,
                    valueView: valueView,

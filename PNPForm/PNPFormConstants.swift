@@ -15,7 +15,5 @@ public struct PNPFormConstants {
         public static var DefaultValidatedHandler: ValidatedHandler = { row, isValid in
             row.isShowingErrorIcon = !isValid
         }
-        
-//        public static var DefaultKeyboardConfig: PNPKeyboardConfig = PNPKeyboardConfig(keyboardType: .default, inputAccessoryView: <#T##UIView?#>)
     }
 }
