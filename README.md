@@ -1,3 +1,4 @@
+![](.github/images/SimpleForm.png)
 # Plug and Play Form
 A library that provoides simple and direct `form` that is highly customizable without having to inherit a `ViewController`.
 
