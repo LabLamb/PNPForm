@@ -41,7 +41,6 @@ class PlainFormViewController: PNPFormViewController {
             
             return PNPForm(rows: textFormRows, separatorColor: sepColor)
         }()
-
         let submitButton = UIButton()
         submitButton.setTitle("Submit", for: .normal)
         submitButton.setTitleColor(.systemBlue, for: .normal)

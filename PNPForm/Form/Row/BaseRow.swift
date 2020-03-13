@@ -29,7 +29,7 @@ open class BaseRow: UIView {
     
     let spacing: CGFloat
     let labelWidth: CGFloat?
-    let placeholderLabel: UILabel?
+    internal let placeholderLabel: UILabel?
     
     let validationHighlight: UIImageView
     public var isShowingErrorIcon: Bool {
