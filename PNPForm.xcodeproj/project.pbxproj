@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D21FB92F2417F82E006C095F /* PNPForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D21FB9252417F82E006C095F /* PNPForm.framework */; };
-		D21FB9342417F82E006C095F /* PNPFormTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB9332417F82E006C095F /* PNPFormTests.swift */; };
+		D21FB9342417F82E006C095F /* ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB9332417F82E006C095F /* ExtensionTests.swift */; };
 		D21FB9362417F82E006C095F /* PNPForm.h in Headers */ = {isa = PBXBuildFile; fileRef = D21FB9282417F82E006C095F /* PNPForm.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D21FB96F2417F8D5006C095F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB96E2417F8D5006C095F /* AppDelegate.swift */; };
 		D21FB9732417F8D6006C095F /* SimpleFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB9722417F8D6006C095F /* SimpleFormViewController.swift */; };
@@ -90,7 +90,7 @@
 		D21FB9282417F82E006C095F /* PNPForm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PNPForm.h; sourceTree = "<group>"; };
 		D21FB9292417F82E006C095F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D21FB92E2417F82E006C095F /* PNPFormTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PNPFormTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D21FB9332417F82E006C095F /* PNPFormTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPFormTests.swift; sourceTree = "<group>"; };
+		D21FB9332417F82E006C095F /* ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTests.swift; sourceTree = "<group>"; };
 		D21FB9352417F82E006C095F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D21FB96C2417F8D5006C095F /* PNPFormSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PNPFormSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D21FB96E2417F8D5006C095F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 		D21FB9322417F82E006C095F /* PNPFormTests */ = {
 			isa = PBXGroup;
 			children = (
-				D21FB9332417F82E006C095F /* PNPFormTests.swift */,
+				D21FB9332417F82E006C095F /* ExtensionTests.swift */,
 				D21FB9352417F82E006C095F /* Info.plist */,
 			);
 			path = PNPFormTests;
@@ -497,7 +497,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D21FB9342417F82E006C095F /* PNPFormTests.swift in Sources */,
+				D21FB9342417F82E006C095F /* ExtensionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,6 +676,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = PNPForm/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -701,6 +702,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = PNPForm/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
