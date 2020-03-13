@@ -60,6 +60,10 @@ public final class PNPRow: BaseRow {
         }
     }
     
+    override public var intrinsicContentSize: CGSize {
+        return CGSize(width: 0, height: PNPFormConstants.UI.BaseRowDefaultHeight)
+    }
+    
     public convenience init(config: PNPRowConfig = PNPRowConfig()) {
         self.init(labelView: nil, config: config)
     }

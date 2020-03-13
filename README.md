@@ -1,4 +1,4 @@
-![](.github/images/SimpleForm.png)
+![](.github/images/example.gif)
 # Plug and Play Form
 A library that provoides simple and direct `form` that is highly customizable without having to inherit a `ViewController`.
 
@@ -10,8 +10,8 @@ A library that provoides simple and direct `form` that is highly customizable wi
 ```swift
 // Initialize fields inside the form
 let textFormRows = [
-    TextLabelRow(title: "Email"),
-    TextLabelRow(title: "Password")
+    PNPRow(title: "Email"),
+    PNPRow(title: "Password")
 ]
 
 PNPForm(rows: textFormRows, separatorColor: .black)
@@ -24,7 +24,7 @@ Configuration object is used to initialize a row inside the form.
 ```swift
 // Config a row to a multi line input (UITextView)
 let config = PNPRowConfig(type: .multLineText)
-let multilineRow = TextLabelRow(title: "Notes", config)
+let multilineRow = PNPRow(title: "Notes", config)
 ```
 
 ### Configuration options

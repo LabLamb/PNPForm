@@ -29,7 +29,7 @@ open class BaseRow: UIView {
     
     let spacing: CGFloat
     let labelWidth: CGFloat?
-    let placeholderLabel: UILabel?
+    internal let placeholderLabel: UILabel?
     
     let validationHighlight: UIImageView
     public var isShowingErrorIcon: Bool {
@@ -50,10 +50,6 @@ open class BaseRow: UIView {
     }
     
     private let validatedHandling: ValidatedHandling
-    
-    override public var intrinsicContentSize: CGSize {
-        return CGSize(width: 0, height: PNPFormConstants.UI.BaseRowDefaultHeight)
-    }
     
     init(labelView: UIView?,
          valueView: UIView,

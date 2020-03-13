@@ -16,7 +16,6 @@ class PlainFormViewController: PNPFormViewController {
     }
     
     let plainForm: PNPForm
-    let submitButtonForm: PNPForm
     
     override init() {
         let sepColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.5)
@@ -41,18 +40,8 @@ class PlainFormViewController: PNPFormViewController {
             
             return PNPForm(rows: textFormRows, separatorColor: sepColor)
         }()
-
-        let submitButton = UIButton()
-        submitButton.setTitle("Submit", for: .normal)
-        submitButton.setTitleColor(.systemBlue, for: .normal)
-        
-        self.submitButtonForm = {
-            return PNPForm(rows: [submitButton], separatorColor: sepColor)
-        }()
         
         super.init()
-        
-        submitButton.addTarget(self, action: #selector(self.submitButtonPressed), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -62,6 +51,7 @@ class PlainFormViewController: PNPFormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Plain Form"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(self.submitButtonPressed))
     }
     
     @objc func submitButtonPressed() {
@@ -79,15 +69,5 @@ class PlainFormViewController: PNPFormViewController {
             self.plainForm.rightAnchor.constraint(equalTo: self.view.rightAnchor)
         ].forEach({ $0.isActive = true })
         self.plainForm.backgroundColor = .white
-        
-        self.scrollView.addSubview(self.submitButtonForm)
-        self.submitButtonForm.translatesAutoresizingMaskIntoConstraints = false
-        [
-            self.submitButtonForm.topAnchor.constraint(equalTo: self.plainForm.bottomAnchor, constant: 20),
-            self.submitButtonForm.leftAnchor.constraint(equalTo: self.view.leftAnchor),
-            self.submitButtonForm.rightAnchor.constraint(equalTo: self.view.rightAnchor),
-            self.submitButtonForm.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor)
-        ].forEach({ $0.isActive = true })
-        self.submitButtonForm.backgroundColor = .white
     }
 }
