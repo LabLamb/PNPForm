@@ -21,9 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let iconVC = UINavigationController(rootViewController: IconFormViewController())
         iconVC.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 2)
         
+        let plainVC = UINavigationController(rootViewController: PlainFormViewController())
+        plainVC.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 3)
+        
         let tabBarController: UITabBarController = {
             let result = UITabBarController()
-            result.viewControllers = [simpleVC, iconVC]
+            result.viewControllers = [simpleVC, iconVC, plainVC]
             return result
         }()
         

@@ -5,38 +5,30 @@
 import PNPForm
 import UIKit
 
-class IconFormViewController: PNPFormViewController {
+class PlainFormViewController: PNPFormViewController {
     
-    private struct RowIcon {
-        static let name = UIImage()
-        static let email = #imageLiteral(resourceName: "email")
-        static let password = #imageLiteral(resourceName: "password")
-        static let address = UIImage()
-        static let rememberMe = UIImage()
-    }
-    
-    let iconForm: PNPForm
+    let plainForm: PNPForm
     let submitButtonForm: PNPForm
     
     override init() {
         let sepColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.5)
-        self.iconForm = {
-            let nameConfig = PNPRowConfig(placeholder: "Required", validation: .required)
-            let emailConfig = PNPRowConfig(type: .email, placeholder: "example@email.com")
+        self.plainForm = {
+            let nameConfig = PNPRowConfig(placeholder: "Name", validation: .required)
+            let emailConfig = PNPRowConfig(type: .email, placeholder: "Email e.g. example@email.com")
             
             let passwordPattern = #"[^\w\d]*(([0-9]+.*[A-Za-z]+.*)|[A-Za-z]+.*([0-9]+.*))"# // Must have one number and one alphabet
-            let passwordConfig = PNPRowConfig(type: .password,placeholder: "At least 1 alphabet and 1 number", validation: .matchRegex(passwordPattern))
+            let passwordConfig = PNPRowConfig(type: .password,placeholder: "Password", validation: .matchRegex(passwordPattern))
             
-            let addressConfig = PNPRowConfig(type: .multLineText())
+            let addressConfig = PNPRowConfig(type: .multLineText, placeholder: "Address")
             
-            let rmbMeConfig = PNPRowConfig(type: .switch, placeholder: "")
+            let rmbMeConfig = PNPRowConfig(type: .switch, placeholder: "Remeber Me")
             
             let textFormRows: [PNPRow] = [
-                PNPRow(icon: RowIcon.name, config: nameConfig),
-                PNPRow(icon: RowIcon.email, config: emailConfig),
-                PNPRow(icon: RowIcon.password, config: passwordConfig),
-                PNPRow(icon: RowIcon.address, config: addressConfig),
-                PNPRow(icon: RowIcon.rememberMe, config: rmbMeConfig)
+                PNPRow(config: nameConfig),
+                PNPRow(config: emailConfig),
+                PNPRow(config: passwordConfig),
+                PNPRow(config: addressConfig),
+                PNPRow(title: "Remember Me", config: rmbMeConfig)
             ]
             
             return PNPForm(rows: textFormRows, separatorColor: sepColor)
@@ -61,28 +53,28 @@ class IconFormViewController: PNPFormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Icon Form"
+        self.navigationItem.title = "Plain Form"
     }
     
     @objc func submitButtonPressed() {
-        self.iconForm.validateRows()
+        self.plainForm.validateRows()
     }
     
     override func setupLayout() {
         super.setupLayout()
-        self.scrollView.addSubview(self.iconForm)
-        self.iconForm.translatesAutoresizingMaskIntoConstraints = false
+        self.scrollView.addSubview(self.plainForm)
+        self.plainForm.translatesAutoresizingMaskIntoConstraints = false
         [
-            self.iconForm.topAnchor.constraint(equalTo: self.scrollView.topAnchor, constant: 20),
-            self.iconForm.leftAnchor.constraint(equalTo: self.view.leftAnchor),
-            self.iconForm.rightAnchor.constraint(equalTo: self.view.rightAnchor)
+            self.plainForm.topAnchor.constraint(equalTo: self.scrollView.topAnchor, constant: 20),
+            self.plainForm.leftAnchor.constraint(equalTo: self.view.leftAnchor),
+            self.plainForm.rightAnchor.constraint(equalTo: self.view.rightAnchor)
         ].forEach({ $0.isActive = true })
-        self.iconForm.backgroundColor = .white
+        self.plainForm.backgroundColor = .white
         
         self.scrollView.addSubview(self.submitButtonForm)
         self.submitButtonForm.translatesAutoresizingMaskIntoConstraints = false
         [
-            self.submitButtonForm.topAnchor.constraint(equalTo: self.iconForm.bottomAnchor, constant: 20),
+            self.submitButtonForm.topAnchor.constraint(equalTo: self.plainForm.bottomAnchor, constant: 20),
             self.submitButtonForm.leftAnchor.constraint(equalTo: self.view.leftAnchor),
             self.submitButtonForm.rightAnchor.constraint(equalTo: self.view.rightAnchor),
             self.submitButtonForm.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor)

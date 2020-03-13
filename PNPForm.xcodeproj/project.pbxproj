@@ -23,11 +23,10 @@
 		D21FB9AC241881B1006C095F /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB9AB241881B1006C095F /* Form.swift */; };
 		D21FB9B0241887B1006C095F /* Date+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB9AF241887B1006C095F /* Date+String.swift */; };
 		D23FB18B241A578B00EE7C52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D23FB18A241A578B00EE7C52 /* Assets.xcassets */; };
-		D23FB18D241A873000EE7C52 /* PNPSingleLineConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FB18C241A873000EE7C52 /* PNPSingleLineConfig.swift */; };
-		D23FB18F241A87A200EE7C52 /* PNPMultLineConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FB18E241A87A200EE7C52 /* PNPMultLineConfig.swift */; };
 		D23FB191241A917A00EE7C52 /* IconFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FB190241A917A00EE7C52 /* IconFormViewController.swift */; };
 		D23FB193241B341600EE7C52 /* PNPRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FB192241B341600EE7C52 /* PNPRow.swift */; };
 		D23FB195241B40F400EE7C52 /* String+Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FB194241B40F400EE7C52 /* String+Bool.swift */; };
+		D23FB199241B52D900EE7C52 /* PlainFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FB198241B52D900EE7C52 /* PlainFormViewController.swift */; };
 		D2518BFD2418988100E38466 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2518BFC2418988100E38466 /* LaunchScreen.storyboard */; };
 		D2518C032418A74200E38466 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2518C012418A5BE00E38466 /* Assets.xcassets */; };
 		D2518C052418AC6700E38466 /* PNPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2518C042418AC6700E38466 /* PNPTextField.swift */; };
@@ -36,7 +35,7 @@
 		D2518C102418DBC000E38466 /* PNPRowConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2518C0F2418DBC000E38466 /* PNPRowConfig.swift */; };
 		D2518C132418E2F900E38466 /* TypeAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2518C122418E2F900E38466 /* TypeAlias.swift */; };
 		D2518C152418E33300E38466 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2518C142418E33300E38466 /* Enum.swift */; };
-		D2518C172418F26000E38466 /* PNPKeyboardConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2518C162418F26000E38466 /* PNPKeyboardConfig.swift */; };
+		D284FD91241B54D400D123B5 /* UIToolbar+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D284FD90241B54D400D123B5 /* UIToolbar+Factory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,11 +105,10 @@
 		D21FB9AB241881B1006C095F /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
 		D21FB9AF241887B1006C095F /* Date+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
 		D23FB18A241A578B00EE7C52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D23FB18C241A873000EE7C52 /* PNPSingleLineConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPSingleLineConfig.swift; sourceTree = "<group>"; };
-		D23FB18E241A87A200EE7C52 /* PNPMultLineConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPMultLineConfig.swift; sourceTree = "<group>"; };
 		D23FB190241A917A00EE7C52 /* IconFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFormViewController.swift; sourceTree = "<group>"; };
 		D23FB192241B341600EE7C52 /* PNPRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPRow.swift; sourceTree = "<group>"; };
 		D23FB194241B40F400EE7C52 /* String+Bool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Bool.swift"; sourceTree = "<group>"; };
+		D23FB198241B52D900EE7C52 /* PlainFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainFormViewController.swift; sourceTree = "<group>"; };
 		D2518BFC2418988100E38466 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2518C012418A5BE00E38466 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2518C042418AC6700E38466 /* PNPTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNPTextField.swift; sourceTree = "<group>"; };
@@ -119,7 +117,7 @@
 		D2518C0F2418DBC000E38466 /* PNPRowConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPRowConfig.swift; sourceTree = "<group>"; };
 		D2518C122418E2F900E38466 /* TypeAlias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAlias.swift; sourceTree = "<group>"; };
 		D2518C142418E33300E38466 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
-		D2518C162418F26000E38466 /* PNPKeyboardConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPKeyboardConfig.swift; sourceTree = "<group>"; };
+		D284FD90241B54D400D123B5 /* UIToolbar+Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIToolbar+Factory.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,8 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				D21FB96E2417F8D5006C095F /* AppDelegate.swift */,
-				D21FB9722417F8D6006C095F /* SimpleFormViewController.swift */,
-				D23FB190241A917A00EE7C52 /* IconFormViewController.swift */,
+				D23FB19A241B531F00EE7C52 /* SampleViewControllers */,
 				D2518BFC2418988100E38466 /* LaunchScreen.storyboard */,
 				D21FB97C2417F8D6006C095F /* Info.plist */,
 				D2518C012418A5BE00E38466 /* Assets.xcassets */,
@@ -237,6 +234,7 @@
 		D21FB9B22418906B006C095F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				D284FD90241B54D400D123B5 /* UIToolbar+Factory.swift */,
 				D21FB9A924187C66006C095F /* UIView+Border.swift */,
 				D21FB9AF241887B1006C095F /* Date+String.swift */,
 				D23FB194241B40F400EE7C52 /* String+Bool.swift */,
@@ -273,6 +271,16 @@
 			path = Row;
 			sourceTree = "<group>";
 		};
+		D23FB19A241B531F00EE7C52 /* SampleViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D23FB198241B52D900EE7C52 /* PlainFormViewController.swift */,
+				D21FB9722417F8D6006C095F /* SimpleFormViewController.swift */,
+				D23FB190241A917A00EE7C52 /* IconFormViewController.swift */,
+			);
+			path = SampleViewControllers;
+			sourceTree = "<group>";
+		};
 		D2518C062418AC7F00E38466 /* CustomValueViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,9 +294,6 @@
 			isa = PBXGroup;
 			children = (
 				D2518C0F2418DBC000E38466 /* PNPRowConfig.swift */,
-				D2518C162418F26000E38466 /* PNPKeyboardConfig.swift */,
-				D23FB18C241A873000EE7C52 /* PNPSingleLineConfig.swift */,
-				D23FB18E241A87A200EE7C52 /* PNPMultLineConfig.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -473,16 +478,14 @@
 				D21FB9A824187B2A006C095F /* PNPForm.swift in Sources */,
 				D2518C102418DBC000E38466 /* PNPRowConfig.swift in Sources */,
 				D21FB99924187788006C095F /* CustomView.swift in Sources */,
-				D2518C172418F26000E38466 /* PNPKeyboardConfig.swift in Sources */,
 				D2518C082418AF3100E38466 /* PNPTextView.swift in Sources */,
 				D2518C152418E33300E38466 /* Enum.swift in Sources */,
+				D284FD91241B54D400D123B5 /* UIToolbar+Factory.swift in Sources */,
 				D2518C132418E2F900E38466 /* TypeAlias.swift in Sources */,
 				D2518C0C2418CD9D00E38466 /* PNPFormViewController.swift in Sources */,
-				D23FB18F241A87A200EE7C52 /* PNPMultLineConfig.swift in Sources */,
 				D21FB9AA24187C66006C095F /* UIView+Border.swift in Sources */,
 				D23FB195241B40F400EE7C52 /* String+Bool.swift in Sources */,
 				D21FB99B241879B1006C095F /* PNPFormConstants.swift in Sources */,
-				D23FB18D241A873000EE7C52 /* PNPSingleLineConfig.swift in Sources */,
 				D2518C052418AC6700E38466 /* PNPTextField.swift in Sources */,
 				D23FB193241B341600EE7C52 /* PNPRow.swift in Sources */,
 				D21FB9AC241881B1006C095F /* Form.swift in Sources */,
@@ -504,6 +507,7 @@
 				D21FB9732417F8D6006C095F /* SimpleFormViewController.swift in Sources */,
 				D23FB191241A917A00EE7C52 /* IconFormViewController.swift in Sources */,
 				D21FB96F2417F8D5006C095F /* AppDelegate.swift in Sources */,
+				D23FB199241B52D900EE7C52 /* PlainFormViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,8 +7,10 @@ import UIKit
 open class BaseRow: UIView {
     
     var labelView: UIView?
+    let labelContainer: UIView
+    
     var valueView: UIView
-    var valueContainer: UIView
+    let valueContainer: UIView
     
     public var label: Any {
         get {
@@ -61,9 +63,13 @@ open class BaseRow: UIView {
          placeholder: UILabel? = nil,
          validateOption: ValidateOption,
          validatedHandling: ValidatedHandling) {
+        
         self.labelView = labelView
-        self.valueContainer = UIView()
+        self.labelContainer = UIView()
+        
         self.valueView = valueView
+        self.valueContainer = UIView()
+        
         self.spacing = spacing
         self.labelWidth = labelWidth
         
