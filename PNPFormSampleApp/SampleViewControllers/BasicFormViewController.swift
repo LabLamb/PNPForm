@@ -5,10 +5,10 @@
 import PNPForm
 import UIKit
 
-class SimpleFormViewController: PNPFormViewController {
+class BasicFormViewController: PNPFormViewController {
     
-    private struct RowLabelName {
-        static let name = "Name"
+    private struct RowLabel {
+        static let username = "Username"
         static let email = "Email"
         static let password = "Password"
         static let address = "Address"
@@ -21,22 +21,22 @@ class SimpleFormViewController: PNPFormViewController {
     override init() {
         let sepColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.5)
         self.simpleForm = {
-            let nameConfig = PNPRowConfig(placeholder: "Required", validation: .required)
+            let usernameConfig = PNPRowConfig(placeholder: "Required", validation: .required)
             let emailConfig = PNPRowConfig(type: .email, placeholder: "example@email.com")
             
             let passwordPattern = #"[^\w\d]*(([0-9]+.*[A-Za-z]+.*)|[A-Za-z]+.*([0-9]+.*))"# // Must have one number and one alphabet
             let passwordConfig = PNPRowConfig(type: .password,placeholder: "At least 1 alphabet and 1 number", validation: .matchRegex(passwordPattern))
             
-            let addressConfig = PNPRowConfig(type: .multLineText())
+            let addressConfig = PNPRowConfig(type: .multLineText)
             
-            let rmbMeConfig = PNPRowConfig(type: .switch)
+            let rmbMeConfig = PNPRowConfig(type: .switch, placeholder: String(true))
             
-            let textFormRows = [
-                TextLabelRow(title: RowLabelName.name, config: nameConfig),
-                TextLabelRow(title: RowLabelName.email, config: emailConfig),
-                TextLabelRow(title: RowLabelName.password, config: passwordConfig),
-                TextLabelRow(title: RowLabelName.address, config: addressConfig),
-                TextLabelRow(title: RowLabelName.rememberMe, config: rmbMeConfig)
+            let textFormRows: [PNPRow] = [
+                PNPRow(title: RowLabel.username, config: usernameConfig),
+                PNPRow(title: RowLabel.email, config: emailConfig),
+                PNPRow(title: RowLabel.password, config: passwordConfig),
+                PNPRow(title: RowLabel.address, config: addressConfig),
+                PNPRow(title: RowLabel.rememberMe, config: rmbMeConfig)
             ]
             
             return PNPForm(rows: textFormRows, separatorColor: sepColor)
@@ -61,7 +61,7 @@ class SimpleFormViewController: PNPFormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Simple Form"
+        self.navigationItem.title = "Basic Form"
     }
     
     @objc func submitButtonPressed() {

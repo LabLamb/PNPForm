@@ -7,8 +7,8 @@ import UIKit
 public enum RowType {
     case email
     case password
-    case singleLineText(PNPSingleLineConfig? = nil)
-    case multLineText(PNPMultLineConfig? = nil)
+    case singleLineText
+    case multLineText
     case `switch`
 }
 

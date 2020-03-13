@@ -7,8 +7,9 @@ import UIKit
 open class BaseRow: UIView {
     
     var labelView: UIView?
+    
     var valueView: UIView
-    var valueContainer: UIView
+    let valueContainer: UIView
     
     public var label: Any {
         get {
@@ -61,12 +62,17 @@ open class BaseRow: UIView {
          placeholder: UILabel? = nil,
          validateOption: ValidateOption,
          validatedHandling: ValidatedHandling) {
+        
         self.labelView = labelView
-        self.valueContainer = UIView()
+        
         self.valueView = valueView
+        self.valueContainer = UIView()
+        
         self.spacing = spacing
         self.labelWidth = labelWidth
+        
         self.placeholderLabel = placeholder
+        
         self.validationHighlight = {
             let bundle = Bundle(for: BaseRow.self)
             let icon = UIImage(named: "ErrorIcon", in: bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
@@ -158,15 +164,19 @@ extension BaseRow: CustomView {
             if let width = self.labelWidth {
                 return labelView.widthAnchor.constraint(equalToConstant: width)
             } else {
-                return labelView.widthAnchor.constraint(equalToConstant: labelView.intrinsicContentSize.width)
+                if labelView is UIImageView {
+                    return labelView.widthAnchor.constraint(equalTo: labelView.heightAnchor)
+                } else {
+                    return labelView.widthAnchor.constraint(equalToConstant: labelView.intrinsicContentSize.width)
+                }
             }
         }()
         [
             labelView.leftAnchor.constraint(equalTo: self.leftAnchor),
             labelView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            labelView.heightAnchor.constraint(equalToConstant: PNPFormConstants.UI.BaseRowDefaultHeight),
+            labelView.heightAnchor.constraint(equalToConstant: PNPFormConstants.UI.RowIconDefaultHeight),
             labelViewWidthConstraint
-            ].forEach({ $0.isActive = true })
+        ].forEach({ $0.isActive = true })
     }
     
     private func addValidationHighlight() {
