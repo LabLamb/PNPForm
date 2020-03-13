@@ -9,16 +9,11 @@ public final class PNPTextField: UITextField {
     private let maxTextLength: Int
     
     public init(placeholder: String = "",
-         inputKeyboardType: UIKeyboardType = .default,
-         textAlign: NSTextAlignment = .left,
-         maxTextLength: Int = .max) {
+                maxTextLength: Int = .max) {
         self.maxTextLength = maxTextLength
-        
+
         super.init(frame: .zero)
-        
-        self.keyboardType = inputKeyboardType
         self.placeholder = placeholder
-        self.textAlignment = textAlign
         self.delegate = self
     }
     
