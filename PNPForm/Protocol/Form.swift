@@ -16,4 +16,5 @@ public protocol Form {
     func extractRowValuesInOrder() -> [String]
     func extractRowValues(withLabelTextList list: [String]) -> [String: String]
     func extractRowValues(withLabelIconList list: [UIImage]) -> [UIImage: String]
+    func appendView(view: UIView)
 }

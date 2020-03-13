@@ -5,6 +5,7 @@
 import XCTest
 @testable import PNPForm
 
+@available(iOS 13.0, *)
 class PNPFormTests: XCTestCase {
     
     let rowTitles = [
