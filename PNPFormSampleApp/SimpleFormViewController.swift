@@ -29,7 +29,7 @@ class SimpleFormViewController: PNPFormViewController {
             
             let addressConfig = PNPRowConfig(type: .multLineText())
             
-            let rmbMeConfig = PNPRowConfig(type: .switch)
+            let rmbMeConfig = PNPRowConfig(type: .switch, placeholder: String(true))
             
             let textFormRows = [
                 TextLabelRow(title: RowLabelName.name, config: nameConfig),
