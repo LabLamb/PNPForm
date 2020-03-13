@@ -51,10 +51,6 @@ open class BaseRow: UIView {
     
     private let validatedHandling: ValidatedHandling
     
-    override public var intrinsicContentSize: CGSize {
-        return CGSize(width: 0, height: PNPFormConstants.UI.BaseRowDefaultHeight)
-    }
-    
     init(labelView: UIView?,
          valueView: UIView,
          spacing: CGFloat = 0,

@@ -7,17 +7,14 @@ import UIKit
 public final class PNPForm: UIView {
     
     private let stackView: UIStackView
-    let formRows: [BaseRow]
-    let separatorColor: UIColor
-    let forceDefaultHeight: Bool
+    private let formRows: [BaseRow]
+    private let separatorColor: UIColor
     
     public init(rows: [UIView],
-         separatorColor: UIColor,
-         forceDefaultHeight: Bool = true) {
+         separatorColor: UIColor) {
         self.stackView = UIStackView()
         self.formRows = rows.filter({ $0 is BaseRow }) as! [BaseRow]
         self.separatorColor = separatorColor
-        self.forceDefaultHeight = forceDefaultHeight
         
         super.init(frame: .zero)
         
@@ -59,10 +56,6 @@ extension PNPForm: CustomView {
                 view.widthAnchor.constraint(equalTo: self.stackView.widthAnchor, multiplier: 0.95)
             ].forEach({ $0.isActive = true })
             
-            if self.forceDefaultHeight && (view is CustomView) == false {
-                view.heightAnchor.constraint(equalToConstant: PNPFormConstants.UI.BaseRowDefaultHeight).isActive = true
-            }
-            
             view.backgroundColor = .clear
             view.addLine(position: .maxYEdge, color: self.separatorColor, weight: 1)
         }
@@ -70,6 +63,11 @@ extension PNPForm: CustomView {
 }
 
 extension PNPForm: Form {
+    
+    public func getRows() -> [BaseRow] {
+        return self.formRows
+    }
+    
     public func getRows(withLabelIcon labelIcon: UIImage) -> [BaseRow] {
         return self.formRows.filter({ view in
             (view.label as? UIImage) == labelIcon
@@ -88,7 +86,18 @@ extension PNPForm: Form {
         })
     }
     
-    public func prefillRows(values: [String: String]) {
+    public func validateRows() {
+        self.formRows.forEach({ $0.validateRow() })
+    }
+    
+    public func prefillRowsInOrder(orderedValues values: [String]) {
+        let runs = min(values.count, self.formRows.count)
+        for i in 0..<runs {
+            self.formRows[i].value = values[i]
+        }
+    }
+    
+    public func prefillRows(titleValueMap values: [String: String]) {
         self.formRows.forEach({ row in
             if let label = row.label as? String, let value = values[label] {
                 row.value = value
@@ -96,11 +105,15 @@ extension PNPForm: Form {
         })
     }
     
-    public func validateRows() {
-        self.formRows.forEach({ $0.validateRow() })
+    public func prefillRows(iconValueMap values: [UIImage: String]) {
+        self.formRows.forEach({ row in
+            if let label = row.label as? UIImage, let value = values[label] {
+                row.value = value
+            }
+        })
     }
     
-    public func extractRowValues() -> [String] {
+    public func extractRowValuesInOrder() -> [String] {
         var result = [String]()
         self.formRows.forEach({ row in
             if let val = row.value {
@@ -113,9 +126,21 @@ extension PNPForm: Form {
     public func extractRowValues(withLabelTextList list: [String]) -> [String: String] {
         var result: [String: String] = [:]
         self.formRows.forEach({ row in
-            if let desc = row.label as? String,
-                list.contains(desc) {
-                result[desc] = row.value
+            if let label = row.label as? String,
+                list.contains(label) {
+                result[label] = row.value
+            }
+        })
+        return result
+    }
+    
+    
+    public func extractRowValues(withLabelIconList list: [UIImage]) -> [UIImage : String] {
+                var result: [UIImage: String] = [:]
+        self.formRows.forEach({ row in
+            if let label = row.label as? UIImage,
+                list.contains(label) {
+                result[label] = row.value
             }
         })
         return result
