@@ -12,7 +12,7 @@ class SimpleFormViewController: PNPFormViewController {
         static let email = "Email"
         static let password = "Password"
         static let address = "Address"
-        static let rememberMe = "Remeber me"
+        static let rememberMe = "Remember me"
     }
     
     let simpleForm: PNPForm
@@ -22,10 +22,10 @@ class SimpleFormViewController: PNPFormViewController {
         let sepColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.5)
         self.simpleForm = {
             let nameConfig = PNPRowConfig(placeholder: "Required", validation: .required)
-            let emailConfig = PNPRowConfig(placeholder: "example@email.com", validation: .pattern(.email))
+            let emailConfig = PNPRowConfig(type: .email, placeholder: "example@email.com")
             
             let passwordPattern = #"[^\w\d]*(([0-9]+.*[A-Za-z]+.*)|[A-Za-z]+.*([0-9]+.*))"# // Must have one number and one alphabet
-            let passwordConfig = PNPRowConfig(placeholder: "At least 1 alphabet and 1 number", validation: .customPattern(passwordPattern))
+            let passwordConfig = PNPRowConfig(type: .password,placeholder: "At least 1 alphabet and 1 number", validation: .matchRegex(passwordPattern))
             
             let addressConfig = PNPRowConfig(type: .multLineText())
             

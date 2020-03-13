@@ -12,7 +12,7 @@ class IconFormViewController: PNPFormViewController {
         static let email = #imageLiteral(resourceName: "email")
         static let password = #imageLiteral(resourceName: "password")
         static let address = UIImage()
-        static let remeberMe = UIImage()
+        static let rememberMe = UIImage()
     }
     
     let iconForm: PNPForm
@@ -21,22 +21,22 @@ class IconFormViewController: PNPFormViewController {
     override init() {
         let sepColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.5)
         self.iconForm = {
-            let nameConfig = PNPRowConfig(validation: .required)
-            let emailConfig = PNPRowConfig(placeholder: "example@email.com", validation: .pattern(.email))
+            let nameConfig = PNPRowConfig(placeholder: "Required", validation: .required)
+            let emailConfig = PNPRowConfig(type: .email, placeholder: "example@email.com")
             
             let passwordPattern = #"[^\w\d]*(([0-9]+.*[A-Za-z]+.*)|[A-Za-z]+.*([0-9]+.*))"# // Must have one number and one alphabet
-            let passwordConfig = PNPRowConfig(validation: .customPattern(passwordPattern))
+            let passwordConfig = PNPRowConfig(type: .password,placeholder: "At least 1 alphabet and 1 number", validation: .matchRegex(passwordPattern))
             
             let addressConfig = PNPRowConfig(type: .multLineText())
             
-            let testConfig = PNPRowConfig(type: .switch)
+            let rmbMeConfig = PNPRowConfig(type: .switch, placeholder: "")
             
             let textFormRows = [
                 IconsRow(icon: RowIcon.name, config: nameConfig),
                 IconsRow(icon: RowIcon.email, config: emailConfig),
                 IconsRow(icon: RowIcon.password, config: passwordConfig),
                 IconsRow(icon: RowIcon.address, config: addressConfig),
-                IconsRow(icon: RowIcon.remeberMe, config: testConfig)
+                IconsRow(icon: RowIcon.rememberMe, config: rmbMeConfig)
             ]
             
             return PNPForm(rows: textFormRows, separatorColor: sepColor)

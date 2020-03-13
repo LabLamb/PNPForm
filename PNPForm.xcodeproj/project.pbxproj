@@ -27,6 +27,7 @@
 		D23FB18D241A873000EE7C52 /* PNPSingleLineConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FB18C241A873000EE7C52 /* PNPSingleLineConfig.swift */; };
 		D23FB18F241A87A200EE7C52 /* PNPMultLineConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FB18E241A87A200EE7C52 /* PNPMultLineConfig.swift */; };
 		D23FB191241A917A00EE7C52 /* IconFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FB190241A917A00EE7C52 /* IconFormViewController.swift */; };
+		D23FB193241B341600EE7C52 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FB192241B341600EE7C52 /* Row.swift */; };
 		D2518BFD2418988100E38466 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2518BFC2418988100E38466 /* LaunchScreen.storyboard */; };
 		D2518BFF2418A39000E38466 /* IconsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2518BFE2418A39000E38466 /* IconsRow.swift */; };
 		D2518C032418A74200E38466 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2518C012418A5BE00E38466 /* Assets.xcassets */; };
@@ -110,6 +111,7 @@
 		D23FB18C241A873000EE7C52 /* PNPSingleLineConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPSingleLineConfig.swift; sourceTree = "<group>"; };
 		D23FB18E241A87A200EE7C52 /* PNPMultLineConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPMultLineConfig.swift; sourceTree = "<group>"; };
 		D23FB190241A917A00EE7C52 /* IconFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFormViewController.swift; sourceTree = "<group>"; };
+		D23FB192241B341600EE7C52 /* Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
 		D2518BFC2418988100E38466 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2518BFE2418A39000E38466 /* IconsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsRow.swift; sourceTree = "<group>"; };
 		D2518C012418A5BE00E38466 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				D21FB98E241801E6006C095F /* BaseRow.swift */,
+				D23FB192241B341600EE7C52 /* Row.swift */,
 				D21FB9AD241883A6006C095F /* TextLabelRow.swift */,
 				D2518BFE2418A39000E38466 /* IconsRow.swift */,
 				D2518C062418AC7F00E38466 /* CustomValueViews */,
@@ -485,6 +488,7 @@
 				D21FB99B241879B1006C095F /* PNPFormConstants.swift in Sources */,
 				D23FB18D241A873000EE7C52 /* PNPSingleLineConfig.swift in Sources */,
 				D2518C052418AC6700E38466 /* PNPTextField.swift in Sources */,
+				D23FB193241B341600EE7C52 /* Row.swift in Sources */,
 				D21FB9AC241881B1006C095F /* Form.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

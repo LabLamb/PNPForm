@@ -91,12 +91,7 @@ open class BaseRow: UIView {
                 guard let rowString = rowValue else { return false }
                 return rowString.count >= min
                 
-            case .pattern(let pattern):
-                guard let rowString = rowValue else { return false }
-                let pred = NSPredicate(format:"SELF MATCHES %@", pattern.rawValue)
-                return pred.evaluate(with: rowString)
-                
-            case .customPattern(let pattern):
+            case .matchRegex(let pattern):
                 guard let rowString = rowValue else { return false }
                 let pred = NSPredicate(format:"SELF MATCHES %@", pattern)
                 return pred.evaluate(with: rowString)
@@ -149,7 +144,7 @@ open class BaseRow: UIView {
 }
 
 extension BaseRow: CustomView {
-    private func resetView() {
+    private func resetViews() {
         self.subviews.forEach({
             $0.removeConstraints($0.constraints)
             $0.removeFromSuperview()
@@ -159,7 +154,7 @@ extension BaseRow: CustomView {
     private func addLabelView(_ labelView: UIView) {
         self.addSubview(labelView)
         labelView.translatesAutoresizingMaskIntoConstraints = false
-        let labeViewWidthConstraint: NSLayoutConstraint = {
+        let labelViewWidthConstraint: NSLayoutConstraint = {
             if let width = self.labelWidth {
                 return labelView.widthAnchor.constraint(equalToConstant: width)
             } else {
@@ -170,7 +165,7 @@ extension BaseRow: CustomView {
             labelView.leftAnchor.constraint(equalTo: self.leftAnchor),
             labelView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             labelView.heightAnchor.constraint(equalToConstant: PNPFormConstants.UI.BaseRowDefaultHeight),
-            labeViewWidthConstraint
+            labelViewWidthConstraint
             ].forEach({ $0.isActive = true })
     }
     
@@ -214,19 +209,9 @@ extension BaseRow: CustomView {
             ].forEach({ $0.isActive = true })
     }
     
-    @objc open func setupLayout() {
-        self.resetView()
-
-        if let `labelView` = self.labelView {
-            self.addLabelView(labelView)
-        }
-        
-        self.addValidationHighlight()
-        self.addValueViewContainer()
-        
+    private func addValueView() {
         self.addSubview(self.valueView)
         self.valueView.translatesAutoresizingMaskIntoConstraints = false
-        
         let valueViewConstraints: [NSLayoutConstraint] = {
             var result = [NSLayoutConstraint]()
             switch self.valueView {
@@ -245,8 +230,19 @@ extension BaseRow: CustomView {
             }
             return result
         }()
-        
         valueViewConstraints.forEach({ $0.isActive = true })
+    }
+    
+    @objc open func setupLayout() {
+        self.resetViews()
+
+        if let `labelView` = self.labelView {
+            self.addLabelView(labelView)
+        }
+        
+        self.addValidationHighlight()
+        self.addValueViewContainer()
+        self.addValueView()
         
         if let `placeholderLabel` = self.placeholderLabel {
             self.addPlaceholderLabel(placeholderLabel)

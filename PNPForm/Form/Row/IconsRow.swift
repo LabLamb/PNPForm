@@ -55,39 +55,58 @@ public final class IconsRow: BaseRow {
         }()
         
         switch config.type {
+        case .email:
+            self.init(icon: icon,
+                      with: PNPTextField(),
+                      spacing: config.spacing,
+                      labelWidth: config.labelWidth,
+                      placeholder: config.placeholder,
+                      validateOption: config.validation ?? .matchRegex("[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"),
+                      validatedHandling: .default)
+        case .password:
+            let txtField = PNPTextField()
+            txtField.isSecureTextEntry = true
+            self.init(icon: icon,
+                      with: txtField,
+                      spacing: config.spacing,
+                      labelWidth: config.labelWidth,
+                      placeholder: config.placeholder,
+                      validateOption: config.validation ?? .required,
+                      validatedHandling: .default)
         case .singleLineText:
             self.init(icon: icon,
                       with: PNPTextField(),
                       spacing: config.spacing,
                       labelWidth: config.labelWidth,
                       placeholder: config.placeholder,
-                      validateOption: config.validation,
+                      validateOption: config.validation ?? .matchRegex("[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"),
                       validatedHandling: config.validatedHandling)
         case .multLineText:
             self.init(icon: icon,
-                      with: PNPTextView(placeholder: ""),
+                      with: PNPTextView(),
                       spacing: config.spacing,
                       labelWidth: config.labelWidth,
                       placeholder: placeholderLabel,
-                      validateOption: config.validation,
+                      validateOption: config.validation ?? .matchRegex("[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"),
                       validatedHandling: config.validatedHandling)
         case .switch:
             self.init(icon: icon,
                       with: UISwitch(),
                       spacing: config.spacing,
                       labelWidth: config.labelWidth,
-                      validateOption: config.validation,
+                      placeholder: placeholderLabel,
+                      validateOption: config.validation ?? .matchRegex("[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"),
                       validatedHandling: config.validatedHandling)
         }
     }
     
     private init(icon: UIImage,
-         with textField: UITextField,
-         spacing: CGFloat = 0,
-         labelWidth: CGFloat? = nil,
-         placeholder: String?,
-         validateOption: ValidateOption,
-         validatedHandling: ValidatedHandling) {
+                 with textField: UITextField,
+                 spacing: CGFloat = 0,
+                 labelWidth: CGFloat? = nil,
+                 placeholder: String?,
+                 validateOption: ValidateOption,
+                 validatedHandling: ValidatedHandling) {
         
         textField.placeholder = placeholder
         
@@ -102,12 +121,12 @@ public final class IconsRow: BaseRow {
     }
     
     private init(icon: UIImage,
-         with textView: UITextView,
-         spacing: CGFloat = 0,
-         labelWidth: CGFloat? = nil,
-         placeholder: UILabel?,
-         validateOption: ValidateOption,
-         validatedHandling: ValidatedHandling) {
+                 with textView: UITextView,
+                 spacing: CGFloat = 0,
+                 labelWidth: CGFloat? = nil,
+                 placeholder: UILabel?,
+                 validateOption: ValidateOption,
+                 validatedHandling: ValidatedHandling) {
         
         textView.textContainer.heightTracksTextView = true
         textView.textContainer.widthTracksTextView = false
@@ -137,11 +156,16 @@ public final class IconsRow: BaseRow {
     }
     
     private init(icon: UIImage,
-         with switchView: UISwitch,
-         spacing: CGFloat = 0,
-         labelWidth: CGFloat? = nil,
-         validateOption: ValidateOption,
-         validatedHandling: ValidatedHandling) {
+                 with switchView: UISwitch,
+                 spacing: CGFloat = 0,
+                 labelWidth: CGFloat? = nil,
+                 placeholder: UILabel?,
+                 validateOption: ValidateOption,
+                 validatedHandling: ValidatedHandling) {
+        
+        if placeholder != nil {
+            switchView.isOn = true
+        }
         
         super.init(labelView: UILabel(),
                    valueView: switchView,

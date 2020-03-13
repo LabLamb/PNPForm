@@ -8,7 +8,7 @@ public final class PNPTextView: UITextView {
     
     public let placeholder: String
     
-    init(placeholder: String) {
+    init(placeholder: String = "") {
         self.placeholder = placeholder
         super.init(frame: .zero, textContainer: nil)
     }

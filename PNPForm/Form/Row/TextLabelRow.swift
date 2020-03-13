@@ -55,28 +55,46 @@ public final class TextLabelRow: BaseRow {
         }()
         
         switch config.type {
+        case .email:
+            self.init(title: title,
+                      with: PNPTextField(),
+                      spacing: config.spacing,
+                      labelWidth: config.labelWidth,
+                      placeholder: config.placeholder,
+                      validateOption: config.validation ?? .matchRegex("[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"),
+                      validatedHandling: .default)
+        case .password:
+            let txtField = PNPTextField()
+            txtField.isSecureTextEntry = true
+            self.init(title: title,
+                      with: txtField,
+                      spacing: config.spacing,
+                      labelWidth: config.labelWidth,
+                      placeholder: config.placeholder,
+                      validateOption: config.validation ?? .required,
+                      validatedHandling: .default)
         case .singleLineText:
             self.init(title: title,
                       with: PNPTextField(),
                       spacing: config.spacing,
                       labelWidth: config.labelWidth,
                       placeholder: config.placeholder,
-                      validateOption: config.validation,
+                      validateOption: config.validation ?? .optional,
                       validatedHandling: config.validatedHandling)
         case .multLineText:
             self.init(title: title,
-                      with: PNPTextView(placeholder: ""),
+                      with: PNPTextView(),
                       spacing: config.spacing,
                       labelWidth: config.labelWidth,
                       placeholder: placeholderLabel,
-                      validateOption: config.validation,
+                      validateOption: config.validation ?? .optional,
                       validatedHandling: config.validatedHandling)
         case .switch:
             self.init(title: title,
                       with: UISwitch(),
                       spacing: config.spacing,
                       labelWidth: config.labelWidth,
-                      validateOption: config.validation,
+                      validateOption: config.validation ?? .optional,
                       validatedHandling: config.validatedHandling)
         }
     }
