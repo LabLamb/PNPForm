@@ -25,7 +25,7 @@ Pod::Spec.new do |spec|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = <<-DESC
-  A library that provoides simple and direct form that is highly customizable without having to inherit a ViewController.
+  A library that provides simple and direct form that is highly customizable without having to inherit a ViewController.
   DESC
 
   spec.homepage     = "https://github.com/LabLamb/PNPForm"
@@ -105,8 +105,8 @@ Pod::Spec.new do |spec|
   #  non-essential files like tests, examples and documentation.
   #
 
-  # spec.resource  = "icon.png"
-  # spec.resources = "Resources/*.png"
+  # spec.resource  = "PNPForm/PNPForm/PNPFormAssets.xcassets/ErrorIcon.imageset/*.png"
+  # spec.resources = "PNPForm/PNPForm/PNPFormAssets.xcassets/ErrorIcon.imageset/*.png"
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 

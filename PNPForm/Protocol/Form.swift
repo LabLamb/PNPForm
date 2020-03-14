@@ -8,8 +8,9 @@ public protocol Form {
     func getRows() -> [BaseRow]
     func getRows(withLabelIcon labelIcon: UIImage) -> [BaseRow]
     func getRows(withLabelText labelText: String) -> [BaseRow]
-    func getViews(withRowClass rowClass: AnyClass) -> [UIView]
-    func validateRows()
+    func getViews() -> [UIView]
+    func getViews(withViewClass rowClass: AnyClass) -> [UIView]
+    func validateRows() -> Bool
     func prefillRowsInOrder(orderedValues values: [String])
     func prefillRows(titleValueMap values: [String: String])
     func prefillRows(iconValueMap values: [UIImage: String])

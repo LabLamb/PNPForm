@@ -47,6 +47,10 @@ class PNPFormTests: XCTestCase {
         return PNPForm(rows: rows, separatorColor: .black)
     }
     
+    func makeMockFormWithRandomViews(views: [UIView]) -> Form {
+        return PNPForm(rows: views, separatorColor: .black)
+    }
+    
     func testGetRowsShouldReturnEmptyIfNoRows() {
         let form = PNPForm(rows: [], separatorColor: .black)
         XCTAssert(form.getRows() == [])
@@ -64,7 +68,7 @@ class PNPFormTests: XCTestCase {
     
     func testGetViewsWithRowClassShouldReturnEmptyNoRows() {
         let form = PNPForm(rows: [], separatorColor: .black)
-        XCTAssert(form.getViews(withRowClass: UIApplicationDelegate.self) == [])
+        XCTAssert(form.getViews(withViewClass: UIApplicationDelegate.self) == [])
     }
     
     func testExtractRowValuesInOrderShouldReturnEmptyIfNoRows() {
@@ -86,12 +90,12 @@ class PNPFormTests: XCTestCase {
         let form = self.makeMockFormWithTitles()
         let rows = form.getRows()
         for i in 0..<rows.count {
-            XCTAssert(rows[i].label as? String == self.rowTitles[i]) // Check if they are the same rows
+            XCTAssert(rows[i].label as? String == self.rowTitles[i])
         }
-        XCTAssert(form.getRows().count == self.rowTitles.count) // Check if the row number is the same
+        XCTAssert(form.getRows().count == self.rowTitles.count)
     }
     
-    func testGetRowsWithLabelIconShouldReturnAllRows() {
+    func testGetRowsWithLabelIconShouldReturn() {
         let index = 0
         let form = self.makeMockFormWithIcons()
         let row = form.getRows(withLabelIcon: self.rowIcons[index]).first
@@ -103,15 +107,52 @@ class PNPFormTests: XCTestCase {
         XCTAssert(row != nil && labelIcon == self.rowIcons[index])
     }
     
-    func testGetRowsWithLabelTitleShouldReturnAllRows() {
+    func testGetRowsWithLabelTitleShouldReturn() {
         let index = 0
         let form = self.makeMockFormWithTitles()
         let row = form.getRows(withLabelText: self.rowTitles[index]).first
         
         guard let labelString = row?.label as? String else {
-            XCTFail("Label Icon is not String.")
+            XCTFail("Label Title is not String.")
             return
         }
         XCTAssert(row != nil && labelString == self.rowTitles[index])
+    }
+    
+    func testGetViewsShouldReturn() {
+        let views = [UITextView(), UIImageView()]
+        let form = self.makeMockFormWithRandomViews(views: views)
+        let rows = form.getViews()
+        XCTAssert(rows.count == views.count)
+        XCTAssert(rows[0] is UITextView)
+        XCTAssert(rows[1] is UIImageView)
+    }
+    
+    func testGetViewsWithViewClassShouldReturn() {
+        let btn = UIButton()
+        let `switch` = UISwitch()
+        let form = self.makeMockFormWithRandomViews(views: [btn, `switch`])
+        let btnView = form.getViews(withViewClass: UIButton.self).first
+        let switchView = form.getViews(withViewClass: UISwitch.self).first
+        
+        XCTAssert(btnView == btn && switchView == `switch`)
+    }
+    
+    func testValidateRequiredViewWithValueShouldReturnTrue() {
+        let row = PNPRow(config: PNPRowConfig(validation: .required))
+        row.value = "Test"
+        
+        let form = PNPForm(rows: [row], separatorColor: .black)
+        
+        XCTAssert(form.validateRows() == true)
+    }
+    
+    func testValidateRequiredViewWithoutValueShouldReturnFalse() {
+        let row = PNPRow(config: PNPRowConfig(validation: .required))
+        row.value = nil
+        
+        let form = PNPForm(rows: [row], separatorColor: .black)
+        
+        XCTAssert(form.validateRows() == false)
     }
 }

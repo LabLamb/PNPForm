@@ -36,6 +36,8 @@
 		D2518C152418E33300E38466 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2518C142418E33300E38466 /* Enum.swift */; };
 		D284FD93241B5C3000D123B5 /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D284FD92241B5C3000D123B5 /* SelectionViewController.swift */; };
 		D284FD95241B6EF200D123B5 /* PNPFormTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D284FD94241B6EF200D123B5 /* PNPFormTests.swift */; };
+		D2FAC798241BE6C300441537 /* PNPKeyboardConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FAC797241BE6C300441537 /* PNPKeyboardConfig.swift */; };
+		D2FAC79A241BE90000441537 /* PNPDateTimeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FAC799241BE90000441537 /* PNPDateTimeField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,13 +61,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = D21FB9242417F82E006C095F;
 			remoteInfo = PNPForm;
-		};
-		D2518C092418C0DB00E38466 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D21FB91C2417F82E006C095F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D21FB96B2417F8D5006C095F;
-			remoteInfo = PNPFormSampleApp;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -118,6 +113,8 @@
 		D2518C142418E33300E38466 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		D284FD92241B5C3000D123B5 /* SelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
 		D284FD94241B6EF200D123B5 /* PNPFormTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPFormTests.swift; sourceTree = "<group>"; };
+		D2FAC797241BE6C300441537 /* PNPKeyboardConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNPKeyboardConfig.swift; sourceTree = "<group>"; };
+		D2FAC799241BE90000441537 /* PNPDateTimeField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPDateTimeField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +283,7 @@
 			children = (
 				D2518C042418AC6700E38466 /* PNPTextField.swift */,
 				D2518C072418AF3100E38466 /* PNPTextView.swift */,
+				D2FAC799241BE90000441537 /* PNPDateTimeField.swift */,
 			);
 			path = CustomValueViews;
 			sourceTree = "<group>";
@@ -294,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				D2518C0F2418DBC000E38466 /* PNPRowConfig.swift */,
+				D2FAC797241BE6C300441537 /* PNPKeyboardConfig.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -342,7 +341,6 @@
 			);
 			dependencies = (
 				D21FB9312417F82E006C095F /* PBXTargetDependency */,
-				D2518C0A2418C0DB00E38466 /* PBXTargetDependency */,
 			);
 			name = PNPFormTests;
 			productName = PNPFormTests;
@@ -479,6 +477,7 @@
 				D21FB99924187788006C095F /* CustomView.swift in Sources */,
 				D2518C082418AF3100E38466 /* PNPTextView.swift in Sources */,
 				D2518C152418E33300E38466 /* Enum.swift in Sources */,
+				D2FAC798241BE6C300441537 /* PNPKeyboardConfig.swift in Sources */,
 				D2518C132418E2F900E38466 /* TypeAlias.swift in Sources */,
 				D2518C0C2418CD9D00E38466 /* PNPFormViewController.swift in Sources */,
 				D21FB9AA24187C66006C095F /* UIView+Border.swift in Sources */,
@@ -486,6 +485,7 @@
 				D21FB99B241879B1006C095F /* PNPFormConstants.swift in Sources */,
 				D2518C052418AC6700E38466 /* PNPTextField.swift in Sources */,
 				D23FB193241B341600EE7C52 /* PNPRow.swift in Sources */,
+				D2FAC79A241BE90000441537 /* PNPDateTimeField.swift in Sources */,
 				D21FB9AC241881B1006C095F /* Form.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -536,11 +536,6 @@
 			isa = PBXTargetDependency;
 			target = D21FB9242417F82E006C095F /* PNPForm */;
 			targetProxy = D21FB9932418020F006C095F /* PBXContainerItemProxy */;
-		};
-		D2518C0A2418C0DB00E38466 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D21FB96B2417F8D5006C095F /* PNPFormSampleApp */;
-			targetProxy = D2518C092418C0DB00E38466 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -682,6 +677,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = LabLambWorks.PNPForm;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -708,6 +704,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = LabLambWorks.PNPForm;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

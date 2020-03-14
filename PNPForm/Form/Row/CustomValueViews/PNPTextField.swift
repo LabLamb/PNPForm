@@ -4,7 +4,7 @@
 
 import UIKit
 
-public final class PNPTextField: UITextField {
+public class PNPTextField: UITextField {
     
     private let maxTextLength: Int
     
