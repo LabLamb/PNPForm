@@ -15,7 +15,7 @@ public struct PNPRowConfig {
     public init(type: RowType = .singleLineText,
                 placeholder: String? = nil,
                 spacing: CGFloat = PNPFormConstants.UI.RowConfigDefaultSpacing,
-                labelWidth: CGFloat? = nil,
+                labelWidth: CGFloat? = PNPFormConstants.UI.RowConfigDefaultLabelWidth,
                 validation: ValidateOption? = nil,
                 validatedHandling: ValidatedHandling = .default) {
         self.type = type

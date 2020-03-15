@@ -9,6 +9,7 @@ public struct PNPFormConstants {
         public static var BaseRowDefaultHeight: CGFloat = 45
         public static var RowIconDefaultHeight: CGFloat = 22.5
         public static var RowConfigDefaultSpacing: CGFloat = 10
+        public static var RowConfigDefaultLabelWidth: CGFloat? = nil
     }
     
     public struct System {

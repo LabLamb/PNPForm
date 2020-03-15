@@ -11,7 +11,7 @@ public final class PNPForm: UIView {
     private let separatorColor: UIColor
     
     public init(rows: [UIView],
-         separatorColor: UIColor) {
+                separatorColor: UIColor) {
         self.stackView = UIStackView()
         self.formRows = rows.filter({ $0 is BaseRow }) as! [BaseRow]
         self.separatorColor = separatorColor
@@ -36,6 +36,17 @@ public final class PNPForm: UIView {
 }
 
 extension PNPForm: CustomView {
+    private func setupRowConstraint(_ view: UIView) {
+        view.translatesAutoresizingMaskIntoConstraints = false
+        [
+            view.centerXAnchor.constraint(equalTo: self.stackView.centerXAnchor),
+            view.widthAnchor.constraint(equalTo: self.stackView.widthAnchor, multiplier: 0.95)
+            ].forEach({ $0.isActive = true })
+        
+        view.backgroundColor = .clear
+        view.addLine(position: .maxYEdge, color: self.separatorColor, weight: 1)
+    }
+    
     func setupLayout() {
         self.addLine(position: .minYEdge, color: self.separatorColor, weight: 1.0)
         self.addLine(position: .maxYEdge, color: self.separatorColor, weight: 1.0)
@@ -47,17 +58,10 @@ extension PNPForm: CustomView {
             self.stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             self.stackView.leftAnchor.constraint(equalTo: self.leftAnchor),
             self.stackView.rightAnchor.constraint(equalTo: self.rightAnchor)
-        ].forEach({ $0.isActive = true })
+            ].forEach({ $0.isActive = true })
         
         self.stackView.arrangedSubviews.forEach { view in
-            view.translatesAutoresizingMaskIntoConstraints = false
-            [
-                view.centerXAnchor.constraint(equalTo: self.stackView.centerXAnchor),
-                view.widthAnchor.constraint(equalTo: self.stackView.widthAnchor, multiplier: 0.95)
-            ].forEach({ $0.isActive = true })
-            
-            view.backgroundColor = .clear
-            view.addLine(position: .maxYEdge, color: self.separatorColor, weight: 1)
+            setupRowConstraint(view)
         }
     }
 }
@@ -81,7 +85,7 @@ extension PNPForm: Form {
     }
     
     public func getViews(withRowClass rowClass: AnyClass) -> [UIView] {
-        return self.formRows.filter({ view in
+        return self.stackView.arrangedSubviews.filter({ view in
             type(of: view) == rowClass
         })
     }
@@ -136,7 +140,7 @@ extension PNPForm: Form {
     
     
     public func extractRowValues(withLabelIconList list: [UIImage]) -> [UIImage : String] {
-                var result: [UIImage: String] = [:]
+        var result: [UIImage: String] = [:]
         self.formRows.forEach({ row in
             if let label = row.label as? UIImage,
                 list.contains(label) {
@@ -144,5 +148,10 @@ extension PNPForm: Form {
             }
         })
         return result
+    }
+    
+    public func appendView(view: UIView) {
+        self.stackView.addArrangedSubview(view)
+        self.setupRowConstraint(view)
     }
 }
