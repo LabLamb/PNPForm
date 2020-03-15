@@ -63,6 +63,8 @@ extension PNPForm: CustomView {
                     if let pv = previousView as? BaseRow,
                         !pv.isSpaceRow {
                         currentView.addLine(position: .minYEdge, color: self.separatorColor, weight: 1)
+                    } else {
+                        currentView.addLine(position: .minYEdge, color: self.separatorColor, weight: 1)
                     }
                 } else if let pv = previousView as? BaseRow,
                     pv.isSpaceRow {

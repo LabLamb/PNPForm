@@ -110,7 +110,7 @@ public final class PNPRow: BaseRow {
         
         var tempValueView: UIView
         var validationOption: ValidateOption? = config.validation
-        var isTypeSpace: Bool = false
+        var isSpaceType: Bool = false
         
         switch config.type {
         case .email:
@@ -186,7 +186,7 @@ public final class PNPRow: BaseRow {
             tempValueView = seg
             
         case .space(let color):
-            isTypeSpace = true
+            isSpaceType = true
             tempValueView = UIView()
             tempValueView.backgroundColor = color
         }
@@ -196,7 +196,7 @@ public final class PNPRow: BaseRow {
                    spacing: config.spacing,
                    labelWidth: config.labelWidth,
                    placeholder: placeholderLabel,
-                   isSpace: isTypeSpace,
+                   isSpace: isSpaceType,
                    validateOption: validationOption ?? .optional,
                    validatedHandling: config.validatedHandling)
     }
