@@ -7,7 +7,7 @@ import UIKit
 public final class PNPForm: UIView {
     
     private let stackView: UIStackView
-    private let formRows: [BaseRow]
+    private var formRows: [BaseRow]
     private let separatorColor: UIColor
     
     public init(rows: [UIView],
@@ -21,7 +21,6 @@ public final class PNPForm: UIView {
         self.stackView.axis = .vertical
         self.stackView.distribution = .fill
         self.stackView.alignment = .center
-        self.stackView.spacing = 1
         
         rows.forEach({ row in
             self.stackView.addArrangedSubview(row)
@@ -37,14 +36,42 @@ public final class PNPForm: UIView {
 
 extension PNPForm: CustomView {
     private func setupRowConstraint(_ view: UIView) {
+        var multipler: CGFloat = 0.95
+        
+        if let row = view as? PNPRow,
+            row.isSpaceRow {
+            multipler = 1
+        }
         view.translatesAutoresizingMaskIntoConstraints = false
-        [
-            view.centerXAnchor.constraint(equalTo: self.stackView.centerXAnchor),
-            view.widthAnchor.constraint(equalTo: self.stackView.widthAnchor, multiplier: 0.95)
-            ].forEach({ $0.isActive = true })
         
         view.backgroundColor = .clear
-        view.addLine(position: .maxYEdge, color: self.separatorColor, weight: 1)
+        [
+            view.centerXAnchor.constraint(equalTo: self.stackView.centerXAnchor),
+            view.widthAnchor.constraint(equalTo: self.stackView.widthAnchor, multiplier: multipler)
+        ].forEach({ $0.isActive = true })
+    }
+    
+    private func redrawBorder () {
+        for i in 0..<self.stackView.arrangedSubviews.count {
+            if i > 0 {
+                let previousView = self.stackView.arrangedSubviews[i - 1]
+                let currentView = self.stackView.arrangedSubviews[i]
+                currentView.subviews.filter({ $0 is UILine }).forEach({ $0.removeFromSuperview() })
+                
+                if let cv = currentView as? BaseRow,
+                    cv.isSpaceRow {
+                    if let pv = previousView as? BaseRow,
+                        !pv.isSpaceRow {
+                        currentView.addLine(position: .minYEdge, color: self.separatorColor, weight: 1)
+                    }
+                } else if let pv = previousView as? BaseRow,
+                    pv.isSpaceRow {
+                    previousView.addLine(position: .maxYEdge, color: self.separatorColor, weight: 1)
+                } else {
+                    currentView.addLine(position: .minYEdge, color: self.separatorColor, weight: 1)
+                }
+            }
+        }
     }
     
     func setupLayout() {
@@ -63,6 +90,7 @@ extension PNPForm: CustomView {
         self.stackView.arrangedSubviews.forEach { view in
             setupRowConstraint(view)
         }
+        self.redrawBorder()
     }
 }
 
@@ -84,14 +112,23 @@ extension PNPForm: Form {
         })
     }
     
-    public func getViews(withRowClass rowClass: AnyClass) -> [UIView] {
+    public func getViews() -> [UIView] {
+        return self.stackView.arrangedSubviews
+    }
+    
+    public func getViews(withViewClass rowClass: AnyClass) -> [UIView] {
         return self.stackView.arrangedSubviews.filter({ view in
             type(of: view) == rowClass
         })
     }
     
-    public func validateRows() {
-        self.formRows.forEach({ $0.validateRow() })
+    public func validateRows() -> Bool {
+        var result = true
+        self.formRows.forEach({
+            let isValid = $0.validateRow()
+            result = (result && isValid)
+        })
+        return result
     }
     
     public func prefillRowsInOrder(orderedValues values: [String]) {
@@ -152,6 +189,10 @@ extension PNPForm: Form {
     
     public func appendView(view: UIView) {
         self.stackView.addArrangedSubview(view)
+        if let `view` = view as? BaseRow {
+            self.formRows.append(view)
+        }
         self.setupRowConstraint(view)
+        self.redrawBorder()
     }
 }

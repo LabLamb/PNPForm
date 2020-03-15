@@ -29,10 +29,19 @@ open class BaseRow: UIView {
     
     let spacing: CGFloat
     let labelWidth: CGFloat?
-    internal let placeholderLabel: UILabel?
+    let placeholderLabel: UILabel?
     
-    let validationHighlight: UIImageView
-    public var isShowingErrorIcon: Bool {
+    let isSpaceRow: Bool
+    
+    lazy var validationHighlight: UILabel = {
+        let result = UILabel()
+        result.textAlignment = .center
+        result.text = "⚠️"
+        result.isHidden = true
+        return result
+    }()
+    
+    var isShowingErrorIcon: Bool {
         get {
             return !self.validationHighlight.isHidden
         }
@@ -43,7 +52,7 @@ open class BaseRow: UIView {
     }
     
     private let validateLogic: ValidationLogic
-    public var isValid: Bool {
+    private var isValid: Bool {
         get {
             return self.validateLogic(self.value)
         }
@@ -56,6 +65,7 @@ open class BaseRow: UIView {
          spacing: CGFloat = 0,
          labelWidth: CGFloat? = nil,
          placeholder: UILabel? = nil,
+         isSpace: Bool = false,
          validateOption: ValidateOption,
          validatedHandling: ValidatedHandling) {
         
@@ -69,15 +79,7 @@ open class BaseRow: UIView {
         
         self.placeholderLabel = placeholder
         
-        self.validationHighlight = {
-            let bundle = Bundle(for: BaseRow.self)
-            let icon = UIImage(named: "ErrorIcon", in: bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
-            let result = UIImageView(image: icon)
-            result.tintColor = .red
-            result.alpha = 0.75
-            result.isHidden = true
-            return result
-        }()
+        self.isSpaceRow = isSpace
         
         self.validateLogic = { rowValue in
             switch validateOption {
@@ -85,7 +87,6 @@ open class BaseRow: UIView {
             case .required:
                 guard let rowString = rowValue else { return false }
                 return rowString.count > 0
-                
             case .optional:
                 return true
                 
@@ -123,7 +124,7 @@ open class BaseRow: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func validateRow() {
+    func validateRow() -> Bool {
         switch self.validatedHandling {
             
         case .default:
@@ -131,8 +132,12 @@ open class BaseRow: UIView {
             
         case .custom(let customHandler):
             customHandler(self, self.isValid)
+        
+        case .none:
             break
         }
+        
+        return self.isValid
     }
     
     @objc func focusValueView() {
@@ -179,16 +184,18 @@ extension BaseRow: CustomView {
         self.addSubview(self.validationHighlight)
         self.validationHighlight.translatesAutoresizingMaskIntoConstraints = false
         [
-            self.validationHighlight.heightAnchor.constraint(equalToConstant: PNPFormConstants.UI.BaseRowDefaultHeight / 2),
+//            self.validationHighlight.heightAnchor.constraint(equalToConstant: PNPFormConstants.UI.BaseRowDefaultHeight / 2),
+            self.validationHighlight.heightAnchor.constraint(equalToConstant: self.validationHighlight.font.lineHeight),
             self.validationHighlight.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             self.validationHighlight.rightAnchor.constraint(equalTo: self.rightAnchor),
-            self.validationHighlight.widthAnchor.constraint(equalTo: self.validationHighlight.heightAnchor)
+            self.validationHighlight.widthAnchor.constraint(equalTo: self.validationHighlight.heightAnchor, multiplier: 1.25)
             ].forEach({ $0.isActive = true })
     }
     
     private func addValueViewContainer() {
         self.addSubview(self.valueContainer)
         self.valueContainer.translatesAutoresizingMaskIntoConstraints = false
+        
         let valueContainerLeftAnchorConstraint: NSLayoutConstraint = {
             if let `labelView` = self.labelView {
                 return self.valueContainer.leftAnchor.constraint(equalTo: labelView.rightAnchor, constant: self.spacing)
@@ -196,11 +203,20 @@ extension BaseRow: CustomView {
                 return self.valueContainer.leftAnchor.constraint(equalTo: self.leftAnchor)
             }
         }()
+        
+        let valueContainerRightAnchorConstraint: NSLayoutConstraint = {
+            if self.isSpaceRow {
+                return self.valueContainer.rightAnchor.constraint(equalTo: self.rightAnchor)
+            } else {
+                return self.valueContainer.rightAnchor.constraint(equalTo: self.validationHighlight.leftAnchor)
+            }
+        }()
+        
         [
             valueContainerLeftAnchorConstraint,
             self.valueContainer.topAnchor.constraint(equalTo: self.topAnchor),
             self.valueContainer.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            self.valueContainer.rightAnchor.constraint(equalTo: self.validationHighlight.leftAnchor)
+            valueContainerRightAnchorConstraint
             ].forEach({ $0.isActive = true })
     }
     
@@ -226,6 +242,18 @@ extension BaseRow: CustomView {
                     self.valueView.rightAnchor.constraint(equalTo: self.valueContainer.rightAnchor),
                     self.valueView.centerYAnchor.constraint(equalTo: self.valueContainer.centerYAnchor)
                 ]
+            case is UISegmentedControl:
+                if self.labelView == nil {
+                    result = [
+                        self.valueView.centerXAnchor.constraint(equalTo: self.valueContainer.centerXAnchor),
+                        self.valueView.centerYAnchor.constraint(equalTo: self.valueContainer.centerYAnchor)
+                    ]
+                } else {
+                    result = [
+                        self.valueView.rightAnchor.constraint(equalTo: self.valueContainer.rightAnchor),
+                        self.valueView.centerYAnchor.constraint(equalTo: self.valueContainer.centerYAnchor)
+                    ]
+                }
             default:
                 result = [
                     self.valueView.leftAnchor.constraint(equalTo: self.valueContainer.leftAnchor),
@@ -242,7 +270,8 @@ extension BaseRow: CustomView {
     @objc open func setupLayout() {
         self.resetViews()
 
-        if let `labelView` = self.labelView {
+        if let `labelView` = self.labelView,
+            !self.isSpaceRow {
             self.addLabelView(labelView)
         }
         

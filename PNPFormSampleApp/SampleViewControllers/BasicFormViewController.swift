@@ -21,21 +21,18 @@ class BasicFormViewController: PNPFormViewController {
         let sepColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.5)
         self.simpleForm = {
             let usernameConfig = PNPRowConfig(placeholder: "Required", validation: .required)
-            let emailConfig = PNPRowConfig(type: .email, placeholder: "example@email.com")
+            let emailConfig = PNPRowConfig(type: .email(), placeholder: "example@email.com")
             
             let passwordPattern = #"[^\w\d]*(([0-9]+.*[A-Za-z]+.*)|[A-Za-z]+.*([0-9]+.*))"# // Must have one number and one alphabet
-            let passwordConfig = PNPRowConfig(type: .password,placeholder: "At least 1 alphabet and 1 number", validation: .matchRegex(passwordPattern))
+            let passwordConfig = PNPRowConfig(type: .password(), placeholder: "At least 1 alphabet and 1 number", validation: .matchRegex(passwordPattern))
             
-            let addressConfig = PNPRowConfig(type: .multLineText)
-            
-            let rmbMeConfig = PNPRowConfig(type: .switch, placeholder: String(true))
+            let addressConfig = PNPRowConfig(type: .time())
             
             let textFormRows: [PNPRow] = [
                 PNPRow(title: RowLabel.username, config: usernameConfig),
                 PNPRow(title: RowLabel.email, config: emailConfig),
                 PNPRow(title: RowLabel.password, config: passwordConfig),
-                PNPRow(title: RowLabel.address, config: addressConfig),
-                PNPRow(title: RowLabel.rememberMe, config: rmbMeConfig)
+                PNPRow(title: RowLabel.address, config: addressConfig)
             ]
             
             return PNPForm(rows: textFormRows, separatorColor: sepColor)
@@ -55,7 +52,13 @@ class BasicFormViewController: PNPFormViewController {
     }
     
     @objc func submitButtonPressed() {
-        self.simpleForm.validateRows()
+        if !self.simpleForm.validateRows() {
+            let alert = UIAlertController(title: "Error", message: "Some fields are invalid.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                alert.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     override func setupLayout() {

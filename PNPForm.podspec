@@ -25,7 +25,7 @@ Pod::Spec.new do |spec|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = <<-DESC
-  A library that provoides simple and direct form that is highly customizable without having to inherit a ViewController.
+  A library that provides simple and direct form that is highly customizable without having to inherit a ViewController.
   DESC
 
   spec.homepage     = "https://github.com/LabLamb/PNPForm"
@@ -80,8 +80,8 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  # spec.source       = { :git => "https://github.com/LabLamb/PNPForm.git", :tag => "#{spec.version}" }
-  spec.source       = { :path => '.' }
+  spec.source       = { :git => "https://github.com/LabLamb/PNPForm.git", :tag => "#{spec.version}" }
+  # spec.source       = { :path => '.' }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -95,20 +95,6 @@ Pod::Spec.new do |spec|
   spec.source_files  = "Classes", "Classes/**/*.{h,m}", "PNPForm/**/*.swift"
   spec.exclude_files = "Classes/Exclude"
   spec.public_header_files = "Classes/**/*.h"
-
-
-  # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  A list of resources included with the Pod. These are copied into the
-  #  target bundle with a build phase script. Anything else will be cleaned.
-  #  You can preserve files from being cleaned, please don't preserve
-  #  non-essential files like tests, examples and documentation.
-  #
-
-  # spec.resource  = "icon.png"
-  # spec.resources = "Resources/*.png"
-
-  # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

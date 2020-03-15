@@ -14,7 +14,14 @@ public final class PNPRow: BaseRow {
             case is UIImageView:
                 return (self.labelView as? UIImageView)?.image as Any
             default:
-                return self.placeholderLabel?.text as Any
+                switch self.valueView {
+                case is UITextField:
+                    return (self.valueView as? UITextField)?.placeholder as Any
+                case is UITextView:
+                    return self.placeholderLabel?.text as Any
+                default:
+                    return ""
+                }
             }
         }
         
@@ -25,7 +32,14 @@ public final class PNPRow: BaseRow {
             case is UIImageView:
                 (self.labelView as? UIImageView)?.image = newValue as? UIImage
             default:
-                break
+                switch self.valueView {
+                case is UITextField:
+                    (self.valueView as? UITextField)?.placeholder = newValue as? String
+                case is UITextView:
+                    self.placeholderLabel?.text = newValue as? String
+                default:
+                    break
+                }
             }
             self.setupLayout()
         }
@@ -38,6 +52,12 @@ public final class PNPRow: BaseRow {
                 return (self.valueView as? UITextField)?.text
             case is UITextView:
                 return (self.valueView as? UITextView)?.text
+            case is UILabel:
+                return (self.valueView as? UILabel)?.text
+            case is UISegmentedControl:
+                guard let seg = self.valueView as? UISegmentedControl else { return nil }
+                let index = seg.selectedSegmentIndex
+                return seg.titleForSegment(at: index)
             case is UISwitch:
                 return String((self.valueView as? UISwitch)?.isOn ?? false)
             default:
@@ -52,6 +72,12 @@ public final class PNPRow: BaseRow {
             case is UITextView:
                 self.placeholderLabel?.isHidden = newValue != ""
                 (self.valueView as? UITextView)?.text = newValue
+            case is UILabel:
+                (self.valueView as? UILabel)?.text = newValue
+            case is UISegmentedControl:
+                guard let seg = self.valueView as? UISegmentedControl else { return }
+                let index = Int(newValue ?? "0") ?? 0
+                seg.selectedSegmentIndex = index
             case is UISwitch:
                 (self.valueView as? UISwitch)?.isOn = newValue?.boolValue ?? true
             default:
@@ -82,26 +108,29 @@ public final class PNPRow: BaseRow {
         
         var placeholderLabel: UILabel? = nil
         
-        var valueView: UIView
+        var tempValueView: UIView
         var validationOption: ValidateOption? = config.validation
+        var isTypeSpace: Bool = false
         
         switch config.type {
         case .email:
-            valueView = PNPTextField(placeholder: config.placeholder ?? "")
+            tempValueView = PNPTextField(placeholder: config.placeholder ?? "")
             if validationOption == nil {
                 validationOption = .matchRegex("[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}")
             }
             
-        case .password:
-            let txtField = PNPTextField(placeholder: config.placeholder ?? "")
+        case .password(let keyboardConfig):
+            let txtField = PNPTextField(placeholder: config.placeholder ?? "",
+                                        keyboardConfig: keyboardConfig)
             txtField.isSecureTextEntry = true
-            valueView = txtField
+            tempValueView = txtField
             
-        case .singleLineText:
-            valueView = PNPTextField(placeholder: config.placeholder ?? "")
+        case .singlelineText(let keyboardConfig):
+            tempValueView = PNPTextField(placeholder: config.placeholder ?? "",
+                                         keyboardConfig: keyboardConfig)
             
-        case .multLineText:
-            valueView = PNPTextView()
+        case .multilineText(let keyboardConfig):
+            tempValueView = PNPTextView(keyboardConfig: keyboardConfig)
             placeholderLabel = {
                 if let `placeholder` = config.placeholder {
                     let tempLabel = UILabel()
@@ -119,15 +148,55 @@ public final class PNPRow: BaseRow {
                 return inspect.attribute(NSAttributedString.Key.foregroundColor, at: 0, effectiveRange: nil) as? UIColor
             }()
             
+        case .label:
+            tempValueView = UILabel()
+            
+        case .date(let format):
+            let dateView = PNPDateTimeField(placeholder: config.placeholder ?? "",
+                                            datePickerMode: .date,
+                                            dateTimeFormat: format)
+            tempValueView = dateView
+            
+        case .time(let format):
+            let dateView = PNPDateTimeField(placeholder: config.placeholder ?? "",
+                                            datePickerMode: .time,
+                                            dateTimeFormat: format)
+            tempValueView = dateView
+            
+        case .dateAndTime(let format):
+            let dateView = PNPDateTimeField(placeholder: config.placeholder ?? "",
+                                            datePickerMode: .dateAndTime,
+                                            dateTimeFormat: format)
+            tempValueView = dateView
+            
         case .switch:
-            valueView = UISwitch()
+            let switchView = UISwitch()
+            switchView.isOn = config.placeholder?.boolValue ?? false
+            tempValueView = switchView
+            
+        case .button(let target, let selector):
+            let btn = UIButton()
+            btn.setTitle(config.placeholder ?? "", for: .normal)
+            btn.setTitleColor(.systemBlue, for: .normal)
+            btn.addTarget(target, action: selector, for: .touchUpInside)
+            tempValueView = btn
+            
+        case .segmentedControl(let list):
+            let seg = UISegmentedControl(items: list)
+            tempValueView = seg
+            
+        case .space(let color):
+            isTypeSpace = true
+            tempValueView = UIView()
+            tempValueView.backgroundColor = color
         }
         
         super.init(labelView: labelView,
-                   valueView: valueView,
+                   valueView: tempValueView,
                    spacing: config.spacing,
                    labelWidth: config.labelWidth,
                    placeholder: placeholderLabel,
+                   isSpace: isTypeSpace,
                    validateOption: validationOption ?? .optional,
                    validatedHandling: config.validatedHandling)
     }

@@ -5,11 +5,22 @@
 import UIKit
 
 public enum RowType {
-    case email
-    case password
-    case singleLineText
-    case multLineText
+    case email(PNPKeyboardConfig? = nil)
+    case password(PNPKeyboardConfig? = nil)
+    case singlelineText(PNPKeyboardConfig? = nil)
+    case multilineText(PNPKeyboardConfig? = nil)
+    case label
+    case date(PNPDateFormat = "yyyy-MM-dd")
+    case time(PNPTimeFormat = "hh:mm aa")
+    case dateAndTime(PNPDateTimeFormat = "yyyy-MM-dd hh:mm aa")
     case `switch`
+    case button(Target, Selector)
+//    case check
+    case segmentedControl(SegmentList = nil)
+//    case picker
+//    case stepper
+//    case slider
+    case space(UIColor)
 }
 
 public enum ValidateOption {
@@ -23,4 +34,5 @@ public enum ValidateOption {
 public enum ValidatedHandling {
     case `default`
     case custom(ValidatedHandler)
+    case none
 }
