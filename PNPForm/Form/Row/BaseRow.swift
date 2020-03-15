@@ -29,7 +29,7 @@ open class BaseRow: UIView {
     
     let spacing: CGFloat
     let labelWidth: CGFloat?
-    internal let placeholderLabel: UILabel?
+    let placeholderLabel: UILabel?
     
     let isSpaceRow: Bool
     

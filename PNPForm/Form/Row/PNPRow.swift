@@ -14,7 +14,14 @@ public final class PNPRow: BaseRow {
             case is UIImageView:
                 return (self.labelView as? UIImageView)?.image as Any
             default:
-                return self.placeholderLabel?.text as Any
+                switch self.valueView {
+                case is UITextField:
+                    return (self.valueView as? UITextField)?.placeholder as Any
+                case is UITextView:
+                    return self.placeholderLabel?.text as Any
+                default:
+                    return ""
+                }
             }
         }
         
@@ -25,7 +32,14 @@ public final class PNPRow: BaseRow {
             case is UIImageView:
                 (self.labelView as? UIImageView)?.image = newValue as? UIImage
             default:
-                break
+                switch self.valueView {
+                case is UITextField:
+                    (self.valueView as? UITextField)?.placeholder = newValue as? String
+                case is UITextView:
+                    self.placeholderLabel?.text = newValue as? String
+                default:
+                    break
+                }
             }
             self.setupLayout()
         }

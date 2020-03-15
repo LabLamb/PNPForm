@@ -7,7 +7,7 @@ import UIKit
 public final class PNPForm: UIView {
     
     private let stackView: UIStackView
-    private let formRows: [BaseRow]
+    private var formRows: [BaseRow]
     private let separatorColor: UIColor
     
     public init(rows: [UIView],
@@ -189,6 +189,9 @@ extension PNPForm: Form {
     
     public func appendView(view: UIView) {
         self.stackView.addArrangedSubview(view)
+        if let `view` = view as? BaseRow {
+            self.formRows.append(view)
+        }
         self.setupRowConstraint(view)
         self.redrawBorder()
     }
