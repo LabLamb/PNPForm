@@ -80,8 +80,8 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  # spec.source       = { :git => "https://github.com/LabLamb/PNPForm.git", :tag => "#{spec.version}" }
-  spec.source       = { :path => '.' }
+  spec.source       = { :git => "https://github.com/LabLamb/PNPForm.git", :tag => "#{spec.version}" }
+  # spec.source       = { :path => '.' }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -95,20 +95,6 @@ Pod::Spec.new do |spec|
   spec.source_files  = "Classes", "Classes/**/*.{h,m}", "PNPForm/**/*.swift"
   spec.exclude_files = "Classes/Exclude"
   spec.public_header_files = "Classes/**/*.h"
-
-
-  # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  A list of resources included with the Pod. These are copied into the
-  #  target bundle with a build phase script. Anything else will be cleaned.
-  #  You can preserve files from being cleaned, please don't preserve
-  #  non-essential files like tests, examples and documentation.
-  #
-
-  # spec.resource  = "PNPForm/PNPForm/PNPFormAssets.xcassets/ErrorIcon.imageset/*.png"
-  # spec.resources = "PNPForm/PNPForm/PNPFormAssets.xcassets/ErrorIcon.imageset/*.png"
-
-  # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

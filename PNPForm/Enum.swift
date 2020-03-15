@@ -10,12 +10,9 @@ public enum RowType {
     case singlelineText(PNPKeyboardConfig? = nil)
     case multilineText(PNPKeyboardConfig? = nil)
     case label
-    case date
-    case time
-    case dateAndTime
-//    case phone(PNPKeyboardConfig? = nil)
-//    case number(PNPKeyboardConfig? = nil)
-//    case decimal(PNPKeyboardConfig? = nil)
+    case date(PNPDateFormat = "yyyy-MM-dd")
+    case time(PNPTimeFormat = "hh:mm aa")
+    case dateAndTime(PNPDateTimeFormat = "yyyy-MM-dd hh:mm aa")
     case `switch`
     case button(Target, Selector)
 //    case check

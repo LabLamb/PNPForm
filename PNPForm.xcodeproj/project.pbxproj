@@ -22,7 +22,6 @@
 		D21FB9AA24187C66006C095F /* UIView+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB9A924187C66006C095F /* UIView+Border.swift */; };
 		D21FB9AC241881B1006C095F /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB9AB241881B1006C095F /* Form.swift */; };
 		D21FB9B0241887B1006C095F /* Date+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB9AF241887B1006C095F /* Date+String.swift */; };
-		D23FB18B241A578B00EE7C52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D23FB18A241A578B00EE7C52 /* Assets.xcassets */; };
 		D23FB191241A917A00EE7C52 /* IconFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FB190241A917A00EE7C52 /* IconFormViewController.swift */; };
 		D23FB193241B341600EE7C52 /* PNPRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FB192241B341600EE7C52 /* PNPRow.swift */; };
 		D23FB195241B40F400EE7C52 /* String+Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FB194241B40F400EE7C52 /* String+Bool.swift */; };
@@ -36,6 +35,7 @@
 		D2518C152418E33300E38466 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2518C142418E33300E38466 /* Enum.swift */; };
 		D284FD93241B5C3000D123B5 /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D284FD92241B5C3000D123B5 /* SelectionViewController.swift */; };
 		D284FD95241B6EF200D123B5 /* PNPFormTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D284FD94241B6EF200D123B5 /* PNPFormTests.swift */; };
+		D2E780F3241E3ED8003E6C38 /* PNPRowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E780F2241E3ED8003E6C38 /* PNPRowTests.swift */; };
 		D2FAC798241BE6C300441537 /* PNPKeyboardConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FAC797241BE6C300441537 /* PNPKeyboardConfig.swift */; };
 		D2FAC79A241BE90000441537 /* PNPDateTimeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FAC799241BE90000441537 /* PNPDateTimeField.swift */; };
 /* End PBXBuildFile section */
@@ -99,7 +99,6 @@
 		D21FB9A924187C66006C095F /* UIView+Border.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Border.swift"; sourceTree = "<group>"; };
 		D21FB9AB241881B1006C095F /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
 		D21FB9AF241887B1006C095F /* Date+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
-		D23FB18A241A578B00EE7C52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D23FB190241A917A00EE7C52 /* IconFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFormViewController.swift; sourceTree = "<group>"; };
 		D23FB192241B341600EE7C52 /* PNPRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPRow.swift; sourceTree = "<group>"; };
 		D23FB194241B40F400EE7C52 /* String+Bool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Bool.swift"; sourceTree = "<group>"; };
@@ -113,6 +112,7 @@
 		D2518C142418E33300E38466 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		D284FD92241B5C3000D123B5 /* SelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
 		D284FD94241B6EF200D123B5 /* PNPFormTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPFormTests.swift; sourceTree = "<group>"; };
+		D2E780F2241E3ED8003E6C38 /* PNPRowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPRowTests.swift; sourceTree = "<group>"; };
 		D2FAC797241BE6C300441537 /* PNPKeyboardConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNPKeyboardConfig.swift; sourceTree = "<group>"; };
 		D2FAC799241BE90000441537 /* PNPDateTimeField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPDateTimeField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -186,7 +186,6 @@
 				D21FB9B32418907C006C095F /* Protocol */,
 				D21FB9B4241890A7006C095F /* Form */,
 				D2518C112418DE3000E38466 /* Configuration */,
-				D23FB18A241A578B00EE7C52 /* Assets.xcassets */,
 			);
 			path = PNPForm;
 			sourceTree = "<group>";
@@ -196,6 +195,7 @@
 			children = (
 				D21FB9332417F82E006C095F /* ExtensionTests.swift */,
 				D284FD94241B6EF200D123B5 /* PNPFormTests.swift */,
+				D2E780F2241E3ED8003E6C38 /* PNPRowTests.swift */,
 				D21FB9352417F82E006C095F /* Info.plist */,
 			);
 			path = PNPFormTests;
@@ -437,7 +437,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D23FB18B241A578B00EE7C52 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +495,7 @@
 			files = (
 				D284FD95241B6EF200D123B5 /* PNPFormTests.swift in Sources */,
 				D21FB9342417F82E006C095F /* ExtensionTests.swift in Sources */,
+				D2E780F3241E3ED8003E6C38 /* PNPRowTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

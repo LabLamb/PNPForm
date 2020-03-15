@@ -9,12 +9,20 @@ public class PNPTextField: UITextField {
     private let maxTextLength: Int
     
     public init(placeholder: String = "",
-                maxTextLength: Int = .max) {
+                maxTextLength: Int = .max,
+                keyboardConfig: PNPKeyboardConfig? = nil) {
         self.maxTextLength = maxTextLength
 
         super.init(frame: .zero)
         self.placeholder = placeholder
         self.delegate = self
+        
+        if let `keyboardConfig` = keyboardConfig {
+            self.keyboardType = keyboardConfig.keyboardType
+            self.inputAccessoryView = keyboardConfig.inputAccessoryView
+            self.returnKeyType = keyboardConfig.keyboardReturnKeyType
+            self.keyboardAppearance = keyboardConfig.keyboardAppearance
+        }
     }
     
     required init?(coder: NSCoder) {

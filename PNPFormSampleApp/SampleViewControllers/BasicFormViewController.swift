@@ -26,7 +26,7 @@ class BasicFormViewController: PNPFormViewController {
             let passwordPattern = #"[^\w\d]*(([0-9]+.*[A-Za-z]+.*)|[A-Za-z]+.*([0-9]+.*))"# // Must have one number and one alphabet
             let passwordConfig = PNPRowConfig(type: .password(), placeholder: "At least 1 alphabet and 1 number", validation: .matchRegex(passwordPattern))
             
-            let addressConfig = PNPRowConfig(type: .multilineText())
+            let addressConfig = PNPRowConfig(type: .time())
             
             let textFormRows: [PNPRow] = [
                 PNPRow(title: RowLabel.username, config: usernameConfig),

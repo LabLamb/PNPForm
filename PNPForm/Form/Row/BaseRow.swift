@@ -33,12 +33,10 @@ open class BaseRow: UIView {
     
     let isSpaceRow: Bool
     
-    lazy var validationHighlight: UIImageView = {
-        let bundle = Bundle(for: BaseRow.self)
-        let icon = UIImage(named: "ErrorIcon", in: bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
-        let result = UIImageView(image: icon)
-        result.tintColor = .red
-        result.alpha = 0.75
+    lazy var validationHighlight: UILabel = {
+        let result = UILabel()
+        result.textAlignment = .center
+        result.text = "⚠️"
         result.isHidden = true
         return result
     }()
@@ -186,10 +184,11 @@ extension BaseRow: CustomView {
         self.addSubview(self.validationHighlight)
         self.validationHighlight.translatesAutoresizingMaskIntoConstraints = false
         [
-            self.validationHighlight.heightAnchor.constraint(equalToConstant: PNPFormConstants.UI.BaseRowDefaultHeight / 2),
+//            self.validationHighlight.heightAnchor.constraint(equalToConstant: PNPFormConstants.UI.BaseRowDefaultHeight / 2),
+            self.validationHighlight.heightAnchor.constraint(equalToConstant: self.validationHighlight.font.lineHeight),
             self.validationHighlight.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             self.validationHighlight.rightAnchor.constraint(equalTo: self.rightAnchor),
-            self.validationHighlight.widthAnchor.constraint(equalTo: self.validationHighlight.heightAnchor)
+            self.validationHighlight.widthAnchor.constraint(equalTo: self.validationHighlight.heightAnchor, multiplier: 1.25)
             ].forEach({ $0.isActive = true })
     }
     

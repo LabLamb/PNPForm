@@ -119,16 +119,18 @@ public final class PNPRow: BaseRow {
                 validationOption = .matchRegex("[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}")
             }
             
-        case .password:
-            let txtField = PNPTextField(placeholder: config.placeholder ?? "")
+        case .password(let keyboardConfig):
+            let txtField = PNPTextField(placeholder: config.placeholder ?? "",
+                                        keyboardConfig: keyboardConfig)
             txtField.isSecureTextEntry = true
             tempValueView = txtField
             
-        case .singlelineText:
-            tempValueView = PNPTextField(placeholder: config.placeholder ?? "")
+        case .singlelineText(let keyboardConfig):
+            tempValueView = PNPTextField(placeholder: config.placeholder ?? "",
+                                         keyboardConfig: keyboardConfig)
             
-        case .multilineText:
-            tempValueView = PNPTextView()
+        case .multilineText(let keyboardConfig):
+            tempValueView = PNPTextView(keyboardConfig: keyboardConfig)
             placeholderLabel = {
                 if let `placeholder` = config.placeholder {
                     let tempLabel = UILabel()
@@ -149,19 +151,22 @@ public final class PNPRow: BaseRow {
         case .label:
             tempValueView = UILabel()
             
-        case .date:
+        case .date(let format):
             let dateView = PNPDateTimeField(placeholder: config.placeholder ?? "",
-                                            datePickerMode: .date)
+                                            datePickerMode: .date,
+                                            dateTimeFormat: format)
             tempValueView = dateView
             
-        case .time:
+        case .time(let format):
             let dateView = PNPDateTimeField(placeholder: config.placeholder ?? "",
-                                            datePickerMode: .time)
+                                            datePickerMode: .time,
+                                            dateTimeFormat: format)
             tempValueView = dateView
             
-        case .dateAndTime:
+        case .dateAndTime(let format):
             let dateView = PNPDateTimeField(placeholder: config.placeholder ?? "",
-                                            datePickerMode: .dateAndTime)
+                                            datePickerMode: .dateAndTime,
+                                            dateTimeFormat: format)
             tempValueView = dateView
             
         case .switch:
