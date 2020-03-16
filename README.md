@@ -47,10 +47,6 @@ This controls the spacing between the left side of the `value` section and the r
 This value will be a fixed width of the label, by default, it will be the width of the text or icon.  
 `Default: nil`
 
-#### keyboardConfig: PNPKeyboardConfig?
-`TODO`  
-`Default: nil`
-
 #### validation: ValidateOption
 This controls the logic when the row's `validateRow()` function is called. Provide custom logic by passing `ValidateOption.customLogic`.  
 `Default: ValidateOption.optional`  
@@ -81,4 +77,7 @@ let config = PNPRowConfig(validatedHandling: .custom(handler))
 
 # Installation
 ## Cocoapod
+```ruby
+pod 'PNPForm', :git => 'https://github.com/LabLamb/PNPForm.git'
+```
 ## Carthage
