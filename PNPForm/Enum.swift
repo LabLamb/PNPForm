@@ -10,24 +10,24 @@ public enum RowType {
     case singlelineText(PNPKeyboardConfig? = nil)
     case multilineText(PNPKeyboardConfig? = nil)
     case label
-    case date(PNPDateFormat = "yyyy-MM-dd")
-    case time(PNPTimeFormat = "hh:mm aa")
-    case dateAndTime(PNPDateTimeFormat = "yyyy-MM-dd hh:mm aa")
+    case date(format: String = "yyyy-MM-dd")
+    case time(format: String = "hh:mm aa")
+    case dateAndTime(format: String = "yyyy-MM-dd hh:mm aa")
     case `switch`
-    case button(Target, Selector)
+    case button(target: Any?, selector: Selector)
 //    case check
-    case segmentedControl(SegmentList = nil)
+    case segmentedControl(segments: [String]? = nil)
 //    case picker
 //    case stepper
 //    case slider
-    case space(UIColor)
+    case space(color: UIColor)
 }
 
 public enum ValidateOption {
     case required
     case optional
     case minimumCharacter(Int)
-    case matchRegex(String)
+    case matchRegex(regex: String)
     case customLogic(ValidationLogic)
 }
 

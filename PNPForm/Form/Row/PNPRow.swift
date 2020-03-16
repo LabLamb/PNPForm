@@ -116,7 +116,7 @@ public final class PNPRow: BaseRow {
         case .email:
             tempValueView = PNPTextField(placeholder: config.placeholder ?? "")
             if validationOption == nil {
-                validationOption = .matchRegex("[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}")
+                validationOption = .matchRegex(regex: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}")
             }
             
         case .password(let keyboardConfig):
@@ -149,7 +149,9 @@ public final class PNPRow: BaseRow {
             }()
             
         case .label:
-            tempValueView = UILabel()
+            let labelView = UILabel()
+            labelView.text = config.placeholder
+            tempValueView = labelView
             
         case .date(let format):
             let dateView = PNPDateTimeField(placeholder: config.placeholder ?? "",

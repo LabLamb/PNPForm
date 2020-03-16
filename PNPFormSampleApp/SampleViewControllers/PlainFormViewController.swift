@@ -21,7 +21,7 @@ class PlainFormViewController: PNPFormViewController {
         let emailConfig = PNPRowConfig(type: .email(), placeholder: "Email e.g. example@email.com")
         
         let passwordPattern = #"[^\w\d]*(([0-9]+.*[A-Za-z]+.*)|[A-Za-z]+.*([0-9]+.*))"# // Must have one number and one alphabet
-        let passwordConfig = PNPRowConfig(type: .password(), placeholder: "Password", validation: .matchRegex(passwordPattern))
+        let passwordConfig = PNPRowConfig(type: .password(), placeholder: "Password", validation: .matchRegex(regex: passwordPattern))
         
         let addressConfig = PNPRowConfig(type: .multilineText(), placeholder: "Address")
         
