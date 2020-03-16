@@ -32,7 +32,8 @@ class BasicFormViewController: PNPFormViewController {
                 PNPRow(title: RowLabel.username, config: usernameConfig),
                 PNPRow(title: RowLabel.email, config: emailConfig),
                 PNPRow(title: RowLabel.password, config: passwordConfig),
-                PNPRow(title: RowLabel.address, config: addressConfig)
+                PNPRow(title: RowLabel.address, config: addressConfig),
+                PNPRow(title: "Test", config: PNPRowConfig(type: .slider))
             ]
             
             return PNPForm(rows: textFormRows, separatorColor: sepColor)

@@ -15,11 +15,11 @@ public enum RowType {
     case dateAndTime(format: String = "yyyy-MM-dd hh:mm aa")
     case `switch`
     case button(target: Any?, selector: Selector)
-//    case check
-    case segmentedControl(segments: [String]? = nil)
-//    case picker
+    case check(checkSymbol: String = "✓", checkColor: UIColor = .systemBlue)
+    case segmentedControl(segments: [String])
+    case picker(options: [String])
 //    case stepper
-//    case slider
+    case slider
     case space(color: UIColor)
 }
 

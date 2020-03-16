@@ -60,6 +60,8 @@ public final class PNPRow: BaseRow {
                 return seg.titleForSegment(at: index)
             case is UISwitch:
                 return String((self.valueView as? UISwitch)?.isOn ?? false)
+            case is PNPCheck:
+                return String((self.valueView as? PNPCheck)?.text != "")
             default:
                 return nil
             }
@@ -183,9 +185,22 @@ public final class PNPRow: BaseRow {
             btn.addTarget(target, action: selector, for: .touchUpInside)
             tempValueView = btn
             
+        case .check(let symbol, let color):
+            let label = PNPCheck(checkSymbol: symbol, checkColor: color)
+            tempValueView = label
+            
         case .segmentedControl(let list):
             let seg = UISegmentedControl(items: list)
             tempValueView = seg
+            
+        case .picker(let options):
+            tempValueView = PNPPicker(options: options)
+            
+        case .slider:
+            let slider = UISlider()
+            slider.maximumValue = 100000
+            slider.minimumValue = -100000
+            tempValueView = slider
             
         case .space(let color):
             isSpaceType = true
