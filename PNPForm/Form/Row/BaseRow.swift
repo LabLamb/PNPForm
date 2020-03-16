@@ -254,6 +254,13 @@ extension BaseRow: CustomView {
                         self.valueView.centerYAnchor.constraint(equalTo: self.valueContainer.centerYAnchor)
                     ]
                 }
+            case is UISlider:
+                result = [
+                    self.valueView.leftAnchor.constraint(equalTo: self.valueContainer.leftAnchor),
+                    self.valueView.centerYAnchor.constraint(equalTo: self.valueContainer.centerYAnchor),
+                    self.valueView.heightAnchor.constraint(equalToConstant: PNPFormConstants.UI.BaseRowDefaultHeight),
+                    self.valueView.rightAnchor.constraint(equalTo: self.valueContainer.rightAnchor)
+                ]
             default:
                 result = [
                     self.valueView.leftAnchor.constraint(equalTo: self.valueContainer.leftAnchor),

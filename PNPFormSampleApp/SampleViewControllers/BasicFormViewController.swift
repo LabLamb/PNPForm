@@ -24,15 +24,16 @@ class BasicFormViewController: PNPFormViewController {
             let emailConfig = PNPRowConfig(type: .email(), placeholder: "example@email.com")
             
             let passwordPattern = #"[^\w\d]*(([0-9]+.*[A-Za-z]+.*)|[A-Za-z]+.*([0-9]+.*))"# // Must have one number and one alphabet
-            let passwordConfig = PNPRowConfig(type: .password(), placeholder: "At least 1 alphabet and 1 number", validation: .matchRegex(passwordPattern))
+            let passwordConfig = PNPRowConfig(type: .password(), placeholder: "At least 1 alphabet and 1 number", validation: .matchRegex(regex: passwordPattern))
             
-            let addressConfig = PNPRowConfig(type: .time())
+            let addressConfig = PNPRowConfig(type: .multilineText(), placeholder: "Optional")
             
             let textFormRows: [PNPRow] = [
                 PNPRow(title: RowLabel.username, config: usernameConfig),
                 PNPRow(title: RowLabel.email, config: emailConfig),
                 PNPRow(title: RowLabel.password, config: passwordConfig),
-                PNPRow(title: RowLabel.address, config: addressConfig)
+                PNPRow(title: RowLabel.address, config: addressConfig),
+                PNPRow(title: "Test", config: PNPRowConfig(type: .slider))
             ]
             
             return PNPForm(rows: textFormRows, separatorColor: sepColor)

@@ -60,6 +60,8 @@ public final class PNPRow: BaseRow {
                 return seg.titleForSegment(at: index)
             case is UISwitch:
                 return String((self.valueView as? UISwitch)?.isOn ?? false)
+            case is PNPCheck:
+                return String((self.valueView as? PNPCheck)?.text != "")
             default:
                 return nil
             }
@@ -110,13 +112,13 @@ public final class PNPRow: BaseRow {
         
         var tempValueView: UIView
         var validationOption: ValidateOption? = config.validation
-        var isTypeSpace: Bool = false
+        var isSpaceType: Bool = false
         
         switch config.type {
         case .email:
             tempValueView = PNPTextField(placeholder: config.placeholder ?? "")
             if validationOption == nil {
-                validationOption = .matchRegex("[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}")
+                validationOption = .matchRegex(regex: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}")
             }
             
         case .password(let keyboardConfig):
@@ -149,7 +151,9 @@ public final class PNPRow: BaseRow {
             }()
             
         case .label:
-            tempValueView = UILabel()
+            let labelView = UILabel()
+            labelView.text = config.placeholder
+            tempValueView = labelView
             
         case .date(let format):
             let dateView = PNPDateTimeField(placeholder: config.placeholder ?? "",
@@ -181,12 +185,25 @@ public final class PNPRow: BaseRow {
             btn.addTarget(target, action: selector, for: .touchUpInside)
             tempValueView = btn
             
+        case .check(let symbol, let color):
+            let label = PNPCheck(checkSymbol: symbol, checkColor: color)
+            tempValueView = label
+            
         case .segmentedControl(let list):
             let seg = UISegmentedControl(items: list)
             tempValueView = seg
             
+        case .picker(let options):
+            tempValueView = PNPPicker(options: options)
+            
+        case .slider:
+            let slider = UISlider()
+            slider.maximumValue = 100000
+            slider.minimumValue = -100000
+            tempValueView = slider
+            
         case .space(let color):
-            isTypeSpace = true
+            isSpaceType = true
             tempValueView = UIView()
             tempValueView.backgroundColor = color
         }
@@ -196,7 +213,7 @@ public final class PNPRow: BaseRow {
                    spacing: config.spacing,
                    labelWidth: config.labelWidth,
                    placeholder: placeholderLabel,
-                   isSpace: isTypeSpace,
+                   isSpace: isSpaceType,
                    validateOption: validationOption ?? .optional,
                    validatedHandling: config.validatedHandling)
     }
