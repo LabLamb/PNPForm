@@ -60,7 +60,7 @@ public class BaseRow: UIView {
     
     private let validatedHandling: ValidatedHandling
     
-    init(labelView: UIView?,
+    public init(labelView: UIView?,
          valueView: UIView,
          spacing: CGFloat = 0,
          labelWidth: CGFloat? = nil,
