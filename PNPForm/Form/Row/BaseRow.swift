@@ -4,11 +4,11 @@
 
 import UIKit
 
-open class BaseRow: UIView {
+public class BaseRow: UIView {
     
-    var labelView: UIView?
+    let labelView: UIView?
     
-    var valueView: UIView
+    let valueView: UIView
     let valueContainer: UIView
     
     public var label: Any {
@@ -101,7 +101,6 @@ open class BaseRow: UIView {
                 
             case .customLogic(let logic):
                 return logic(rowValue)
-                
             }
         }
         
@@ -132,7 +131,7 @@ open class BaseRow: UIView {
             
         case .custom(let customHandler):
             customHandler(self, self.isValid)
-        
+            
         case .none:
             break
         }
@@ -172,24 +171,23 @@ extension BaseRow: CustomView {
                 }
             }
         }()
-        [
+        NSLayoutConstraint.activate([
             labelView.leftAnchor.constraint(equalTo: self.leftAnchor),
             labelView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             labelView.heightAnchor.constraint(equalToConstant: PNPFormConstants.UI.RowIconDefaultHeight),
             labelViewWidthConstraint
-        ].forEach({ $0.isActive = true })
+        ])
     }
     
     private func addValidationHighlight() {
         self.addSubview(self.validationHighlight)
         self.validationHighlight.translatesAutoresizingMaskIntoConstraints = false
-        [
-//            self.validationHighlight.heightAnchor.constraint(equalToConstant: PNPFormConstants.UI.BaseRowDefaultHeight / 2),
+        NSLayoutConstraint.activate([
             self.validationHighlight.heightAnchor.constraint(equalToConstant: self.validationHighlight.font.lineHeight),
             self.validationHighlight.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             self.validationHighlight.rightAnchor.constraint(equalTo: self.rightAnchor),
             self.validationHighlight.widthAnchor.constraint(equalTo: self.validationHighlight.heightAnchor, multiplier: 1.25)
-            ].forEach({ $0.isActive = true })
+        ])
     }
     
     private func addValueViewContainer() {
@@ -212,23 +210,23 @@ extension BaseRow: CustomView {
             }
         }()
         
-        [
+        NSLayoutConstraint.activate([
             valueContainerLeftAnchorConstraint,
             self.valueContainer.topAnchor.constraint(equalTo: self.topAnchor),
             self.valueContainer.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             valueContainerRightAnchorConstraint
-            ].forEach({ $0.isActive = true })
+        ])
     }
     
     private func addPlaceholderLabel(_ placeholderLabel: UILabel) {
         self.addSubview(placeholderLabel)
         placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
-        [
+        NSLayoutConstraint.activate([
             placeholderLabel.centerXAnchor.constraint(equalTo: self.valueContainer.centerXAnchor),
             placeholderLabel.centerYAnchor.constraint(equalTo: self.valueContainer.centerYAnchor),
             placeholderLabel.widthAnchor.constraint(equalTo: self.valueContainer.widthAnchor),
             placeholderLabel.heightAnchor.constraint(equalTo: self.valueContainer.heightAnchor)
-            ].forEach({ $0.isActive = true })
+        ])
     }
     
     private func addValueView() {
@@ -271,12 +269,12 @@ extension BaseRow: CustomView {
             }
             return result
         }()
-        valueViewConstraints.forEach({ $0.isActive = true })
+        NSLayoutConstraint.activate(valueViewConstraints)
     }
     
     @objc open func setupLayout() {
         self.resetViews()
-
+        
         if let `labelView` = self.labelView,
             !self.isSpaceRow {
             self.addLabelView(labelView)

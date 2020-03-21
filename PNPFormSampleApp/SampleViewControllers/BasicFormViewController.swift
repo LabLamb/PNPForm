@@ -66,11 +66,11 @@ class BasicFormViewController: PNPFormViewController {
         super.setupLayout()
         self.scrollView.addSubview(self.simpleForm)
         self.simpleForm.translatesAutoresizingMaskIntoConstraints = false
-        [
+        NSLayoutConstraint.activate([
             self.simpleForm.topAnchor.constraint(equalTo: self.scrollView.topAnchor, constant: 20),
             self.simpleForm.leftAnchor.constraint(equalTo: self.view.leftAnchor),
             self.simpleForm.rightAnchor.constraint(equalTo: self.view.rightAnchor)
-        ].forEach({ $0.isActive = true })
+        ])
         self.simpleForm.backgroundColor = .white
     }
 }

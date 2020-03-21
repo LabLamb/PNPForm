@@ -51,10 +51,10 @@ class SelectionViewController: UIViewController {
     func setupLayout() {
         self.view.addSubview(self.stackView)
         self.stackView.translatesAutoresizingMaskIntoConstraints = false
-        [
+        NSLayoutConstraint.activate([
             self.stackView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             self.stackView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
-        ].forEach({ $0.isActive = true })
+        ])
     }
     
     @objc func navToBasic() {

@@ -14,33 +14,33 @@ extension UIView {
         lineView.translatesAutoresizingMaskIntoConstraints = false
         switch position {
         case .minXEdge:
-            [
+            NSLayoutConstraint.activate([
                 lineView.heightAnchor.constraint(equalTo: self.heightAnchor),
                 lineView.widthAnchor.constraint(equalToConstant: weight),
                 lineView.centerXAnchor.constraint(equalTo: self.leftAnchor),
                 lineView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
-            ].forEach({ $0.isActive = true })
+            ])
         case .maxXEdge:
-            [
+            NSLayoutConstraint.activate([
                 lineView.heightAnchor.constraint(equalTo: self.heightAnchor),
                 lineView.widthAnchor.constraint(equalToConstant: weight),
                 lineView.centerXAnchor.constraint(equalTo: self.rightAnchor),
                 lineView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
-            ].forEach({ $0.isActive = true })
+            ])
         case .minYEdge:
-            [
+            NSLayoutConstraint.activate([
                 lineView.heightAnchor.constraint(equalToConstant: weight),
                 lineView.widthAnchor.constraint(equalTo: self.widthAnchor),
                 lineView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
                 lineView.centerYAnchor.constraint(equalTo: self.topAnchor)
-            ].forEach({ $0.isActive = true })
+            ])
         case .maxYEdge:
-            [
+            NSLayoutConstraint.activate([
                 lineView.heightAnchor.constraint(equalToConstant: weight),
                 lineView.widthAnchor.constraint(equalTo: self.widthAnchor),
                 lineView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
                 lineView.centerYAnchor.constraint(equalTo: self.bottomAnchor)
-            ].forEach({ $0.isActive = true })
+            ])
         }
     }
 }
