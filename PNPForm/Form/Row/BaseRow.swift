@@ -4,7 +4,7 @@
 
 import UIKit
 
-public class BaseRow: UIView {
+open class BaseRow: UIView {
     
     let labelView: UIView?
     
