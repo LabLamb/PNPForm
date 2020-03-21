@@ -13,18 +13,22 @@ public final class PNPForm: UIView {
     public init(rows: [UIView],
                 separatorColor: UIColor) {
         self.stackView = UIStackView()
-        self.formRows = rows.filter({ $0 is BaseRow }) as! [BaseRow]
+        self.formRows = []
         self.separatorColor = separatorColor
         
         super.init(frame: .zero)
         
+        rows.forEach({ [weak self] row in
+            guard let self = self else { return }
+            if let `row` = row as? BaseRow {
+                self.formRows.append(row)
+            }
+            self.stackView.addArrangedSubview(row)
+        })
+        
         self.stackView.axis = .vertical
         self.stackView.distribution = .fill
         self.stackView.alignment = .center
-        
-        rows.forEach({ row in
-            self.stackView.addArrangedSubview(row)
-        })
         
         self.setupLayout()
     }
