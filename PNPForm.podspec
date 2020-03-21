@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "PNPForm"
-  spec.version      = "0.0.3"
+  spec.version      = "0.0.4"
   spec.summary      = "A swift library that provides a form view without have to conform any ViewController."
   spec.homepage     = "https://github.com/LabLamb/PNPForm"
   spec.screenshots  = "https://github.com/LabLamb/PNPForm/blob/develop/.github/images/example.gif"
