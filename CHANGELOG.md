@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- Update podspec version [\#16](https://github.com/LabLamb/PNPForm/pull/16) ([LabLamb](https://github.com/LabLamb))
 - Update CHANGELOG [\#14](https://github.com/LabLamb/PNPForm/pull/14) ([LabLamb](https://github.com/LabLamb))
 - Make BaseRow init public [\#13](https://github.com/LabLamb/PNPForm/pull/13) ([LabLamb](https://github.com/LabLamb))
 - Clean up ns layout constraint [\#12](https://github.com/LabLamb/PNPForm/pull/12) ([LabLamb](https://github.com/LabLamb))
