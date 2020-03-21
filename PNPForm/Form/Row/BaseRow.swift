@@ -11,7 +11,7 @@ open class BaseRow: UIView {
     let valueView: UIView
     let valueContainer: UIView
     
-    public var label: Any {
+    open var label: Any {
         get {
             return ""
         }
@@ -19,7 +19,7 @@ open class BaseRow: UIView {
         set {}
     }
     
-    public var value: String? {
+    open var value: String? {
         get {
             return nil
         }
