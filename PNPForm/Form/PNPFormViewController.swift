@@ -44,11 +44,11 @@ open class PNPFormViewController: UIViewController {
         self.scrollView.isDirectionalLockEnabled = true
         self.view.addSubview(self.scrollView)
         self.scrollView.translatesAutoresizingMaskIntoConstraints = false
-        [
+        NSLayoutConstraint.activate([
             self.scrollView.topAnchor.constraint(equalTo: self.view.layoutMarginsGuide.topAnchor),
             self.scrollView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
             self.scrollView.rightAnchor.constraint(equalTo: self.view.rightAnchor),
             self.scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
-            ].forEach({ $0.isActive = true })
+        ])
     }
 }

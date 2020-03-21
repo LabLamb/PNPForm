@@ -45,10 +45,10 @@ extension PNPForm: CustomView {
         view.translatesAutoresizingMaskIntoConstraints = false
         
         view.backgroundColor = .clear
-        [
+        NSLayoutConstraint.activate([
             view.centerXAnchor.constraint(equalTo: self.stackView.centerXAnchor),
             view.widthAnchor.constraint(equalTo: self.stackView.widthAnchor, multiplier: multipler)
-        ].forEach({ $0.isActive = true })
+        ])
     }
     
     private func redrawBorder () {
@@ -82,12 +82,12 @@ extension PNPForm: CustomView {
         
         self.addSubview(self.stackView)
         self.stackView.translatesAutoresizingMaskIntoConstraints = false
-        [
+        NSLayoutConstraint.activate([
             self.stackView.topAnchor.constraint(equalTo: self.topAnchor),
             self.stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             self.stackView.leftAnchor.constraint(equalTo: self.leftAnchor),
             self.stackView.rightAnchor.constraint(equalTo: self.rightAnchor)
-            ].forEach({ $0.isActive = true })
+        ])
         
         self.stackView.arrangedSubviews.forEach { view in
             setupRowConstraint(view)

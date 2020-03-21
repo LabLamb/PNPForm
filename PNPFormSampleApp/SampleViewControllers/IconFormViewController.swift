@@ -64,11 +64,11 @@ class IconFormViewController: PNPFormViewController {
         super.setupLayout()
         self.scrollView.addSubview(self.iconForm)
         self.iconForm.translatesAutoresizingMaskIntoConstraints = false
-        [
+        NSLayoutConstraint.activate([
             self.iconForm.topAnchor.constraint(equalTo: self.scrollView.topAnchor, constant: 20),
             self.iconForm.leftAnchor.constraint(equalTo: self.view.leftAnchor),
             self.iconForm.rightAnchor.constraint(equalTo: self.view.rightAnchor)
-        ].forEach({ $0.isActive = true })
+        ])
         self.iconForm.backgroundColor = .white
     }
 }
