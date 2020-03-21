@@ -1,5 +1,17 @@
 # Changelog
 
+## [v0.0.4](https://github.com/LabLamb/PNPForm/tree/v0.0.4) (2020-03-21)
+
+[Full Changelog](https://github.com/LabLamb/PNPForm/compare/v0.0.3...v0.0.4)
+
+**Implemented enhancements:**
+
+- Update baserow [\#17](https://github.com/LabLamb/PNPForm/pull/17) ([LabLamb](https://github.com/LabLamb))
+
+**Merged pull requests:**
+
+- Update v0.0.3 CHANGLOG [\#15](https://github.com/LabLamb/PNPForm/pull/15) ([LabLamb](https://github.com/LabLamb))
+
 ## [v0.0.3](https://github.com/LabLamb/PNPForm/tree/v0.0.3) (2020-03-21)
 
 [Full Changelog](https://github.com/LabLamb/PNPForm/compare/v0.0.2...v0.0.3)
