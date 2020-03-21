@@ -1,5 +1,17 @@
 # Changelog
 
+## [v0.0.2](https://github.com/LabLamb/PNPForm/tree/v0.0.2) (2020-03-16)
+
+[Full Changelog](https://github.com/LabLamb/PNPForm/compare/v0.0.1...v0.0.2)
+
+**Implemented enhancements:**
+
+- Cater more row types [\#10](https://github.com/LabLamb/PNPForm/pull/10) ([LabLamb](https://github.com/LabLamb))
+
+**Merged pull requests:**
+
+- Update podspec to v0.0.2 and update readme [\#11](https://github.com/LabLamb/PNPForm/pull/11) ([LabLamb](https://github.com/LabLamb))
+
 ## [v0.0.1](https://github.com/LabLamb/PNPForm/tree/v0.0.1) (2020-03-15)
 
 [Full Changelog](https://github.com/LabLamb/PNPForm/compare/7a420da8e842ef6b46cd8f229a071e46201b725d...v0.0.1)
