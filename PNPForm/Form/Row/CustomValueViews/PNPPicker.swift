@@ -4,28 +4,35 @@
 
 import UIKit
 
-public final class PNPPicker: PNPTextField {
+public final class PNPPicker: UILabel {
     
     let picker: UIPickerView
     let values: [String]
     
     public init(placeholder: String = "",
+                defaultRow: Int,
                 options: [String]) {
         self.picker = UIPickerView()
         self.values = options
-        super.init(placeholder: placeholder)
+        super.init(frame: .zero)
         self.picker.delegate = self
         self.picker.dataSource = self
-        self.inputView = self.picker
-//        self.addTarget(self, action: #selector(), for: .editingDidEnd)
+        
+        let tapGest = UITapGestureRecognizer(target: self, action: #selector(self.onTapped))
+        self.addGestureRecognizer(tapGest)
+        self.isUserInteractionEnabled = true
+        
+        self.picker.selectedRow(inComponent: defaultRow)
+        self.text = placeholder
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    @objc func chooseCurrent
-    
+    @objc private func onTapped() {
+        self.picker.isHidden = false
+    }
 }
 
 extension PNPPicker: UIPickerViewDelegate {
