@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.0.5](https://github.com/LabLamb/PNPForm/tree/v0.0.5) (2020-03-21)
+
+[Full Changelog](https://github.com/LabLamb/PNPForm/compare/v0.0.4...v0.0.5)
+
+**Implemented enhancements:**
+
+- Change BaseRow var to open [\#18](https://github.com/LabLamb/PNPForm/pull/18) ([LabLamb](https://github.com/LabLamb))
+
 ## [v0.0.4](https://github.com/LabLamb/PNPForm/tree/v0.0.4) (2020-03-21)
 
 [Full Changelog](https://github.com/LabLamb/PNPForm/compare/v0.0.3...v0.0.4)
