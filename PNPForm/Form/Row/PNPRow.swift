@@ -193,8 +193,8 @@ public final class PNPRow: BaseRow {
             let seg = UISegmentedControl(items: list)
             tempValueView = seg
             
-        case .picker(let options):
-            tempValueView = PNPPicker(options: options)
+        case .picker(let defaultOption, let options):
+            tempValueView = PNPPicker(defaultRow: defaultOption ?? 0, options: options)
             
         case .slider:
             let slider = UISlider()

@@ -17,7 +17,7 @@ public enum RowType {
     case button(target: Any?, selector: Selector)
     case check(checkSymbol: String = "✓", checkColor: UIColor = .systemBlue)
     case segmentedControl(segments: [String])
-    case picker(options: [String])
+    case picker(defaultOption: Int? = nil, options: [String])
 //    case stepper
     case slider
     case space(color: UIColor)
